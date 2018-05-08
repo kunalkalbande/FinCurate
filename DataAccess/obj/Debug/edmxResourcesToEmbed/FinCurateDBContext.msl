@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FincurateModelStoreContainer" CdmEntityContainer="FincurateEntities">
+    <EntitySetMapping Name="ProfitabilityRatios">
+      <EntityTypeMapping TypeName="FincurateModel.ProfitabilityRatio">
+        <MappingFragment StoreEntitySet="ProfitabilityRatios">
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="PeriodEndingDate" ColumnName="PeriodEndingDate" />
+          <ScalarProperty Name="FileDate" ColumnName="FileDate" />
+          <ScalarProperty Name="StatementType" ColumnName="StatementType" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="FiscalYearEnd" ColumnName="FiscalYearEnd" />
+          <ScalarProperty Name="GrossMargin" ColumnName="GrossMargin" />
+          <ScalarProperty Name="OperatingMargin" ColumnName="OperatingMargin" />
+          <ScalarProperty Name="EBTMargin" ColumnName="EBTMargin" />
+          <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+          <ScalarProperty Name="NetMargin" ColumnName="NetMargin" />
+          <ScalarProperty Name="SalesPerEmployee" ColumnName="SalesPerEmployee" />
+          <ScalarProperty Name="EBITMargin" ColumnName="EBITMargin" />
+          <ScalarProperty Name="EBITDAMargin" ColumnName="EBITDAMargin" />
+          <ScalarProperty Name="NormalizedNetProfitMargin" ColumnName="NormalizedNetProfitMargin" />
+          <ScalarProperty Name="InterestCoverage" ColumnName="InterestCoverage" />
+          <ScalarProperty Name="IncPerEmployeeTotOps" ColumnName="IncPerEmployeeTotOps" />
+          <ScalarProperty Name="AccessionNumber" ColumnName="AccessionNumber" />
+          <ScalarProperty Name="FormType" ColumnName="FormType" />
+          <ScalarProperty Name="NetIncomeperFullTimeEmployee" ColumnName="NetIncomeperFullTimeEmployee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

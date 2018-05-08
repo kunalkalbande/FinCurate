@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FincurateModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="EfficiencyRatios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
+    <Property Name="ReportDate" Type="varchar" MaxLength="50" />
+    <Property Name="PeriodEndingDate" Type="varchar" MaxLength="50" />
+    <Property Name="FileDate" Type="varchar" MaxLength="50" />
+    <Property Name="StatementType" Type="varchar" MaxLength="50" />
+    <Property Name="DataType" Type="varchar" MaxLength="50" />
+    <Property Name="Interim" Type="varchar" MaxLength="50" />
+    <Property Name="FiscalYearEnd" Type="int" />
+    <Property Name="DaysInSales" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DaysInInventory" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DaysInPayment" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CashConversionCycle" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ReceivableTurnover" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InventoryTurnover" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PayableTurnover" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FixedAssetsTurnover" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AssetsTurnover" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ROE" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ROA" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ROIC" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FCFSalesRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FCFNetIncomeRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CapitalExpenditureSalesRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AccessionNumber" Type="varchar" MaxLength="50" />
+    <Property Name="FormType" Type="varchar" MaxLength="50" />
+    <Property Name="ROE5YrAvg" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ROA5YrAvg" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AVG5YrsROIC" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedROIC" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfitabilityRatios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Symbol" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ReportDate" Type="varchar" MaxLength="50" />
+    <Property Name="PeriodEndingDate" Type="varchar" MaxLength="50" />
+    <Property Name="FileDate" Type="varchar" MaxLength="50" />
+    <Property Name="StatementType" Type="varchar" MaxLength="50" />
+    <Property Name="DataType" Type="varchar" MaxLength="50" />
+    <Property Name="CurrencyId" Type="varchar" MaxLength="50" />
+    <Property Name="FiscalYearEnd" Type="int" />
+    <Property Name="GrossMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EBTMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TaxRate" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="SalesPerEmployee" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EBITMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EBITDAMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedNetProfitMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InterestCoverage" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="IncPerEmployeeTotOps" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AccessionNumber" Type="varchar" MaxLength="50" />
+    <Property Name="FormType" Type="varchar" MaxLength="50" />
+    <Property Name="NetIncomeperFullTimeEmployee" Type="varchar" MaxLength="50" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="FincurateModelStoreContainer">
+    <EntitySet Name="EfficiencyRatios" EntityType="Self.EfficiencyRatios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProfitabilityRatios" EntityType="Self.ProfitabilityRatios" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

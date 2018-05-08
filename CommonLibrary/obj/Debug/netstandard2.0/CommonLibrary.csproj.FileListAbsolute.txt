@@ -1,0 +1,9 @@
+C:\Users\ranjitp\source\repos\FinCurate\CommonLibrary\bin\Debug\netstandard2.0\CommonLibrary.deps.json
+C:\Users\ranjitp\source\repos\FinCurate\CommonLibrary\bin\Debug\netstandard2.0\CommonLibrary.dll
+C:\Users\ranjitp\source\repos\FinCurate\CommonLibrary\bin\Debug\netstandard2.0\CommonLibrary.pdb
+C:\Users\ranjitp\source\repos\FinCurate\CommonLibrary\obj\Debug\netstandard2.0\CommonLibrary.csproj.CoreCompileInputs.cache
+C:\Users\ranjitp\source\repos\FinCurate\CommonLibrary\obj\Debug\netstandard2.0\CommonLibrary.AssemblyInfoInputs.cache
+C:\Users\ranjitp\source\repos\FinCurate\CommonLibrary\obj\Debug\netstandard2.0\CommonLibrary.AssemblyInfo.cs
+C:\Users\ranjitp\source\repos\FinCurate\CommonLibrary\obj\Debug\netstandard2.0\CommonLibrary.dll
+C:\Users\ranjitp\source\repos\FinCurate\CommonLibrary\obj\Debug\netstandard2.0\CommonLibrary.pdb
+C:\Users\ranjitp\source\repos\FinCurate\CommonLibrary\obj\Debug\netstandard2.0\CommonLibrary.csprojResolveAssemblyReference.cache

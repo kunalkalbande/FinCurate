@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FincurateModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Fincurate.dbo.ProfitabilityRatios' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ProfitabilityRatios">
+    <Key>
+      <PropertyRef Name="Symbol" />
+    </Key>
+    <Property Name="Symbol" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ReportDate" Type="varchar" MaxLength="50" />
+    <Property Name="PeriodEndingDate" Type="varchar" MaxLength="50" />
+    <Property Name="FileDate" Type="varchar" MaxLength="50" />
+    <Property Name="StatementType" Type="varchar" MaxLength="50" />
+    <Property Name="DataType" Type="varchar" MaxLength="50" />
+    <Property Name="CurrencyId" Type="varchar" MaxLength="50" />
+    <Property Name="FiscalYearEnd" Type="int" />
+    <Property Name="GrossMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EBTMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TaxRate" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="SalesPerEmployee" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EBITMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EBITDAMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedNetProfitMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InterestCoverage" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="IncPerEmployeeTotOps" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AccessionNumber" Type="varchar" MaxLength="50" />
+    <Property Name="FormType" Type="varchar" MaxLength="50" />
+    <Property Name="NetIncomeperFullTimeEmployee" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="FincurateModelStoreContainer">
+    <EntitySet Name="ProfitabilityRatios" EntityType="Self.ProfitabilityRatios" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ProfitabilityRatios].[Symbol] AS [Symbol], 
+    [ProfitabilityRatios].[ReportDate] AS [ReportDate], 
+    [ProfitabilityRatios].[PeriodEndingDate] AS [PeriodEndingDate], 
+    [ProfitabilityRatios].[FileDate] AS [FileDate], 
+    [ProfitabilityRatios].[StatementType] AS [StatementType], 
+    [ProfitabilityRatios].[DataType] AS [DataType], 
+    [ProfitabilityRatios].[CurrencyId] AS [CurrencyId], 
+    [ProfitabilityRatios].[FiscalYearEnd] AS [FiscalYearEnd], 
+    [ProfitabilityRatios].[GrossMargin] AS [GrossMargin], 
+    [ProfitabilityRatios].[OperatingMargin] AS [OperatingMargin], 
+    [ProfitabilityRatios].[EBTMargin] AS [EBTMargin], 
+    [ProfitabilityRatios].[TaxRate] AS [TaxRate], 
+    [ProfitabilityRatios].[NetMargin] AS [NetMargin], 
+    [ProfitabilityRatios].[SalesPerEmployee] AS [SalesPerEmployee], 
+    [ProfitabilityRatios].[EBITMargin] AS [EBITMargin], 
+    [ProfitabilityRatios].[EBITDAMargin] AS [EBITDAMargin], 
+    [ProfitabilityRatios].[NormalizedNetProfitMargin] AS [NormalizedNetProfitMargin], 
+    [ProfitabilityRatios].[InterestCoverage] AS [InterestCoverage], 
+    [ProfitabilityRatios].[IncPerEmployeeTotOps] AS [IncPerEmployeeTotOps], 
+    [ProfitabilityRatios].[AccessionNumber] AS [AccessionNumber], 
+    [ProfitabilityRatios].[FormType] AS [FormType], 
+    [ProfitabilityRatios].[NetIncomeperFullTimeEmployee] AS [NetIncomeperFullTimeEmployee]
+    FROM [dbo].[ProfitabilityRatios] AS [ProfitabilityRatios]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

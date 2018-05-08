@@ -1,0 +1,1007 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FincurateModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Fincurate.dbo.BalanceSheet' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="BalanceSheet">
+          <Property Name="ReportDate" Type="date" />
+          <Property Name="PeriodEndingDate" Type="date" />
+          <Property Name="FileDate" Type="date" />
+          <Property Name="StatementType" Type="varchar" MaxLength="50" />
+          <Property Name="DataType" Type="varchar" MaxLength="50" />
+          <Property Name="Interim" Type="varchar" MaxLength="50" />
+          <Property Name="CurrencyId" Type="varchar" MaxLength="50" />
+          <Property Name="FiscalYearEnd" Type="int" />
+          <Property Name="AccountsPayable" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AccountsReceivable" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="GrossAccountsReceivable" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NonCurrentAccountsReceivable" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CurrentAccruedExpenses" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NonCurrentAccruedExpenses" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AccruedInterestReceivable" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AccruedInvestmentIncome" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AccumulatedDepreciation" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="GainsLossesNotAffectingRetainedEarnings" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AdditionalPaidInCapital" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AdvanceFromFederalHomeLoanBanks" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AllowanceForDoubtfulAccountsReceivable" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AllowanceForLoansAndLeaseLosses" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AllowanceForNotesReceivable" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AssetsHeldForSale" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AssetsOfDiscontinuedOperations" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AvailableForSaleSecurities" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="BankAcceptanceExecutedAndOutstanding" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="BankIndebtedness" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="BankLoan" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="BankOwnedLifeInsurance" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="SecurityBorrowed" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="BuildingsAndImprovements" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CapitalStock" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Cash" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CashEquivalents" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CashAndCashEquivalents" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CashAndDueFromBanks" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CashCashEquivalentsAndFederalFundsSold" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CashCashEquivalentsAndShortTermInvestments" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CasualtyClaims" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CededUnearnedPremiums" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CommercialLoan" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CommercialPaper" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CommonStock" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CommonStockEquity" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CommonStocksAvailableForSale" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ConstructionInProgress" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ConsumerLoan" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MinimumPensionLiabilities" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CurrentAssets" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CurrentDebt" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CurrentDebtAndCapitalLeaseObligation" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CurrentLiabilities" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CurrentCapitalLeaseObligation" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CustomerAcceptances" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DeferredAcquisitionCosts" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DeferredAssets" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DeferredCosts" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DeferredFinancingCosts" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NonCurrentDeferredLiabilities" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CurrentDeferredLiabilities" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DeferredPolicyAcquisitionCosts" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CurrentDeferredRevenue" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NonCurrentDeferredRevenue" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DeferredTaxAssets" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CurrentDeferredTaxesAssets" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CurrentDeferredTaxesLiabilities" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NonCurrentDeferredTaxesAssets" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NonCurrentDeferredTaxesLiabilities" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DefinedPensionBenefit" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DerivativeProductLiabilities" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>-->
+  <EntityType Name="CashFlows">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportDate" Type="nvarchar(max)" />
+    <Property Name="PeriodEndingDate" Type="nvarchar(max)" />
+    <Property Name="StatementType" Type="nvarchar(max)" />
+    <Property Name="CurrencyId" Type="nvarchar(max)" />
+    <Property Name="FiscalYearEnd" Type="nvarchar(max)" />
+    <Property Name="Amortization" Type="float" Nullable="false" />
+    <Property Name="CostOfRevenue" Type="float" Nullable="false" />
+    <Property Name="DepreciationAndAmortization" Type="float" Nullable="false" />
+    <Property Name="DepreciationAmortizationDepletion" Type="float" Nullable="false" />
+    <Property Name="NetIncomeDiscontinuousOperations" Type="float" Nullable="false" />
+    <Property Name="GainOnSaleOfSecurity" Type="float" Nullable="false" />
+    <Property Name="GeneralAndAdministrativeExpense" Type="float" Nullable="false" />
+    <Property Name="GrossProfit" Type="float" Nullable="false" />
+    <Property Name="InterestExpense" Type="float" Nullable="false" />
+    <Property Name="InterestExpenseNonOperating" Type="float" Nullable="false" />
+    <Property Name="InterestIncomeNonOperating" Type="float" Nullable="false" />
+    <Property Name="NetNonOperatingInterestIncomeExpense" Type="float" Nullable="false" />
+    <Property Name="NetIncome" Type="float" Nullable="false" />
+    <Property Name="NetIncomeCommonStockholders" Type="float" Nullable="false" />
+    <Property Name="NetIncomeContinuousOperations" Type="float" Nullable="false" />
+    <Property Name="NetInterestIncome" Type="float" Nullable="false" />
+    <Property Name="TotalRevenue" Type="float" Nullable="false" />
+    <Property Name="OperatingExpense" Type="float" Nullable="false" />
+    <Property Name="OperatingIncome" Type="float" Nullable="false" />
+    <Property Name="OperatingRevenue" Type="float" Nullable="false" />
+    <Property Name="OtherIncomeExpense" Type="float" Nullable="false" />
+    <Property Name="PretaxIncome" Type="float" Nullable="false" />
+    <Property Name="ProvisionForDoubtfulAccounts" Type="float" Nullable="false" />
+    <Property Name="TaxProvision" Type="float" Nullable="false" />
+    <Property Name="ResearchAndDevelopment" Type="float" Nullable="false" />
+    <Property Name="SalariesAndWages" Type="float" Nullable="false" />
+    <Property Name="SellingAndMarketingExpense" Type="float" Nullable="false" />
+    <Property Name="SellingGeneralAndAdministration" Type="float" Nullable="false" />
+    <Property Name="TotalExpenses" Type="float" Nullable="false" />
+    <Property Name="AmortizationOfIntangibles" Type="float" Nullable="false" />
+    <Property Name="InterestIncome" Type="float" Nullable="false" />
+    <Property Name="NetIncomeFromContinuingAndDiscontinuedOperation" Type="float" Nullable="false" />
+    <Property Name="OtherOperatingExpenses" Type="float" Nullable="false" />
+    <Property Name="ReconciledCostOfRevenue" Type="float" Nullable="false" />
+    <Property Name="ReconciledDepreciation" Type="float" Nullable="false" />
+    <Property Name="EarningBeforeInterestAndTax" Type="float" Nullable="false" />
+    <Property Name="NormalizedIncome" Type="float" Nullable="false" />
+    <Property Name="EBITDA" Type="float" Nullable="false" />
+    <Property Name="BasicContinuousOperations" Type="float" Nullable="false" />
+    <Property Name="BasicDiscontinuousOperations" Type="float" Nullable="false" />
+    <Property Name="BasicEPS" Type="float" Nullable="false" />
+    <Property Name="DilutedContinuousOperations" Type="float" Nullable="false" />
+    <Property Name="DilutedDiscontinuousOperations" Type="float" Nullable="false" />
+    <Property Name="DilutedEPS" Type="float" Nullable="false" />
+    <Property Name="BasicAverageShares" Type="float" Nullable="false" />
+    <Property Name="DilutedAverageShares" Type="float" Nullable="false" />
+    <Property Name="DividendPerShare" Type="float" Nullable="false" />
+    <Property Name="ContinuingAndDiscontinuedBasicEPS" Type="float" Nullable="false" />
+    <Property Name="ContinuingAndDiscontinuedDilutedEPS" Type="float" Nullable="false" />
+    <Property Name="NetIncomeFromContinuingOperationNetMinorityInterest" Type="float" Nullable="false" />
+    <Property Name="NetIncomeIncludingNoncontrollingInterests" Type="float" Nullable="false" />
+    <Property Name="OtherNonOperatingIncomeExpenses" Type="float" Nullable="false" />
+    <Property Name="TotalUnusualItems" Type="float" Nullable="false" />
+    <Property Name="TotalUnusualItemsExcludingGoodwill" Type="float" Nullable="false" />
+    <Property Name="TaxRateForCalcs" Type="float" Nullable="false" />
+    <Property Name="CalculatedTaxEffectOfUnusualItems" Type="float" Nullable="false" />
+    <Property Name="NormalizedBasicEPS" Type="float" Nullable="false" />
+    <Property Name="NormalizedDilutedEPS" Type="float" Nullable="false" />
+    <Property Name="FiscalYearChange" Type="nvarchar(max)" />
+    <Property Name="OtherGandA" Type="float" Nullable="false" />
+    <Property Name="NormalizedPretaxIncome" Type="float" Nullable="false" />
+    <Property Name="DividendCoverageRatio" Type="float" Nullable="false" />
+    <Property Name="FileDate" Type="nvarchar(max)" />
+    <Property Name="AccessionNumber" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="CashFlowTTMs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportDate" Type="nvarchar(max)" />
+    <Property Name="PeriodEndingDate" Type="nvarchar(max)" />
+    <Property Name="StatementType" Type="nvarchar(max)" />
+    <Property Name="CurrencyId" Type="nvarchar(max)" />
+    <Property Name="FiscalYearEnd" Type="int" Nullable="false" />
+    <Property Name="Amortization" Type="float" Nullable="false" />
+    <Property Name="CapitalExpenditure" Type="float" Nullable="false" />
+    <Property Name="CashDividendsPaid" Type="float" Nullable="false" />
+    <Property Name="CashFlowFromContinuingFinancingActivities" Type="float" Nullable="false" />
+    <Property Name="CashFlowFromContinuingInvestingActivities" Type="float" Nullable="false" />
+    <Property Name="CashFlowFromContinuingOperatingActivities" Type="float" Nullable="false" />
+    <Property Name="FinancingCashFlow" Type="float" Nullable="false" />
+    <Property Name="InvestingCashFlow" Type="float" Nullable="false" />
+    <Property Name="OperatingCashFlow" Type="float" Nullable="false" />
+    <Property Name="BeginningCashPosition" Type="float" Nullable="false" />
+    <Property Name="EndCashPosition" Type="float" Nullable="false" />
+    <Property Name="ChangesInCash" Type="float" Nullable="false" />
+    <Property Name="ChangeInOtherWorkingCapital" Type="float" Nullable="false" />
+    <Property Name="ChangeInWorkingCapital" Type="float" Nullable="false" />
+    <Property Name="CommonStockDividendPaid" Type="float" Nullable="false" />
+    <Property Name="Depreciation" Type="float" Nullable="false" />
+    <Property Name="DepreciationAndAmortization" Type="float" Nullable="false" />
+    <Property Name="DepreciationAmortizationDepletion" Type="float" Nullable="false" />
+    <Property Name="EffectOfExchangeRateChanges" Type="float" Nullable="false" />
+    <Property Name="NetCommonStockIssuance" Type="float" Nullable="false" />
+    <Property Name="NetIssuancePaymentsOfDebt" Type="float" Nullable="false" />
+    <Property Name="NetLongTermDebtIssuance" Type="float" Nullable="false" />
+    <Property Name="NetShortTermDebtIssuance" Type="float" Nullable="false" />
+    <Property Name="NetIncomeFromContinuingOperations" Type="float" Nullable="false" />
+    <Property Name="OperatingGainsLosses" Type="float" Nullable="false" />
+    <Property Name="NetOtherFinancingCharges" Type="float" Nullable="false" />
+    <Property Name="NetOtherInvestingChanges" Type="float" Nullable="false" />
+    <Property Name="CommonStockPayments" Type="float" Nullable="false" />
+    <Property Name="LongTermDebtPayments" Type="float" Nullable="false" />
+    <Property Name="LongTermDebtIssuance" Type="float" Nullable="false" />
+    <Property Name="PurchaseOfIntangibles" Type="float" Nullable="false" />
+    <Property Name="PurchaseOfInvestment" Type="float" Nullable="false" />
+    <Property Name="PurchaseOfPPE" Type="float" Nullable="false" />
+    <Property Name="PurchaseOfBusiness" Type="float" Nullable="false" />
+    <Property Name="NetBusinessPurchaseAndSale" Type="float" Nullable="false" />
+    <Property Name="NetIntangiblesPurchaseAndSale" Type="float" Nullable="false" />
+    <Property Name="NetInvestmentPurchaseAndSale" Type="float" Nullable="false" />
+    <Property Name="NetPPEPurchaseAndSale" Type="float" Nullable="false" />
+    <Property Name="SaleOfInvestment" Type="float" Nullable="false" />
+    <Property Name="SaleOfPPE" Type="float" Nullable="false" />
+    <Property Name="StockBasedCompensation" Type="float" Nullable="false" />
+    <Property Name="AmortizationOfIntangibles" Type="float" Nullable="false" />
+    <Property Name="IssuanceOfDebt" Type="float" Nullable="false" />
+    <Property Name="RepaymentOfDebt" Type="float" Nullable="false" />
+    <Property Name="RepurchaseOfCapitalStock" Type="float" Nullable="false" />
+    <Property Name="FreeCashFlow" Type="float" Nullable="false" />
+    <Property Name="FiscalYearChange" Type="nvarchar(max)" />
+    <Property Name="FileDate" Type="nvarchar(max)" />
+    <Property Name="ChangeInAccountPayable" Type="float" />
+    <Property Name="ChangeInInventory" Type="float" />
+    <Property Name="ChangeInPayable" Type="float" />
+    <Property Name="ChangeInPayablesAndAccruedExpense" Type="float" />
+    <Property Name="ChangeInReceivables" Type="float" />
+    <Property Name="DeferredIncomeTax" Type="float" />
+    <Property Name="DeferredTax" Type="float" />
+    <Property Name="GainLossOnSaleOfBusiness" Type="float" />
+    <Property Name="IncomeTaxPaidSupplementalData" Type="float" />
+    <Property Name="InterestPaidSupplementalData" Type="float" />
+    <Property Name="AccessionNumber" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Fincurate.dbo.CompanyFinancialAvailability' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CompanyFinancialAvailability">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar(max)" />
+    <Property Name="ExchangeId" Type="varchar" MaxLength="50" />
+    <Property Name="Symbol" Type="varbinary" MaxLength="50" />
+    <Property Name="CUSIP" Type="varchar" MaxLength="50" />
+    <Property Name="CIK" Type="varchar" MaxLength="50" />
+    <Property Name="ISIN" Type="varchar" MaxLength="50" />
+    <Property Name="SEDOL" Type="varchar" MaxLength="50" />
+    <Property Name="Start" Type="int" />
+    <Property Name="End" Type="int" />
+    <Property Name="SectorId" Type="varchar" MaxLength="50" />
+    <Property Name="SectorName" Type="varbinary(max)" />
+    <Property Name="IndustryGroupId" Type="varchar" MaxLength="50" />
+    <Property Name="IndustryGroupName" Type="varchar(max)" />
+    <Property Name="IndustryId" Type="varchar" MaxLength="50" />
+    <Property Name="IndustryName" Type="varchar(max)" />
+    <Property Name="LatestQuarterlyReportDate" Type="date" />
+    <Property Name="LatestAnnualReportDate" Type="date" />
+    <Property Name="LatestPreliminaryReportDate" Type="date" />
+    <Property Name="LatestSemiAnnualReportDate" Type="date" />
+  </EntityType>
+  <EntityType Name="EfficiencyRatios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
+    <Property Name="ReportDate" Type="varchar" MaxLength="50" />
+    <Property Name="PeriodEndingDate" Type="varchar" MaxLength="50" />
+    <Property Name="FileDate" Type="varchar" MaxLength="50" />
+    <Property Name="StatementType" Type="varchar" MaxLength="50" />
+    <Property Name="DataType" Type="varchar" MaxLength="50" />
+    <Property Name="Interim" Type="varchar" MaxLength="50" />
+    <Property Name="FiscalYearEnd" Type="int" />
+    <Property Name="DaysInSales" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DaysInInventory" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DaysInPayment" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CashConversionCycle" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ReceivableTurnover" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InventoryTurnover" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PayableTurnover" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FixedAssetsTurnover" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AssetsTurnover" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ROE" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ROA" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ROIC" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FCFSalesRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FCFNetIncomeRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CapitalExpenditureSalesRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AccessionNumber" Type="varchar" MaxLength="50" />
+    <Property Name="FormType" Type="varchar" MaxLength="50" />
+    <Property Name="ROE5YrAvg" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ROA5YrAvg" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AVG5YrsROIC" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedROIC" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EfficiencyRatiosTTM">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
+    <Property Name="ReportDate" Type="varchar" MaxLength="50" />
+    <Property Name="PeriodEndingDate" Type="varchar" MaxLength="50" />
+    <Property Name="FileDate" Type="varchar" MaxLength="50" />
+    <Property Name="StatementType" Type="varchar" MaxLength="50" />
+    <Property Name="DataType" Type="varchar" MaxLength="50" />
+    <Property Name="Interim" Type="varchar" MaxLength="50" />
+    <Property Name="FiscalYearEnd" Type="int" />
+    <Property Name="DaysInSales" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DaysInInventory" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DaysInPayment" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CashConversionCycle" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ReceivableTurnover" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InventoryTurnover" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PayableTurnover" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FixedAssetsTurnover" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AssetsTurnover" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ROE" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ROA" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ROIC" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FCFSalesRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FCFNetIncomeRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CapitalExpenditureSalesRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AccessionNumber" Type="varchar" MaxLength="50" />
+    <Property Name="FormType" Type="varchar" MaxLength="50" />
+    <Property Name="ROE5YrAvg" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ROA5YrAvg" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AVG5YrsROIC" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedROIC" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Fincurate.dbo.EODHistoricalPriceWithFrequency' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EODHistoricalPriceWithFrequency">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TradingDate" Type="date" />
+    <Property Name="PreviousClosePrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OpenPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="HighPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="LowPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ClosePrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Volume" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PriceCurrencyId" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Fincurate.dbo.EODPriceHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EODPriceHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TradingDate" Type="date" />
+    <Property Name="PreviousClosePrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OpenPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="HighPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="LowPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ClosePrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Volume" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PriceCurrencyId" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Fincurate.dbo.EODPriceSnapshot' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EODPriceSnapshot">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="TradingDate" Type="date" />
+    <Property Name="OpenPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="HighPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="LowPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ClosePrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Volume" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PriceCurrencyId" Type="varchar" MaxLength="50" />
+    <Property Name="PreviousTradingDate" Type="date" />
+    <Property Name="PreviousClosePrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Exchanges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExchangeId" Type="nvarchar(max)" />
+    <Property Name="ExchangeName" Type="nvarchar(max)" />
+    <Property Name="MIC" Type="nvarchar(max)" />
+    <Property Name="RegionId" Type="nvarchar(max)" />
+    <Property Name="RegionName" Type="nvarchar(max)" />
+    <Property Name="CountryId" Type="nvarchar(max)" />
+    <Property Name="CountryName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="FinancialHealthRatios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ReportDate" Type="date" />
+    <Property Name="PeriodEndingDate" Type="date" />
+    <Property Name="FileDate" Type="date" />
+    <Property Name="StatementType" Type="varchar" MaxLength="50" />
+    <Property Name="DataType" Type="varchar" MaxLength="50" />
+    <Property Name="Interim" Type="varchar" MaxLength="50" />
+    <Property Name="FiscalYearEnd" Type="int" />
+    <Property Name="CurrentRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="QuickRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DebtTotalCapitalRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DebtEquityRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FinancialLeverage" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TotalDebtToEquity" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AccessionNumber" Type="varchar" MaxLength="50" />
+    <Property Name="FormType" Type="varchar" MaxLength="50" />
+    <Property Name="DebttoAssets" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CommonEquityToAssets" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FundHoldingsSummary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AsOfDate" Type="date" />
+    <Property Name="NumberOfOwners" Type="int" />
+    <Property Name="TotalSharesOwned" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PercentageOwnership" Type="float" />
+    <Property Name="TotalMarketValue" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NumberOfNewOwners" Type="int" />
+    <Property Name="TotalSharesBoughtByNewOwners" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NumberOfSoldOutOwners" Type="int" />
+    <Property Name="TotalSharesSoldOut" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NumberOfExistingOwnerBuying" Type="int" />
+    <Property Name="TotalSharesBought" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NumberOfExistingOwnerSelling" Type="int" />
+    <Property Name="TotalSharesSold" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="IncomeStatements">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportDate" Type="nvarchar(max)" />
+    <Property Name="PeriodEndingDate" Type="nvarchar(max)" />
+    <Property Name="FileDate" Type="nvarchar(max)" />
+    <Property Name="StatementType" Type="nvarchar(max)" />
+    <Property Name="DataType" Type="nvarchar(max)" />
+    <Property Name="CurrencyId" Type="nvarchar(max)" />
+    <Property Name="FiscalYearEnd" Type="nvarchar(max)" />
+    <Property Name="Amortization" Type="float" Nullable="false" />
+    <Property Name="CostOfRevenue" Type="float" Nullable="false" />
+    <Property Name="DepreciationAndAmortization" Type="float" Nullable="false" />
+    <Property Name="DepreciationAmortizationDepletion" Type="float" Nullable="false" />
+    <Property Name="NetIncomeDiscontinuousOperations" Type="float" Nullable="false" />
+    <Property Name="GainOnSaleOfSecurity" Type="float" Nullable="false" />
+    <Property Name="GeneralAndAdministrativeExpense" Type="float" Nullable="false" />
+    <Property Name="GrossProfit" Type="float" Nullable="false" />
+    <Property Name="InterestExpense" Type="float" Nullable="false" />
+    <Property Name="InterestExpenseNonOperating" Type="float" Nullable="false" />
+    <Property Name="InterestIncomeNonOperating" Type="float" Nullable="false" />
+    <Property Name="NetNonOperatingInterestIncomeExpense" Type="float" Nullable="false" />
+    <Property Name="NetIncome" Type="float" Nullable="false" />
+    <Property Name="NetIncomeCommonStockholders" Type="float" Nullable="false" />
+    <Property Name="NetIncomeContinuousOperations" Type="float" Nullable="false" />
+    <Property Name="NetInterestIncome" Type="float" Nullable="false" />
+    <Property Name="TotalRevenue" Type="float" Nullable="false" />
+    <Property Name="OperatingExpense" Type="float" Nullable="false" />
+    <Property Name="OperatingIncome" Type="float" Nullable="false" />
+    <Property Name="OperatingRevenue" Type="float" Nullable="false" />
+    <Property Name="OtherIncomeExpense" Type="float" Nullable="false" />
+    <Property Name="PretaxIncome" Type="float" Nullable="false" />
+    <Property Name="ProvisionForDoubtfulAccounts" Type="float" Nullable="false" />
+    <Property Name="TaxProvision" Type="float" Nullable="false" />
+    <Property Name="ResearchAndDevelopment" Type="float" Nullable="false" />
+    <Property Name="SalariesAndWages" Type="float" Nullable="false" />
+    <Property Name="SellingAndMarketingExpense" Type="float" Nullable="false" />
+    <Property Name="SellingGeneralAndAdministration" Type="float" Nullable="false" />
+    <Property Name="TotalExpenses" Type="float" Nullable="false" />
+    <Property Name="AmortizationOfIntangibles" Type="float" Nullable="false" />
+    <Property Name="InterestIncome" Type="float" Nullable="false" />
+    <Property Name="NetIncomeFromContinuingAndDiscontinuedOperation" Type="float" Nullable="false" />
+    <Property Name="OtherOperatingExpenses" Type="float" Nullable="false" />
+    <Property Name="ReconciledCostOfRevenue" Type="float" Nullable="false" />
+    <Property Name="ReconciledDepreciation" Type="float" Nullable="false" />
+    <Property Name="EarningBeforeInterestAndTax" Type="float" Nullable="false" />
+    <Property Name="NormalizedIncome" Type="float" Nullable="false" />
+    <Property Name="EBITDA" Type="float" Nullable="false" />
+    <Property Name="BasicContinuousOperations" Type="float" Nullable="false" />
+    <Property Name="BasicDiscontinuousOperations" Type="float" Nullable="false" />
+    <Property Name="BasicEPS" Type="float" Nullable="false" />
+    <Property Name="DilutedContinuousOperations" Type="float" Nullable="false" />
+    <Property Name="DilutedDiscontinuousOperations" Type="float" Nullable="false" />
+    <Property Name="DilutedEPS" Type="float" Nullable="false" />
+    <Property Name="BasicAverageShares" Type="float" Nullable="false" />
+    <Property Name="DilutedAverageShares" Type="float" Nullable="false" />
+    <Property Name="DividendPerShare" Type="float" Nullable="false" />
+    <Property Name="ContinuingAndDiscontinuedBasicEPS" Type="float" Nullable="false" />
+    <Property Name="ContinuingAndDiscontinuedDilutedEPS" Type="float" Nullable="false" />
+    <Property Name="NetIncomeFromContinuingOperationNetMinorityInterest" Type="float" Nullable="false" />
+    <Property Name="AccessionNumber" Type="nvarchar(max)" />
+    <Property Name="FormType" Type="nvarchar(max)" />
+    <Property Name="NetIncomeIncludingNoncontrollingInterests" Type="float" Nullable="false" />
+    <Property Name="OtherNonOperatingIncomeExpenses" Type="float" Nullable="false" />
+    <Property Name="TotalUnusualItems" Type="float" Nullable="false" />
+    <Property Name="TotalUnusualItemsExcludingGoodwill" Type="float" Nullable="false" />
+    <Property Name="TaxRateForCalcs" Type="float" Nullable="false" />
+    <Property Name="CalculatedTaxEffectOfUnusualItems" Type="float" Nullable="false" />
+    <Property Name="NormalizedBasicEPS" Type="float" Nullable="false" />
+    <Property Name="NormalizedDilutedEPS" Type="float" Nullable="false" />
+    <Property Name="FiscalYearChange" Type="nvarchar(max)" />
+    <Property Name="OtherGandA" Type="float" Nullable="false" />
+    <Property Name="NormalizedPretaxIncome" Type="float" Nullable="false" />
+    <Property Name="DividendCoverageRatio" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IncomeStatementTTMs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportDate" Type="nvarchar(max)" />
+    <Property Name="PeriodEndingDate" Type="nvarchar(max)" />
+    <Property Name="StatementType" Type="nvarchar(max)" />
+    <Property Name="CurrencyId" Type="nvarchar(max)" />
+    <Property Name="FiscalYearEnd" Type="nvarchar(max)" />
+    <Property Name="Amortization" Type="float" Nullable="false" />
+    <Property Name="CostOfRevenue" Type="float" Nullable="false" />
+    <Property Name="DepreciationAndAmortization" Type="float" Nullable="false" />
+    <Property Name="DepreciationAmortizationDepletion" Type="float" Nullable="false" />
+    <Property Name="NetIncomeDiscontinuousOperations" Type="float" Nullable="false" />
+    <Property Name="GainOnSaleOfSecurity" Type="float" Nullable="false" />
+    <Property Name="GeneralAndAdministrativeExpense" Type="float" Nullable="false" />
+    <Property Name="GrossProfit" Type="float" Nullable="false" />
+    <Property Name="InterestExpense" Type="float" Nullable="false" />
+    <Property Name="InterestExpenseNonOperating" Type="float" Nullable="false" />
+    <Property Name="InterestIncomeNonOperating" Type="float" Nullable="false" />
+    <Property Name="NetNonOperatingInterestIncomeExpense" Type="float" Nullable="false" />
+    <Property Name="NetIncome" Type="float" Nullable="false" />
+    <Property Name="NetIncomeCommonStockholders" Type="float" Nullable="false" />
+    <Property Name="NetIncomeContinuousOperations" Type="float" Nullable="false" />
+    <Property Name="NetInterestIncome" Type="float" Nullable="false" />
+    <Property Name="TotalRevenue" Type="float" Nullable="false" />
+    <Property Name="OperatingExpense" Type="float" Nullable="false" />
+    <Property Name="OperatingIncome" Type="float" Nullable="false" />
+    <Property Name="OperatingRevenue" Type="float" Nullable="false" />
+    <Property Name="OtherIncomeExpense" Type="float" Nullable="false" />
+    <Property Name="PretaxIncome" Type="float" Nullable="false" />
+    <Property Name="ProvisionForDoubtfulAccounts" Type="float" Nullable="false" />
+    <Property Name="TaxProvision" Type="float" Nullable="false" />
+    <Property Name="ResearchAndDevelopment" Type="float" Nullable="false" />
+    <Property Name="SalariesAndWages" Type="float" Nullable="false" />
+    <Property Name="SellingAndMarketingExpense" Type="float" Nullable="false" />
+    <Property Name="SellingGeneralAndAdministration" Type="float" Nullable="false" />
+    <Property Name="TotalExpenses" Type="float" Nullable="false" />
+    <Property Name="AmortizationOfIntangibles" Type="float" Nullable="false" />
+    <Property Name="InterestIncome" Type="float" Nullable="false" />
+    <Property Name="NetIncomeFromContinuingAndDiscontinuedOperation" Type="float" Nullable="false" />
+    <Property Name="OtherOperatingExpenses" Type="float" Nullable="false" />
+    <Property Name="ReconciledCostOfRevenue" Type="float" Nullable="false" />
+    <Property Name="ReconciledDepreciation" Type="float" Nullable="false" />
+    <Property Name="EarningBeforeInterestAndTax" Type="float" Nullable="false" />
+    <Property Name="NormalizedIncome" Type="float" Nullable="false" />
+    <Property Name="EBITDA" Type="float" Nullable="false" />
+    <Property Name="BasicContinuousOperations" Type="float" Nullable="false" />
+    <Property Name="BasicDiscontinuousOperations" Type="float" Nullable="false" />
+    <Property Name="BasicEPS" Type="float" Nullable="false" />
+    <Property Name="DilutedContinuousOperations" Type="float" Nullable="false" />
+    <Property Name="DilutedDiscontinuousOperations" Type="float" Nullable="false" />
+    <Property Name="DilutedEPS" Type="float" Nullable="false" />
+    <Property Name="BasicAverageShares" Type="float" Nullable="false" />
+    <Property Name="DilutedAverageShares" Type="float" Nullable="false" />
+    <Property Name="DividendPerShare" Type="float" Nullable="false" />
+    <Property Name="ContinuingAndDiscontinuedBasicEPS" Type="float" Nullable="false" />
+    <Property Name="ContinuingAndDiscontinuedDilutedEPS" Type="float" Nullable="false" />
+    <Property Name="NetIncomeFromContinuingOperationNetMinorityInterest" Type="float" Nullable="false" />
+    <Property Name="NetIncomeIncludingNoncontrollingInterests" Type="float" Nullable="false" />
+    <Property Name="OtherNonOperatingIncomeExpenses" Type="float" Nullable="false" />
+    <Property Name="TotalUnusualItems" Type="float" Nullable="false" />
+    <Property Name="TotalUnusualItemsExcludingGoodwill" Type="float" Nullable="false" />
+    <Property Name="TaxRateForCalcs" Type="float" Nullable="false" />
+    <Property Name="CalculatedTaxEffectOfUnusualItems" Type="float" Nullable="false" />
+    <Property Name="NormalizedBasicEPS" Type="float" Nullable="false" />
+    <Property Name="NormalizedDilutedEPS" Type="float" Nullable="false" />
+    <Property Name="FiscalYearChange" Type="nvarchar(max)" />
+    <Property Name="OtherGandA" Type="float" Nullable="false" />
+    <Property Name="NormalizedPretaxIncome" Type="float" Nullable="false" />
+    <Property Name="DividendCoverageRatio" Type="float" Nullable="false" />
+    <Property Name="FileDate" Type="nvarchar(max)" />
+    <Property Name="AccessionNumber" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="InsiderHoldingsSummary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AsOfDate" Type="date" />
+    <Property Name="InsiderPercentOwned" Type="float" />
+    <Property Name="InsiderSharesOwned" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="RecentTotalBuyerNumber" Type="int" />
+    <Property Name="RecentTotalSellerNumber" Type="int" />
+    <Property Name="RecentTotalSharesBought" Type="int" />
+    <Property Name="RecentTotalSharesSold" Type="int" />
+  </EntityType>
+  <EntityType Name="InstitutionalHoldingsSummary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AsOfDate" Type="date" />
+    <Property Name="NumberOfOwners" Type="int" />
+    <Property Name="TotalSharesOwned" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PercentageOwnership" Type="float" />
+    <Property Name="TotalMarketValue" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NumberOfNewOwners" Type="int" />
+    <Property Name="TotalSharesBoughtByNewOwners" Type="int" />
+    <Property Name="NumberOfSoldOutOwners" Type="int" />
+    <Property Name="TotalSharesSoldOut" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NumberOfExistingOwnerBuying" Type="int" />
+    <Property Name="TotalSharesBought" Type="float" />
+    <Property Name="NumberOfExistingOwnerSelling" Type="int" />
+    <Property Name="TotalSharesSold" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="InstitutionalHoldingsSummaryHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AsOfDate" Type="date" />
+    <Property Name="NumberOfOwners" Type="int" />
+    <Property Name="TotalSharesOwned" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PercentageOwnership" Type="float" />
+    <Property Name="TotalSharesIncreased" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TotalSharesDecreased" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="MarketCapitalization">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MarketCapDate" Type="date" />
+    <Property Name="MarketCap" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EnterpriseValue" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CurrencyId" Type="varchar" MaxLength="50" />
+    <Property Name="SharesOutstanding" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="SharesDate" Type="date" />
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MiscellaneousInfos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportDate" Type="date" />
+    <Property Name="PeriodEndingDate" Type="date" />
+    <Property Name="FileDate" Type="date" />
+    <Property Name="StatementType" Type="nchar" MaxLength="10" />
+    <Property Name="DataType" Type="nchar" MaxLength="10" />
+    <Property Name="CurrencyId" Type="nchar" MaxLength="10" />
+    <Property Name="FiscalYearEnd" Type="int" />
+    <Property Name="AuditorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AuditorReportStatus" Type="nchar" MaxLength="10" />
+    <Property Name="InventoryValuationMethod" Type="nvarchar" MaxLength="50" />
+    <Property Name="NumberOfShareHolders" Type="int" />
+    <Property Name="TotalRiskBasedCapitalRatio" Type="float" />
+    <Property Name="NonAffiliatedValue" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AccessionNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="FormType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Fincurate.dbo.PreferredStockYields' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PreferredStockYields">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AsOfDate" Type="date" />
+    <Property Name="CurrentYield" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="YieldTosFirstRedemptionDate" Type="varchar" MaxLength="50" />
+    <Property Name="YieldToMaturity" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="StripYield" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="YieldToWorst" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="PriceStatistics">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AsOfDate" Type="date" />
+    <Property Name="DayHigh52Week" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="HighDate52Week" Type="date" />
+    <Property Name="DayLow52Week" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="LowDate52Week" Type="date" />
+    <Property Name="AverageVolumeYearly" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TotalVolume" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="VolumeAvgDay13Week" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ProfitabilityRatios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Symbol" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ReportDate" Type="varchar" MaxLength="50" />
+    <Property Name="PeriodEndingDate" Type="varchar" MaxLength="50" />
+    <Property Name="FileDate" Type="varchar" MaxLength="50" />
+    <Property Name="StatementType" Type="varchar" MaxLength="50" />
+    <Property Name="DataType" Type="varchar" MaxLength="50" />
+    <Property Name="CurrencyId" Type="varchar" MaxLength="50" />
+    <Property Name="FiscalYearEnd" Type="int" />
+    <Property Name="GrossMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EBTMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TaxRate" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="SalesPerEmployee" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EBITMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EBITDAMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedNetProfitMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InterestCoverage" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="IncPerEmployeeTotOps" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AccessionNumber" Type="varchar" MaxLength="50" />
+    <Property Name="FormType" Type="varchar" MaxLength="50" />
+    <Property Name="NetIncomeperFullTimeEmployee" Type="varchar" MaxLength="50" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfitabilityRatiosTTM">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Symbol" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ReportDate" Type="varchar" MaxLength="50" />
+    <Property Name="PeriodEndingDate" Type="varchar" MaxLength="50" />
+    <Property Name="FileDate" Type="varchar" MaxLength="50" />
+    <Property Name="StatementType" Type="varchar" MaxLength="50" />
+    <Property Name="DataType" Type="varchar" MaxLength="50" />
+    <Property Name="CurrencyId" Type="varchar" MaxLength="50" />
+    <Property Name="FiscalYearEnd" Type="int" />
+    <Property Name="GrossMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EBTMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TaxRate" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="SalesPerEmployee" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EBITMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EBITDAMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedNetProfitMargin" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InterestCoverage" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="IncPerEmployeeTotOps" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AccessionNumber" Type="varchar" MaxLength="50" />
+    <Property Name="FormType" Type="varchar" MaxLength="50" />
+    <Property Name="NetIncomeperFullTimeEmployee" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ReturnStatistics">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
+    <Property Name="AsOfDate" Type="varchar" MaxLength="50" />
+    <Property Name="NumberOfMonths" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Mean" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="StandardDeviation" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Best3MonthReturn" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Worst3MonthReturn" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Alpha" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Beta" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="RSquare" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SharesSnapshot">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TSODate" Type="date" />
+    <Property Name="CompanyTSO" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ShareLevelTSOSource" Type="varchar(max)" />
+    <Property Name="ShareLevelTSO" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="QuotedTSO" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="UnquotedTSO" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FloatDate" Type="date" />
+    <Property Name="FloatShare" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsiderHolding" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FloatShareToTotalSharesOutstanding" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="BalanceSheetDate" Type="date" />
+    <Property Name="ShareClassLevelTreasuryShareOutstanding" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="SharesOutstandingWithBalanceSheetEndingDate" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="StockExchangeSecurities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar(max)" />
+    <Property Name="ExchangeId" Type="nvarchar(max)" />
+    <Property Name="Symbol" Type="nvarchar(max)" />
+    <Property Name="CUSIP" Type="nvarchar(max)" />
+    <Property Name="CIK" Type="nvarchar(max)" />
+    <Property Name="ISIN" Type="nvarchar(max)" />
+    <Property Name="SEDOL" Type="nvarchar(max)" />
+    <Property Name="InvestmentTypeId" Type="nvarchar(max)" />
+    <Property Name="StockStatus" Type="nvarchar(max)" />
+    <Property Name="ParValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="StockPriceAvailability">
+    <Key>
+      <PropertyRef Name="Symbol" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar(max)" />
+    <Property Name="ExchangeId" Type="varchar" MaxLength="50" />
+    <Property Name="Symbol" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CUSIP" Type="varchar" MaxLength="50" />
+    <Property Name="CIK" Type="varchar" MaxLength="50" />
+    <Property Name="ISIN" Type="varchar" MaxLength="50" />
+    <Property Name="SEDOL" Type="varchar" MaxLength="50" />
+    <Property Name="Start" Type="int" />
+    <Property Name="End" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TrailingMarketReturns">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AsOfDate" Type="date" />
+    <Property Name="Return1D" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Return1W" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Return1M" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Return3M" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Return6M" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Return9M" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Return1Y" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Return3Y" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Return5Y" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Return7Y" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Return10Y" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ReturnMTD" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ReturnQTD" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ReturnYTD" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ValuationRatios">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AsOfDate" Type="date" />
+    <Property Name="SalesPerShare" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="GrowthAnnSalesPerShare5Year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="BookValuePerShare" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CFPerShare" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FCFPerShare" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PriceToEPS" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="RatioPE5YearHigh" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="RatioPE5YearLow" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PriceToBook" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PriceToSales" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PriceToCashFlow" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PriceToFreeCashFlow" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DivRate" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DividendYield" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DivPayoutTotOps" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DivPayout5Year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DivYield5Year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PayoutRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="SustainableGrowthRate" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CashReturn" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ForwardEarningYield" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PEGRatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PEGPayback" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ForwardDividendYield" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ForwardPERatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TangibleBookValuePerShare" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TangibleBVPerShare3YrAvg" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TangibleBVPerShare5YrAvg" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EVToEBITDA" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="RatioPE5YearAverage" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedPERatio" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FCFYield" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EVToForwardEBIT" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EVToForwardEBITDA" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EVToForwardRevenue" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TwoYearsEVToForwardEBIT" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TwoYearsEVToForwardEBITDA" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FirstYearEstimatedEPSGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="SecondYearEstimatedEPSGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedPEG" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="FincurateModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CashFlows" EntityType="Self.CashFlows" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CashFlowTTMs" EntityType="Self.CashFlowTTMs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EfficiencyRatios" EntityType="Self.EfficiencyRatios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EfficiencyRatiosTTM" EntityType="Self.EfficiencyRatiosTTM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exchanges" EntityType="Self.Exchanges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FinancialHealthRatios" EntityType="Self.FinancialHealthRatios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FundHoldingsSummary" EntityType="Self.FundHoldingsSummary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IncomeStatements" EntityType="Self.IncomeStatements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IncomeStatementTTMs" EntityType="Self.IncomeStatementTTMs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InsiderHoldingsSummary" EntityType="Self.InsiderHoldingsSummary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InstitutionalHoldingsSummary" EntityType="Self.InstitutionalHoldingsSummary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InstitutionalHoldingsSummaryHistory" EntityType="Self.InstitutionalHoldingsSummaryHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MarketCapitalization" EntityType="Self.MarketCapitalization" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MiscellaneousInfos" EntityType="Self.MiscellaneousInfos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PriceStatistics" EntityType="Self.PriceStatistics" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProfitabilityRatios" EntityType="Self.ProfitabilityRatios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProfitabilityRatiosTTM" EntityType="Self.ProfitabilityRatiosTTM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReturnStatistics" EntityType="Self.ReturnStatistics" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SharesSnapshot" EntityType="Self.SharesSnapshot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StockExchangeSecurities" EntityType="Self.StockExchangeSecurities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StockPriceAvailability" EntityType="Self.StockPriceAvailability" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ValuationRatios" EntityType="Self.ValuationRatios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompanyFinancialAvailability" EntityType="Self.CompanyFinancialAvailability" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CompanyFinancialAvailability].[ID] AS [ID], 
+    [CompanyFinancialAvailability].[CompanyName] AS [CompanyName], 
+    [CompanyFinancialAvailability].[ExchangeId] AS [ExchangeId], 
+    [CompanyFinancialAvailability].[Symbol] AS [Symbol], 
+    [CompanyFinancialAvailability].[CUSIP] AS [CUSIP], 
+    [CompanyFinancialAvailability].[CIK] AS [CIK], 
+    [CompanyFinancialAvailability].[ISIN] AS [ISIN], 
+    [CompanyFinancialAvailability].[SEDOL] AS [SEDOL], 
+    [CompanyFinancialAvailability].[Start] AS [Start], 
+    [CompanyFinancialAvailability].[End] AS [End], 
+    [CompanyFinancialAvailability].[SectorId] AS [SectorId], 
+    [CompanyFinancialAvailability].[SectorName] AS [SectorName], 
+    [CompanyFinancialAvailability].[IndustryGroupId] AS [IndustryGroupId], 
+    [CompanyFinancialAvailability].[IndustryGroupName] AS [IndustryGroupName], 
+    [CompanyFinancialAvailability].[IndustryId] AS [IndustryId], 
+    [CompanyFinancialAvailability].[IndustryName] AS [IndustryName], 
+    [CompanyFinancialAvailability].[LatestQuarterlyReportDate] AS [LatestQuarterlyReportDate], 
+    [CompanyFinancialAvailability].[LatestAnnualReportDate] AS [LatestAnnualReportDate], 
+    [CompanyFinancialAvailability].[LatestPreliminaryReportDate] AS [LatestPreliminaryReportDate], 
+    [CompanyFinancialAvailability].[LatestSemiAnnualReportDate] AS [LatestSemiAnnualReportDate]
+    FROM [dbo].[CompanyFinancialAvailability] AS [CompanyFinancialAvailability]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EODHistoricalPriceWithFrequency" EntityType="Self.EODHistoricalPriceWithFrequency" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EODHistoricalPriceWithFrequency].[ID] AS [ID], 
+    [EODHistoricalPriceWithFrequency].[TradingDate] AS [TradingDate], 
+    [EODHistoricalPriceWithFrequency].[PreviousClosePrice] AS [PreviousClosePrice], 
+    [EODHistoricalPriceWithFrequency].[OpenPrice] AS [OpenPrice], 
+    [EODHistoricalPriceWithFrequency].[HighPrice] AS [HighPrice], 
+    [EODHistoricalPriceWithFrequency].[LowPrice] AS [LowPrice], 
+    [EODHistoricalPriceWithFrequency].[ClosePrice] AS [ClosePrice], 
+    [EODHistoricalPriceWithFrequency].[Volume] AS [Volume], 
+    [EODHistoricalPriceWithFrequency].[PriceCurrencyId] AS [PriceCurrencyId]
+    FROM [dbo].[EODHistoricalPriceWithFrequency] AS [EODHistoricalPriceWithFrequency]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EODPriceHistory" EntityType="Self.EODPriceHistory" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EODPriceHistory].[ID] AS [ID], 
+    [EODPriceHistory].[TradingDate] AS [TradingDate], 
+    [EODPriceHistory].[PreviousClosePrice] AS [PreviousClosePrice], 
+    [EODPriceHistory].[OpenPrice] AS [OpenPrice], 
+    [EODPriceHistory].[HighPrice] AS [HighPrice], 
+    [EODPriceHistory].[LowPrice] AS [LowPrice], 
+    [EODPriceHistory].[ClosePrice] AS [ClosePrice], 
+    [EODPriceHistory].[Volume] AS [Volume], 
+    [EODPriceHistory].[PriceCurrencyId] AS [PriceCurrencyId]
+    FROM [dbo].[EODPriceHistory] AS [EODPriceHistory]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EODPriceSnapshot" EntityType="Self.EODPriceSnapshot" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EODPriceSnapshot].[TradingDate] AS [TradingDate], 
+    [EODPriceSnapshot].[OpenPrice] AS [OpenPrice], 
+    [EODPriceSnapshot].[HighPrice] AS [HighPrice], 
+    [EODPriceSnapshot].[LowPrice] AS [LowPrice], 
+    [EODPriceSnapshot].[ClosePrice] AS [ClosePrice], 
+    [EODPriceSnapshot].[Volume] AS [Volume], 
+    [EODPriceSnapshot].[PriceCurrencyId] AS [PriceCurrencyId], 
+    [EODPriceSnapshot].[PreviousTradingDate] AS [PreviousTradingDate], 
+    [EODPriceSnapshot].[PreviousClosePrice] AS [PreviousClosePrice], 
+    [EODPriceSnapshot].[ID] AS [ID]
+    FROM [dbo].[EODPriceSnapshot] AS [EODPriceSnapshot]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PreferredStockYields" EntityType="Self.PreferredStockYields" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PreferredStockYields].[ID] AS [ID], 
+    [PreferredStockYields].[AsOfDate] AS [AsOfDate], 
+    [PreferredStockYields].[CurrentYield] AS [CurrentYield], 
+    [PreferredStockYields].[YieldTosFirstRedemptionDate] AS [YieldTosFirstRedemptionDate], 
+    [PreferredStockYields].[YieldToMaturity] AS [YieldToMaturity], 
+    [PreferredStockYields].[StripYield] AS [StripYield], 
+    [PreferredStockYields].[YieldToWorst] AS [YieldToWorst]
+    FROM [dbo].[PreferredStockYields] AS [PreferredStockYields]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TrailingMarketReturns" EntityType="Self.TrailingMarketReturns" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TrailingMarketReturns].[ID] AS [ID], 
+    [TrailingMarketReturns].[AsOfDate] AS [AsOfDate], 
+    [TrailingMarketReturns].[Return1D] AS [Return1D], 
+    [TrailingMarketReturns].[Return1W] AS [Return1W], 
+    [TrailingMarketReturns].[Return1M] AS [Return1M], 
+    [TrailingMarketReturns].[Return3M] AS [Return3M], 
+    [TrailingMarketReturns].[Return6M] AS [Return6M], 
+    [TrailingMarketReturns].[Return9M] AS [Return9M], 
+    [TrailingMarketReturns].[Return1Y] AS [Return1Y], 
+    [TrailingMarketReturns].[Return3Y] AS [Return3Y], 
+    [TrailingMarketReturns].[Return5Y] AS [Return5Y], 
+    [TrailingMarketReturns].[Return7Y] AS [Return7Y], 
+    [TrailingMarketReturns].[Return10Y] AS [Return10Y], 
+    [TrailingMarketReturns].[ReturnMTD] AS [ReturnMTD], 
+    [TrailingMarketReturns].[ReturnQTD] AS [ReturnQTD], 
+    [TrailingMarketReturns].[ReturnYTD] AS [ReturnYTD]
+    FROM [dbo].[TrailingMarketReturns] AS [TrailingMarketReturns]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FincurateModelStoreContainer" CdmEntityContainer="FincurateEntities">
+    <EntitySetMapping Name="EfficiencyRatios">
+      <EntityTypeMapping TypeName="FincurateModel.EfficiencyRatio">
+        <MappingFragment StoreEntitySet="EfficiencyRatios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NormalizedROIC" ColumnName="NormalizedROIC" />
+          <ScalarProperty Name="AVG5YrsROIC" ColumnName="AVG5YrsROIC" />
+          <ScalarProperty Name="ROA5YrAvg" ColumnName="ROA5YrAvg" />
+          <ScalarProperty Name="ROE5YrAvg" ColumnName="ROE5YrAvg" />
+          <ScalarProperty Name="FormType" ColumnName="FormType" />
+          <ScalarProperty Name="AccessionNumber" ColumnName="AccessionNumber" />
+          <ScalarProperty Name="CapitalExpenditureSalesRatio" ColumnName="CapitalExpenditureSalesRatio" />
+          <ScalarProperty Name="FCFNetIncomeRatio" ColumnName="FCFNetIncomeRatio" />
+          <ScalarProperty Name="FCFSalesRatio" ColumnName="FCFSalesRatio" />
+          <ScalarProperty Name="ROIC" ColumnName="ROIC" />
+          <ScalarProperty Name="ROA" ColumnName="ROA" />
+          <ScalarProperty Name="ROE" ColumnName="ROE" />
+          <ScalarProperty Name="AssetsTurnover" ColumnName="AssetsTurnover" />
+          <ScalarProperty Name="FixedAssetsTurnover" ColumnName="FixedAssetsTurnover" />
+          <ScalarProperty Name="PayableTurnover" ColumnName="PayableTurnover" />
+          <ScalarProperty Name="InventoryTurnover" ColumnName="InventoryTurnover" />
+          <ScalarProperty Name="ReceivableTurnover" ColumnName="ReceivableTurnover" />
+          <ScalarProperty Name="CashConversionCycle" ColumnName="CashConversionCycle" />
+          <ScalarProperty Name="DaysInPayment" ColumnName="DaysInPayment" />
+          <ScalarProperty Name="DaysInInventory" ColumnName="DaysInInventory" />
+          <ScalarProperty Name="DaysInSales" ColumnName="DaysInSales" />
+          <ScalarProperty Name="FiscalYearEnd" ColumnName="FiscalYearEnd" />
+          <ScalarProperty Name="Interim" ColumnName="Interim" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="StatementType" ColumnName="StatementType" />
+          <ScalarProperty Name="FileDate" ColumnName="FileDate" />
+          <ScalarProperty Name="PeriodEndingDate" ColumnName="PeriodEndingDate" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfitabilityRatios">
+      <EntityTypeMapping TypeName="FincurateModel.ProfitabilityRatio">
+        <MappingFragment StoreEntitySet="ProfitabilityRatios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NetIncomeperFullTimeEmployee" ColumnName="NetIncomeperFullTimeEmployee" />
+          <ScalarProperty Name="FormType" ColumnName="FormType" />
+          <ScalarProperty Name="AccessionNumber" ColumnName="AccessionNumber" />
+          <ScalarProperty Name="IncPerEmployeeTotOps" ColumnName="IncPerEmployeeTotOps" />
+          <ScalarProperty Name="InterestCoverage" ColumnName="InterestCoverage" />
+          <ScalarProperty Name="NormalizedNetProfitMargin" ColumnName="NormalizedNetProfitMargin" />
+          <ScalarProperty Name="EBITDAMargin" ColumnName="EBITDAMargin" />
+          <ScalarProperty Name="EBITMargin" ColumnName="EBITMargin" />
+          <ScalarProperty Name="SalesPerEmployee" ColumnName="SalesPerEmployee" />
+          <ScalarProperty Name="NetMargin" ColumnName="NetMargin" />
+          <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+          <ScalarProperty Name="EBTMargin" ColumnName="EBTMargin" />
+          <ScalarProperty Name="OperatingMargin" ColumnName="OperatingMargin" />
+          <ScalarProperty Name="GrossMargin" ColumnName="GrossMargin" />
+          <ScalarProperty Name="FiscalYearEnd" ColumnName="FiscalYearEnd" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="StatementType" ColumnName="StatementType" />
+          <ScalarProperty Name="FileDate" ColumnName="FileDate" />
+          <ScalarProperty Name="PeriodEndingDate" ColumnName="PeriodEndingDate" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

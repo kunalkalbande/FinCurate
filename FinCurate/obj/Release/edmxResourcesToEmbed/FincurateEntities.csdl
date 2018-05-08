@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FincurateModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="FincurateEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EfficiencyRatios" EntityType="FincurateModel.EfficiencyRatio" />
+    <EntitySet Name="ProfitabilityRatios" EntityType="FincurateModel.ProfitabilityRatio" />
+  </EntityContainer>
+  <EntityType Name="EfficiencyRatio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReportDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PeriodEndingDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FileDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StatementType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DataType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Interim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FiscalYearEnd" Type="Int32" />
+    <Property Name="DaysInSales" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DaysInInventory" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DaysInPayment" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CashConversionCycle" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ReceivableTurnover" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="InventoryTurnover" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PayableTurnover" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FixedAssetsTurnover" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AssetsTurnover" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ROE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ROA" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ROIC" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FCFSalesRatio" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FCFNetIncomeRatio" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CapitalExpenditureSalesRatio" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AccessionNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FormType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ROE5YrAvg" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ROA5YrAvg" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AVG5YrsROIC" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedROIC" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="ProfitabilityRatio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Symbol" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReportDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PeriodEndingDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FileDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StatementType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DataType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CurrencyId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FiscalYearEnd" Type="Int32" />
+    <Property Name="GrossMargin" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingMargin" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EBTMargin" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TaxRate" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetMargin" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="SalesPerEmployee" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EBITMargin" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EBITDAMargin" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedNetProfitMargin" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="InterestCoverage" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="IncPerEmployeeTotOps" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AccessionNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FormType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NetIncomeperFullTimeEmployee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fb67ca43134b4458901cc42027a417c0" Name="Diagram1" ZoomLevel="53">
+        <EntityTypeShape EntityType="FincurateModel.EfficiencyRatio" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FincurateModel.ProfitabilityRatio" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FincurateModel.EfficiencyRatiosTTM" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FincurateModel.PriceStatistic" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FincurateModel.ProfitabilityRatiosTTM" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="FincurateModel.StockPriceAvailability" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="FincurateModel.ValuationRatio" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="FincurateModel.CompanyFinancialAvailability" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="FincurateModel.EODHistoricalPriceWithFrequency" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FincurateModel.EODPriceHistory" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="FincurateModel.EODPriceSnapshot" Width="1.5" PointX="9.75" PointY="8.75" />
+        <EntityTypeShape EntityType="FincurateModel.MarketCapitalization" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FincurateModel.PreferredStockYield" Width="1.5" PointX="11.75" PointY="4.75" />
+        <EntityTypeShape EntityType="FincurateModel.TrailingMarketReturn" Width="1.5" PointX="11.75" PointY="8.75" />
+        <EntityTypeShape EntityType="FincurateModel.ReturnStatistic" Width="1.5" PointX="9.375" PointY="13.75" />
+        <EntityTypeShape EntityType="FincurateModel.FundHoldingsSummary" Width="1.5" PointX="11.375" PointY="13.75" />
+        <EntityTypeShape EntityType="FincurateModel.InsiderHoldingsSummary" Width="1.5" PointX="13.375" PointY="13.75" />
+        <EntityTypeShape EntityType="FincurateModel.InstitutionalHoldingsSummary" Width="1.5" PointX="14.375" PointY="0.75" />
+        <EntityTypeShape EntityType="FincurateModel.InstitutionalHoldingsSummaryHistory" Width="1.5" PointX="14.375" PointY="5.75" />
+        <EntityTypeShape EntityType="FincurateModel.MiscellaneousInfo" Width="1.5" PointX="15.375" PointY="9.75" />
+        <EntityTypeShape EntityType="FincurateModel.C__MigrationHistory" Width="1.5" PointX="15.375" PointY="14.75" />
+        <EntityTypeShape EntityType="FincurateModel.CashFlow" Width="1.5" PointX="5.375" PointY="16.75" />
+        <EntityTypeShape EntityType="FincurateModel.FinancialHealthRatio" Width="1.5" PointX="16.375" PointY="0.75" />
+        <EntityTypeShape EntityType="FincurateModel.IncomeStatement" Width="1.5" PointX="17.375" PointY="6.75" />
+        <EntityTypeShape EntityType="FincurateModel.CashFlowTTM" Width="1.5" PointX="7.375" PointY="17.75" />
+        <EntityTypeShape EntityType="FincurateModel.SharesSnapshot" Width="1.5" PointX="13.375" PointY="17.75" />
+        <EntityTypeShape EntityType="FincurateModel.Exchanx" Width="1.5" PointX="18.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FincurateModel.IncomeStatementTTM" Width="1.5" PointX="9.75" PointY="18.75" />
+        <EntityTypeShape EntityType="FincurateModel.StockExchangeSecurity" Width="1.5" PointX="0.75" PointY="19.75" />
+        <EntityTypeShape EntityType="FincurateModel.Country" Width="1.5" PointX="19.375" PointY="4.75" />
+        <EntityTypeShape EntityType="FincurateModel.Currency" Width="1.5" PointX="19.375" PointY="7.75" />
+        <EntityTypeShape EntityType="FincurateModel.InvestmentType" Width="1.5" PointX="19.375" PointY="10.75" />
+        <EntityTypeShape EntityType="FincurateModel.LanguageCodeList" Width="1.5" PointX="19.375" PointY="13.75" />
+        <EntityTypeShape EntityType="FincurateModel.Region" Width="1.5" PointX="19.375" PointY="16.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
