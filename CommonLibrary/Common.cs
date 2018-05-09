@@ -91,12 +91,13 @@ namespace CommonLibrary
             return sRet;
         }
 
-        public static ProfitabilityRatios GetFinancialKeyRatiosService(string token)
+        #region FinancialKeyRatios
+        public static ProfitabilityRatios GetFinancialKeyRatiosService(string token, APIRequest apiRequest)
         {
             string result = null;
             string category = "GetProfitabilityRatios";
-            string exchangeId = "NAS";
-            string identifier = "MSFT";
+            string exchangeId = apiRequest.exchangeId; //"NAS";
+            string identifier = apiRequest.identifier; //"MSFT";
             string startDate = "01/2018";
             string endDate = "05/2018";
             string identifierType = "Symbol";
@@ -111,7 +112,7 @@ namespace CommonLibrary
             try
             {
                 objProfitability = JsonConvert.DeserializeObject<ProfitabilityRatios>(result);
-                objProfitability.ProfitabilityEntityList.FirstOrDefault().Symbol= objProfitability.GeneralInfo.Symbol;
+                objProfitability.ProfitabilityEntityList.FirstOrDefault().Symbol = objProfitability.GeneralInfo.Symbol;
             }
             catch (Exception e)
             {
@@ -121,17 +122,15 @@ namespace CommonLibrary
             return objProfitability;
         }
 
-        public static ProfitabilityRatios GetProfitabilityRatiosTTM(string token)
+        public static ProfitabilityRatios GetProfitabilityRatiosTTM(string token, APIRequest apiRequest)
         {
             string result = null;
             string category = "GetProfitabilityRatiosTTM";
-            string exchangeId = "NAS";
-            string identifier = "MSFT";
+            string exchangeId = apiRequest.exchangeId;// "NAS";
+            string identifier = apiRequest.identifier;// "MSFT";
             string startDate = "01/2018";
             string endDate = "05/2018";
             string identifierType = "Symbol";
-            //string statementType = "Quarterly";
-            //string dataType = "AOR";
             string responseType = "JSON";
             string Token = token;
             string URL = "http://equityapi.morningstar.com/WebService/FinancialKeyRatiosService.asmx/GetProfitabilityRatiosTTM?category={0}&exchangeId={1}&identifier={2}startDate={3}&endDate={4}&identifierType={5}&responseType={6}&Token={7}";
@@ -154,12 +153,12 @@ namespace CommonLibrary
             return objProfitability;
         }
 
-        public static EfficiencyRatios GetEfficiencyRatios(string token)
+        public static EfficiencyRatios GetEfficiencyRatios(string token, APIRequest apiRequest)
         {
             string result = null;
             string category = "GetEfficiencyRatios";
-            string exchangeId = "NYS";
-            string identifier = "IBM";
+            string exchangeId = apiRequest.exchangeId;// "NYS";
+            string identifier = apiRequest.identifier;// "IBM";
             string startDate = "01/2018";
             string endDate = "05/2018";
             string identifierType = "Symbol";
@@ -169,7 +168,7 @@ namespace CommonLibrary
             string Token = token;
             string EfficiencyRatiosURL = "http://equityapi.morningstar.com/WebService/FinancialKeyRatiosService.asmx/GetEfficiencyRatios?category={0}&exchangeId={1}&identifier={2}&startDate={3}&endDate={4}&identifierType={5}&statementType={6}&dataType={7}&responseType={8}&Token={9}";
             EfficiencyRatios objEfficiencyRatios = new EfficiencyRatios();
-            string sURL = string.Format(EfficiencyRatiosURL, category, exchangeId, identifier, startDate, endDate, identifierType,statementType, dataType, responseType, Token);
+            string sURL = string.Format(EfficiencyRatiosURL, category, exchangeId, identifier, startDate, endDate, identifierType, statementType, dataType, responseType, Token);
 
 
             result = GetResultByURL(sURL);
@@ -186,12 +185,12 @@ namespace CommonLibrary
             return objEfficiencyRatios;
         }
 
-        public static EfficiencyRatios GetEfficiencyRatiosTTM(string token)
+        public static EfficiencyRatios GetEfficiencyRatiosTTM(string token, APIRequest apiRequest)
         {
             string result = null;
             string category = "GetEfficiencyRatiosTTM";
-            string exchangeId = "NYS";
-            string identifier = "IBM";
+            string exchangeId = apiRequest.exchangeId;//"NYS";
+            string identifier = apiRequest.identifier;//"IBM";
             string startDate = "01/2018";
             string endDate = "05/2018";
             string identifierType = "Symbol";
@@ -201,7 +200,6 @@ namespace CommonLibrary
             EfficiencyRatios objEfficiencyRatios = new EfficiencyRatios();
             string sURL = string.Format(EfficiencyRatiosTTMURL, category, exchangeId, identifier, startDate, endDate, identifierType, responseType, Token);
 
-
             result = GetResultByURL(sURL);
 
             try
@@ -216,12 +214,12 @@ namespace CommonLibrary
             return objEfficiencyRatios;
         }
 
-        public static FinancialHealthRatioModel GetFinancialHealthRatios(string token)
+        public static FinancialHealthRatioModel GetFinancialHealthRatios(string token, APIRequest apiRequest)
         {
             string result = null;
             string category = "GetFinancialHealthRatios";
-            string exchangeId = "NYS";
-            string identifier = "IBM";
+            string exchangeId = apiRequest.exchangeId;//"NYS";
+            string identifier = apiRequest.identifier;// "IBM";
             string startDate = "01/2018";
             string endDate = "05/2018";
             string identifierType = "Symbol";
@@ -249,41 +247,42 @@ namespace CommonLibrary
             return objFinancialHealthRatio;
         }
 
-        public static ReturnStatistics GetReturnStatistics(string token)
+        public static ValuationRatios GetValuationRatios(string token, APIRequest apiRequest)
         {
             string result = null;
-            string category = "GetReturnStatistics";
-            string exchangeId = "NYS";
-            string identifier = "IBM";
+            string category = "GetValuationRatios";
+            string exchangeId = apiRequest.exchangeId;// "NYS";
+            string identifier = apiRequest.identifier; //"IBM";
             string identifierType = "Symbol";
+            string period = "Snapshot";
             string responseType = "JSON";
             string Token = token;
-            string BalanceSheetURL = "http://equityapi.morningstar.com/WebService/MarketPerformanceService.asmx/GetReturnStatistics?category={0}&exchangeId={1}&identifier={2}&responseType={3}&identifierType={4}&Token={5}";
-            ReturnStatistics objReturnStatistics = new ReturnStatistics();
-            string sURL = string.Format(BalanceSheetURL, category, exchangeId, identifier, responseType, identifierType, Token);
-
+            string ValuationRatiosURL = "http://equityapi.morningstar.com/WebService/FinancialKeyRatiosService.asmx/GetValuationRatios?category={0}&exchangeId={1}&identifier={2}&identifierType={3}&period={4}&responseType={5}&Token={6}";
+            ValuationRatios objValuationRatios = new ValuationRatios();
+            string sURL = string.Format(ValuationRatiosURL, category, exchangeId, identifier, identifierType, period, responseType, Token);
 
             result = GetResultByURL(sURL);
-
             try
             {
-                objReturnStatistics = JsonConvert.DeserializeObject<ReturnStatistics>(result);
-                objReturnStatistics.ReturnStatisticsEntityList.FirstOrDefault().Symbol = objReturnStatistics.GeneralInfo.Symbol;
+                objValuationRatios = JsonConvert.DeserializeObject<ValuationRatios>(result);
+                objValuationRatios.valuationRatioEntityList.FirstOrDefault().Symbol = objValuationRatios.GeneralInfo.Symbol;
             }
             catch (Exception e)
             {
                 throw;
             }
 
-            return objReturnStatistics;
+            return objValuationRatios;
         }
+        #endregion
 
-        public static CompanyFinancials GetCompanyFinancialAvailability(string token)
+        #region CompanyFinancial
+        public static CompanyFinancials GetCompanyFinancialAvailability(string token, APIRequest apiRequest)
         {
             string result = null;
             string category = "GetCompanyFinancialAvailabilityList";
-            string exchangeId = "NYS";
-            string identifier = "IBM";
+            string exchangeId = apiRequest.exchangeId;// "NYS";
+            string identifier = apiRequest.identifier;// "IBM";
             string identifierType = "Symbol";
             string responseType = "JSON";
             string Token = token;
@@ -306,13 +305,106 @@ namespace CommonLibrary
             return objCompanyFinancials;
         }
 
+        public static BalanceSheetModel GetBalanceSheet(string token, APIRequest apiRequest)
+        {
+            string result = null;
+            string category = "GetBalanceSheet";
+            string exchangeId = apiRequest.exchangeId;// "NYS";
+            string identifier = apiRequest.identifier;// "IBM";
+            string startDate = "01/2018";
+            string endDate = "05/2018";
+            string identifierType = "Symbol";
+            string statementType = "Quarterly";
+            string dataType = "AOR";
+            string responseType = "JSON";
+            string Token = token;
+            string BalanceSheetURL = "http://equityapi.morningstar.com/WebService/CompanyFinancialsService.asmx/GetBalanceSheet?category={0}&exchangeId={1}S&identifier={2}&startDate={3}&endDate={4}&identifierType={5}&statementType={6}&dataType={7}&responseType={8}&Token={9}";
+            BalanceSheetModel objBalanceSheet = new BalanceSheetModel();
+            string sURL = string.Format(BalanceSheetURL, category, exchangeId, identifier,startDate, endDate, identifierType,statementType, dataType,responseType, Token);
 
-        public static MarketCapitalizationModel GetCurrentMarketCapitalization(string token)
+            result = GetResultByURL(sURL);
+
+            try
+            {
+                objBalanceSheet = JsonConvert.DeserializeObject<BalanceSheetModel>(result);
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
+            return objBalanceSheet;
+        }
+
+        public static CashFlowModel GetCashFlow(string token, APIRequest apiRequest)
+        {
+            string result = null;
+            string category = "GetCashFlow";
+            string exchangeId = apiRequest.exchangeId;// "NYS";
+            string identifier = apiRequest.identifier;// "IBM";
+            string startDate = "01/2018";
+            string endDate = "05/2018";
+            string identifierType = "Symbol";
+            string statementType = "Quarterly";
+            string dataType = "AOR";
+            string responseType = "JSON";
+            string Token = token;
+            string CashFlowURL = "http://equityapi.morningstar.com/WebService/CompanyFinancialsService.asmx/GetCashFlow?category={0}&exchangeId={1}&identifier={2}&startDate={3}&endDate={4}&identifierType={5}&statementType={6}&dataType={7}&responseType={8}&Token={9}";
+            CashFlowModel objCashFlow = new CashFlowModel();
+            string sURL = string.Format(CashFlowURL, category, exchangeId, identifier, startDate, endDate, identifierType, statementType, dataType, responseType, Token);
+
+            result = GetResultByURL(sURL);
+
+            try
+            {
+                objCashFlow = JsonConvert.DeserializeObject<CashFlowModel>(result);
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
+            return objCashFlow;
+        }
+
+
+        #endregion
+
+        #region MarketPerformance
+        public static ReturnStatistics GetReturnStatistics(string token, APIRequest apiRequest)
+        {
+            string result = null;
+            string category = "GetReturnStatistics";
+            string exchangeId = apiRequest.exchangeId; //"NYS";
+            string identifier = apiRequest.identifier;// "IBM";
+            string identifierType = "Symbol";
+            string responseType = "JSON";
+            string Token = token;
+            string BalanceSheetURL = "http://equityapi.morningstar.com/WebService/MarketPerformanceService.asmx/GetReturnStatistics?category={0}&exchangeId={1}&identifier={2}&responseType={3}&identifierType={4}&Token={5}";
+            ReturnStatistics objReturnStatistics = new ReturnStatistics();
+            string sURL = string.Format(BalanceSheetURL, category, exchangeId, identifier, responseType, identifierType, Token);
+
+
+            result = GetResultByURL(sURL);
+
+            try
+            {
+                objReturnStatistics = JsonConvert.DeserializeObject<ReturnStatistics>(result);
+                objReturnStatistics.ReturnStatisticsEntityList.FirstOrDefault().Symbol = objReturnStatistics.GeneralInfo.Symbol;
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
+            return objReturnStatistics;
+        }
+        public static MarketCapitalizationModel GetCurrentMarketCapitalization(string token, APIRequest apiRequest)
         {
             string result = null;
             string category = "GetCurrentMarketCapitalization";
-            string exchangeId = "NYS";
-            string identifier = "IBM";
+            string exchangeId = apiRequest.exchangeId;// "NYS";
+            string identifier = apiRequest.identifier;// "IBM";
             string identifierType = "Symbol";
             string responseType = "JSON";
             string Token = token;
@@ -335,14 +427,15 @@ namespace CommonLibrary
 
             return objMarketCapitalization;
         }
+        #endregion
 
-
-        public static SharesSnapshotModel GetSharesSnapshot(string token)
+        #region GlobalStockAnalysis
+        public static SharesSnapshotModel GetSharesSnapshot(string token, APIRequest apiRequest)
         {
             string result = null;
             string category = "GetSharesSnapshot";
-            string exchangeId = "NYS";
-            string identifier = "IBM";
+            string exchangeId = apiRequest.exchangeId; //"NYS";
+            string identifier = apiRequest.identifier; //"IBM";
             string identifierType = "Symbol";
             string responseType = "JSON";
             string Token = token;
@@ -365,37 +458,39 @@ namespace CommonLibrary
 
             return objSharesSnapshot;
         }
+        #endregion
 
 
-        public static ValuationRatios GetValuationRatios(string token)
+        #region ExchangeCoverage
+        public static StockExchangeSecurityModel GetStockExchangeSecurity(string token, APIRequest apiRequest)
         {
             string result = null;
-            string category = "GetValuationRatios";
-            string exchangeId = "NYS";
-            string identifier = "IBM";
+            string category = "GetStockExchangeSecurityList";
+            string exchangeId = apiRequest.exchangeId; //"NYS";
+            string identifier = apiRequest.identifier;// "IBM";
             string identifierType = "Symbol";
-            string period = "Snapshot";
+            string stockStatus = "Active";
             string responseType = "JSON";
             string Token = token;
-            string ValuationRatiosURL = "http://equityapi.morningstar.com/WebService/FinancialKeyRatiosService.asmx/GetValuationRatios?category={0}&exchangeId={1}&identifier={2}&identifierType={3}&period={4}&responseType={5}&Token={6}";
-            ValuationRatios objValuationRatios = new ValuationRatios();
-            string sURL = string.Format(ValuationRatiosURL, category, exchangeId, identifier,identifierType, period, responseType, Token);
+            string StockExchangeSecuritytURL = "http://equityapi.morningstar.com/WebService/GlobalMasterListsService.asmx/GetStockExchangeSecurityList?category={0}&exchangeId={1}&identifier={2}&identifierType={3}&stockStatus={4}&responseType={5}&Token={6}";
+            StockExchangeSecurityModel objStockExchangeSecurity = new StockExchangeSecurityModel();
+            string sURL = string.Format(StockExchangeSecuritytURL, category, exchangeId, identifier, identifierType,  stockStatus, responseType, Token);
+
 
             result = GetResultByURL(sURL);
+
             try
             {
-                objValuationRatios = JsonConvert.DeserializeObject<ValuationRatios>(result);
-                objValuationRatios.valuationRatioEntityList.FirstOrDefault().Symbol = objValuationRatios.GeneralInfo.Symbol;
+                objStockExchangeSecurity = JsonConvert.DeserializeObject<StockExchangeSecurityModel>(result);
             }
             catch (Exception e)
             {
                 throw;
             }
 
-            return objValuationRatios;
+            return objStockExchangeSecurity;
         }
-
-
+        #endregion
 
     }
 }

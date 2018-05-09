@@ -1,33 +1,30 @@
-﻿using CommonLibrary;
-using CommonLibrary.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using CommonLibrary;
+using CommonLibrary.Models;
 
 namespace FinCurate.Controllers
 {
-    public class SharesController : ApiController
+    public class ExchangeCoverageController : ApiController
     {
-
         string connstring = ConfigurationManager.AppSettings["ConnectionString"].ToString();
         TokenEntity tokenEntity = new TokenEntity { Token = ConfigurationManager.AppSettings["fincurateToken"].ToString(), IsSuccess = true, expireDate = DateTime.Now.AddHours(2) };//Login(email, password);
         string email = ConfigurationManager.AppSettings["fincurateEmail"].ToString();
         string Password = ConfigurationManager.AppSettings["fincuratePassword"].ToString();
 
-
-        // GET: api/Shares
         [HttpPost]
-        public HttpResponseMessage PostSharesSnapshot(HttpRequestMessage request, [FromBody] APIRequest apiRequest)
+        public HttpResponseMessage PostStockExchangeSecurity(HttpRequestMessage request, [FromBody] APIRequest apiRequest)
         {
-            SharesSnapshotModel objSharesSnapshot = new SharesSnapshotModel();
-            objSharesSnapshot = Common.GetSharesSnapshot(tokenEntity.Token, apiRequest);
-            if (objSharesSnapshot != null) //&& objCompanyFinancials.MessageInfo.MessageCode.Equals(200)
+            StockExchangeSecurityModel objStockExchangeSecurity = new StockExchangeSecurityModel();
+            objStockExchangeSecurity = Common.GetStockExchangeSecurity(tokenEntity.Token, apiRequest);
+            if (objStockExchangeSecurity != null)
             {
-                bool result = InsertUpdateSharesSnapshot(objSharesSnapshot, connstring);
+                bool result = InsertUpdateStockExchangeSecurity(objStockExchangeSecurity, connstring);
                 if (result)
                 {
                     return request.CreateResponse(HttpStatusCode.OK, "Data is updated Sucessfully");
@@ -36,26 +33,27 @@ namespace FinCurate.Controllers
             return request.CreateResponse(HttpStatusCode.NotModified, "Unable to update data");
         }
 
-    
-        private static bool InsertUpdateSharesSnapshot(SharesSnapshotModel objSharesSnapshot, string connstring)
+
+
+        private static bool InsertUpdateStockExchangeSecurity(StockExchangeSecurityModel objStockExchangeSecurity, string connstring)
         {
             try
             {
+                   var result = AutoMapper.Mapper.Map<FinCurate.StockExchangeSecurity>(objStockExchangeSecurity.StockExchangeSecurityEntityList.FirstOrDefault());
 
-                var result = AutoMapper.Mapper.Map<FinCurate.SharesSnapshot>(objSharesSnapshot.sharesSnapshotEntity);
                 using (FincurateEntities context = new FincurateEntities())
                 {
-                    var IsExisting = context.SharesSnapshots.Where(m => m.Symbol == result.Symbol).FirstOrDefault();
+                    var IsExisting = context.StockExchangeSecurities.Where(m => m.Symbol == result.Symbol).FirstOrDefault();
                     if (IsExisting == null)
                     {
-                        context.SharesSnapshots.Add(result);
+                        context.StockExchangeSecurities.Add(result);
                     }
                     else
                     {
-                        context.SharesSnapshots.Remove(IsExisting);
+                        context.StockExchangeSecurities.Remove(IsExisting);
                         context.SaveChanges();
                     }
-                    context.SharesSnapshots.Add(result);
+                    context.StockExchangeSecurities.Add(result);
 
                     context.SaveChanges();
                 }
@@ -66,8 +64,6 @@ namespace FinCurate.Controllers
                 return false;
                 throw;
             }
-
         }
-
     }
 }

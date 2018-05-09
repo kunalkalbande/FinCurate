@@ -222,11 +222,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ranjitp\\source\\repos\\FinCurate\\CommonLibrary\\CommonLibrary.csproj",
+      "projectUniqueName": "E:\\FinCurate\\CommonLibrary\\CommonLibrary.csproj",
       "projectName": "CommonLibrary",
-      "projectPath": "C:\\Users\\ranjitp\\source\\repos\\FinCurate\\CommonLibrary\\CommonLibrary.csproj",
+      "projectPath": "E:\\FinCurate\\CommonLibrary\\CommonLibrary.csproj",
       "packagesPath": "C:\\Users\\ranjitp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ranjitp\\source\\repos\\FinCurate\\CommonLibrary\\obj\\",
+      "outputPath": "E:\\FinCurate\\CommonLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",

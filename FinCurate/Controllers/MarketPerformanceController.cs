@@ -21,49 +21,39 @@ namespace FinCurate.Controllers
 
         // Post: api/MarketPerformance
         [HttpPost]
-        public HttpResponseMessage PostReturnStatistics(HttpRequestMessage request)
+        public HttpResponseMessage PostReturnStatistics(HttpRequestMessage request, [FromBody] APIRequest apiRequest)
         {
             ReturnStatistics objReturnStatistics = new ReturnStatistics();
-            objReturnStatistics = Common.GetReturnStatistics(tokenEntity.Token);
+            objReturnStatistics = Common.GetReturnStatistics(tokenEntity.Token, apiRequest);
             if (objReturnStatistics != null)
             {
-                InsertUpdateReturnStatistics(objReturnStatistics, connstring);
-                return request.CreateResponse(HttpStatusCode.OK, "Return Statistics Posted Successfully");
+                bool result = InsertUpdateReturnStatistics(objReturnStatistics, connstring);
+                if (result)
+                {
+                    return request.CreateResponse(HttpStatusCode.OK, "Data is updated Sucessfully");
+                }
             }
-            //}
-            return request.CreateResponse(HttpStatusCode.NotModified, "Unable to post data");
+            return request.CreateResponse(HttpStatusCode.NotModified, "Unable to update data");
         }
 
         [HttpPost]
-        public HttpResponseMessage PostCurrentMarketCapitalization(HttpRequestMessage request)
+        public HttpResponseMessage PostCurrentMarketCapitalization(HttpRequestMessage request, [FromBody] APIRequest apiRequest)
         {
             MarketCapitalizationModel objMarketCapitalization = new MarketCapitalizationModel();
-            objMarketCapitalization = Common.GetCurrentMarketCapitalization(tokenEntity.Token);
+            objMarketCapitalization = Common.GetCurrentMarketCapitalization(tokenEntity.Token, apiRequest);
             if (objMarketCapitalization != null)
             {
-                InsertUpdateMarketCapitalization(objMarketCapitalization, connstring);
-                return request.CreateResponse(HttpStatusCode.OK, "Return Statistics Posted Successfully");
+                bool result = InsertUpdateMarketCapitalization(objMarketCapitalization, connstring);
+                if (result)
+                {
+                    return request.CreateResponse(HttpStatusCode.OK, "Data is updated Sucessfully");
+                }
             }
-            //}
-            return request.CreateResponse(HttpStatusCode.NotModified, "Unable to post data");
+            return request.CreateResponse(HttpStatusCode.NotModified, "Unable to update data");
         }
 
-        // POST: api/MarketPerformance
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/MarketPerformance/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/MarketPerformance/5
-        public void Delete(int id)
-        {
-        }
-
-        private static void InsertUpdateReturnStatistics(ReturnStatistics objReturnStatistics, string connstring)
+        #region privateMethodes
+        private static bool InsertUpdateReturnStatistics(ReturnStatistics objReturnStatistics, string connstring)
         {
             try
             {
@@ -85,19 +75,17 @@ namespace FinCurate.Controllers
                     context.ReturnStatistics.Add(result);
 
                     context.SaveChanges();
-
                 }
+                return true;
             }
             catch (Exception)
             {
-
+                return false;
                 throw;
             }
-
         }
 
-
-        private static void InsertUpdateMarketCapitalization(MarketCapitalizationModel objMarketCapitalization, string connstring)
+        private static bool InsertUpdateMarketCapitalization(MarketCapitalizationModel objMarketCapitalization, string connstring)
         {
             try
             {
@@ -119,15 +107,17 @@ namespace FinCurate.Controllers
 
                     context.SaveChanges();
                 }
+                return true;
             }
             catch (Exception)
             {
-
+                return false;
                 throw;
             }
 
         }
 
+        #endregion
 
     }
 }

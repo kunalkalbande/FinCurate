@@ -188,6 +188,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="BalanceSheet.cs">
+      <DependentUpon>FincurateEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="CashFlow.cs">
       <DependentUpon>FincurateEntities.tt</DependentUpon>
     </Compile>
@@ -198,11 +201,11 @@
       <DependentUpon>FincurateEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\CompanyFinancialsController.cs" />
+    <Compile Include="Controllers\ExchangeCoverageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarketPerformanceController.cs" />
     <Compile Include="Controllers\ProfitabilityRatiosController.cs" />
     <Compile Include="Controllers\SharesController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Country.cs">
       <DependentUpon>FincurateEntities.tt</DependentUpon>
     </Compile>
@@ -304,6 +307,9 @@
       <DependentUpon>FincurateEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="StockExchangeSecurity.cs">
+      <DependentUpon>FincurateEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StockExchangeSecurity1.cs">
       <DependentUpon>FincurateEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="StockPriceAvailability.cs">
