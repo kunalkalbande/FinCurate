@@ -402,6 +402,7 @@
           <Property Name="CurrentOtherFinancialLiabilities" Type="nvarchar(max)" />
           <Property Name="NonCurrentOtherFinancialLiabilities" Type="nvarchar(max)" />
           <Property Name="OtherFinancialLiabilities" Type="nvarchar(max)" />
+          <Property Name="Symbol" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="CashFlows">
           <Key>
@@ -646,8 +647,9 @@
           <Property Name="SaleOfInvestmentProperties" Type="nvarchar(max)" />
           <Property Name="OtherCashAdjustIncludedIntoChangeinCash" Type="nvarchar(max)" />
           <Property Name="OtherCashAdjustExcludeFromChangeinCash" Type="nvarchar(max)" />
+          <Property Name="Symbol" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="CashFlowTTMs">
+        <EntityType Name="CashFlowsTTM">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -656,66 +658,241 @@
           <Property Name="PeriodEndingDate" Type="nvarchar(max)" />
           <Property Name="StatementType" Type="nvarchar(max)" />
           <Property Name="CurrencyId" Type="nvarchar(max)" />
-          <Property Name="FiscalYearEnd" Type="int" Nullable="false" />
-          <Property Name="Amortization" Type="float" Nullable="false" />
-          <Property Name="CapitalExpenditure" Type="float" Nullable="false" />
-          <Property Name="CashDividendsPaid" Type="float" Nullable="false" />
-          <Property Name="CashFlowFromContinuingFinancingActivities" Type="float" Nullable="false" />
-          <Property Name="CashFlowFromContinuingInvestingActivities" Type="float" Nullable="false" />
-          <Property Name="CashFlowFromContinuingOperatingActivities" Type="float" Nullable="false" />
-          <Property Name="FinancingCashFlow" Type="float" Nullable="false" />
-          <Property Name="InvestingCashFlow" Type="float" Nullable="false" />
-          <Property Name="OperatingCashFlow" Type="float" Nullable="false" />
-          <Property Name="BeginningCashPosition" Type="float" Nullable="false" />
-          <Property Name="EndCashPosition" Type="float" Nullable="false" />
-          <Property Name="ChangesInCash" Type="float" Nullable="false" />
-          <Property Name="ChangeInOtherWorkingCapital" Type="float" Nullable="false" />
-          <Property Name="ChangeInWorkingCapital" Type="float" Nullable="false" />
-          <Property Name="CommonStockDividendPaid" Type="float" Nullable="false" />
-          <Property Name="Depreciation" Type="float" Nullable="false" />
-          <Property Name="DepreciationAndAmortization" Type="float" Nullable="false" />
-          <Property Name="DepreciationAmortizationDepletion" Type="float" Nullable="false" />
-          <Property Name="EffectOfExchangeRateChanges" Type="float" Nullable="false" />
-          <Property Name="NetCommonStockIssuance" Type="float" Nullable="false" />
-          <Property Name="NetIssuancePaymentsOfDebt" Type="float" Nullable="false" />
-          <Property Name="NetLongTermDebtIssuance" Type="float" Nullable="false" />
-          <Property Name="NetShortTermDebtIssuance" Type="float" Nullable="false" />
-          <Property Name="NetIncomeFromContinuingOperations" Type="float" Nullable="false" />
-          <Property Name="OperatingGainsLosses" Type="float" Nullable="false" />
-          <Property Name="NetOtherFinancingCharges" Type="float" Nullable="false" />
-          <Property Name="NetOtherInvestingChanges" Type="float" Nullable="false" />
-          <Property Name="CommonStockPayments" Type="float" Nullable="false" />
-          <Property Name="LongTermDebtPayments" Type="float" Nullable="false" />
-          <Property Name="LongTermDebtIssuance" Type="float" Nullable="false" />
-          <Property Name="PurchaseOfIntangibles" Type="float" Nullable="false" />
-          <Property Name="PurchaseOfInvestment" Type="float" Nullable="false" />
-          <Property Name="PurchaseOfPPE" Type="float" Nullable="false" />
-          <Property Name="PurchaseOfBusiness" Type="float" Nullable="false" />
-          <Property Name="NetBusinessPurchaseAndSale" Type="float" Nullable="false" />
-          <Property Name="NetIntangiblesPurchaseAndSale" Type="float" Nullable="false" />
-          <Property Name="NetInvestmentPurchaseAndSale" Type="float" Nullable="false" />
-          <Property Name="NetPPEPurchaseAndSale" Type="float" Nullable="false" />
-          <Property Name="SaleOfInvestment" Type="float" Nullable="false" />
-          <Property Name="SaleOfPPE" Type="float" Nullable="false" />
-          <Property Name="StockBasedCompensation" Type="float" Nullable="false" />
-          <Property Name="AmortizationOfIntangibles" Type="float" Nullable="false" />
-          <Property Name="IssuanceOfDebt" Type="float" Nullable="false" />
-          <Property Name="RepaymentOfDebt" Type="float" Nullable="false" />
-          <Property Name="RepurchaseOfCapitalStock" Type="float" Nullable="false" />
-          <Property Name="FreeCashFlow" Type="float" Nullable="false" />
+          <Property Name="FiscalYearEnd" Type="nvarchar(max)" />
+          <Property Name="Amortization" Type="nvarchar(max)" />
+          <Property Name="DepreciationAndAmortization" Type="nvarchar(max)" />
+          <Property Name="DepreciationAmortizationDepletion" Type="nvarchar(max)" />
+          <Property Name="AmortizationOfIntangibles" Type="nvarchar(max)" />
           <Property Name="FiscalYearChange" Type="nvarchar(max)" />
           <Property Name="FileDate" Type="nvarchar(max)" />
-          <Property Name="ChangeInAccountPayable" Type="float" />
-          <Property Name="ChangeInInventory" Type="float" />
-          <Property Name="ChangeInPayable" Type="float" />
-          <Property Name="ChangeInPayablesAndAccruedExpense" Type="float" />
-          <Property Name="ChangeInReceivables" Type="float" />
-          <Property Name="DeferredIncomeTax" Type="float" />
-          <Property Name="DeferredTax" Type="float" />
-          <Property Name="GainLossOnSaleOfBusiness" Type="float" />
-          <Property Name="IncomeTaxPaidSupplementalData" Type="float" />
-          <Property Name="InterestPaidSupplementalData" Type="float" />
           <Property Name="AccessionNumber" Type="nvarchar(max)" />
+          <Property Name="DataType" Type="nvarchar(max)" />
+          <Property Name="CapitalExpenditure" Type="nvarchar(max)" />
+          <Property Name="CashDividendsPaid" Type="nvarchar(max)" />
+          <Property Name="CashFlowFromContinuingFinancingActivities" Type="nvarchar(max)" />
+          <Property Name="CashFlowFromContinuingInvestingActivities" Type="nvarchar(max)" />
+          <Property Name="CashFlowFromContinuingOperatingActivities" Type="nvarchar(max)" />
+          <Property Name="FinancingCashFlow" Type="nvarchar(max)" />
+          <Property Name="InvestingCashFlow" Type="nvarchar(max)" />
+          <Property Name="OperatingCashFlow" Type="nvarchar(max)" />
+          <Property Name="BeginningCashPosition" Type="nvarchar(max)" />
+          <Property Name="EndCashPosition" Type="nvarchar(max)" />
+          <Property Name="ChangeInAccountPayable" Type="nvarchar(max)" />
+          <Property Name="ChangesInCash" Type="nvarchar(max)" />
+          <Property Name="ChangeInInventory" Type="nvarchar(max)" />
+          <Property Name="ChangeInOtherWorkingCapital" Type="nvarchar(max)" />
+          <Property Name="ChangeInPayable" Type="nvarchar(max)" />
+          <Property Name="ChangeInPayablesAndAccruedExpense" Type="nvarchar(max)" />
+          <Property Name="ChangeInReceivables" Type="nvarchar(max)" />
+          <Property Name="ChangeInWorkingCapital" Type="nvarchar(max)" />
+          <Property Name="CommonStockDividendPaid" Type="nvarchar(max)" />
+          <Property Name="DeferredIncomeTax" Type="nvarchar(max)" />
+          <Property Name="DeferredTax" Type="nvarchar(max)" />
+          <Property Name="Depreciation" Type="nvarchar(max)" />
+          <Property Name="EffectOfExchangeRateChanges" Type="nvarchar(max)" />
+          <Property Name="GainLossOnSaleOfBusiness" Type="nvarchar(max)" />
+          <Property Name="NetCommonStockIssuance" Type="nvarchar(max)" />
+          <Property Name="NetIssuancePaymentsOfDebt" Type="nvarchar(max)" />
+          <Property Name="NetLongTermDebtIssuance" Type="nvarchar(max)" />
+          <Property Name="NetShortTermDebtIssuance" Type="nvarchar(max)" />
+          <Property Name="NetIncomeFromContinuingOperations" Type="nvarchar(max)" />
+          <Property Name="OperatingGainsLosses" Type="nvarchar(max)" />
+          <Property Name="NetOtherFinancingCharges" Type="nvarchar(max)" />
+          <Property Name="NetOtherInvestingChanges" Type="nvarchar(max)" />
+          <Property Name="CommonStockPayments" Type="nvarchar(max)" />
+          <Property Name="LongTermDebtPayments" Type="nvarchar(max)" />
+          <Property Name="LongTermDebtIssuance" Type="nvarchar(max)" />
+          <Property Name="PurchaseOfIntangibles" Type="nvarchar(max)" />
+          <Property Name="PurchaseOfInvestment" Type="nvarchar(max)" />
+          <Property Name="PurchaseOfPPE" Type="nvarchar(max)" />
+          <Property Name="PurchaseOfBusiness" Type="nvarchar(max)" />
+          <Property Name="NetBusinessPurchaseAndSale" Type="nvarchar(max)" />
+          <Property Name="NetIntangiblesPurchaseAndSale" Type="nvarchar(max)" />
+          <Property Name="NetInvestmentPurchaseAndSale" Type="nvarchar(max)" />
+          <Property Name="NetPPEPurchaseAndSale" Type="nvarchar(max)" />
+          <Property Name="SaleOfInvestment" Type="nvarchar(max)" />
+          <Property Name="SaleOfPPE" Type="nvarchar(max)" />
+          <Property Name="StockBasedCompensation" Type="nvarchar(max)" />
+          <Property Name="IncomeTaxPaidSupplementalData" Type="nvarchar(max)" />
+          <Property Name="InterestPaidSupplementalData" Type="nvarchar(max)" />
+          <Property Name="IssuanceOfDebt" Type="nvarchar(max)" />
+          <Property Name="RepaymentOfDebt" Type="nvarchar(max)" />
+          <Property Name="RepurchaseOfCapitalStock" Type="nvarchar(max)" />
+          <Property Name="FreeCashFlow" Type="nvarchar(max)" />
+          <Property Name="FormType" Type="nvarchar(max)" />
+          <Property Name="Interim" Type="nvarchar(max)" />
+          <Property Name="AmortizationOfFinancingCostsAndDiscounts" Type="nvarchar(max)" />
+          <Property Name="AmortizationOfSecurities" Type="nvarchar(max)" />
+          <Property Name="AssetImpairmentCharge" Type="nvarchar(max)" />
+          <Property Name="CallsMaturitiesOfMaturitySecurities" Type="nvarchar(max)" />
+          <Property Name="NetCapitalExpenditureDisposals" Type="nvarchar(max)" />
+          <Property Name="CapitalExpenditureReported" Type="nvarchar(max)" />
+          <Property Name="CashFlowFromDiscontinuedOperation" Type="nvarchar(max)" />
+          <Property Name="CashFromDiscontinuedFinancingActivities" Type="nvarchar(max)" />
+          <Property Name="CashFromDiscontinuedInvestingActivities" Type="nvarchar(max)" />
+          <Property Name="ChangeInDividendPayable" Type="nvarchar(max)" />
+          <Property Name="ChangeInTaxPayable" Type="nvarchar(max)" />
+          <Property Name="ChangeInAccruedExpense" Type="nvarchar(max)" />
+          <Property Name="ChangeInAccruedInvestmentIncome" Type="nvarchar(max)" />
+          <Property Name="ChangeInDeferredAcquisitionCosts" Type="nvarchar(max)" />
+          <Property Name="ChangeInDeferredCharges" Type="nvarchar(max)" />
+          <Property Name="ChangeInFederalFundsAndSecuritiesSoldForRepurchase" Type="nvarchar(max)" />
+          <Property Name="ChangeInFundsWithheld" Type="nvarchar(max)" />
+          <Property Name="ChangeInIncomeTaxPayable" Type="nvarchar(max)" />
+          <Property Name="ChangeInInterestPayable" Type="nvarchar(max)" />
+          <Property Name="ChangeInLoans" Type="nvarchar(max)" />
+          <Property Name="ChangeInLossAndLossAdjustmentExpenseReserves" Type="nvarchar(max)" />
+          <Property Name="ChangeInOtherCurrentAssets" Type="nvarchar(max)" />
+          <Property Name="ChangeInOtherCurrentLiabilities" Type="nvarchar(max)" />
+          <Property Name="ChangeInPremiumsReceivable" Type="nvarchar(max)" />
+          <Property Name="ChangeInPrepaidAssets" Type="nvarchar(max)" />
+          <Property Name="ChangeInPrepaidReinsurancePremiums" Type="nvarchar(max)" />
+          <Property Name="ChangeInReinsuranceReceivableOnPaidLosses" Type="nvarchar(max)" />
+          <Property Name="ChangeInReinsuranceRecoverableOnPaidAndUnpaidLosses" Type="nvarchar(max)" />
+          <Property Name="ChangeInReinsuranceRecoverableOnUnpaidLosses" Type="nvarchar(max)" />
+          <Property Name="ChangeInRestrictedCash" Type="nvarchar(max)" />
+          <Property Name="ChangeInTradingAccountSecurities" Type="nvarchar(max)" />
+          <Property Name="ChangeInUnearnedPremiums" Type="nvarchar(max)" />
+          <Property Name="ChangeInUnearnedPremiumsCeded" Type="nvarchar(max)" />
+          <Property Name="CumulativeEffectOfAccountingChange" Type="nvarchar(max)" />
+          <Property Name="Depletion" Type="nvarchar(max)" />
+          <Property Name="EarningsLossesFromEquityInvestments" Type="nvarchar(max)" />
+          <Property Name="ExcessTaxBenefitFromStockBasedCompensation" Type="nvarchar(max)" />
+          <Property Name="ExtraordinaryItems" Type="nvarchar(max)" />
+          <Property Name="GainLossOnInvestmentSecurities" Type="nvarchar(max)" />
+          <Property Name="GainLossOnSaleOfPPE" Type="nvarchar(max)" />
+          <Property Name="IncreaseDecreaseInDeposit" Type="nvarchar(max)" />
+          <Property Name="InterestCreditedOnPolicyholderDeposits" Type="nvarchar(max)" />
+          <Property Name="NetPreferredStockIssuance" Type="nvarchar(max)" />
+          <Property Name="CashFromDiscontinuedOperatingActivities" Type="nvarchar(max)" />
+          <Property Name="NetForeignCurrencyExchangeGainLoss" Type="nvarchar(max)" />
+          <Property Name="NetIncome" Type="nvarchar(max)" />
+          <Property Name="NetIncomeFromDiscontinuedOperations" Type="nvarchar(max)" />
+          <Property Name="NetRealizedInvestmentGains" Type="nvarchar(max)" />
+          <Property Name="OtherNonCashItems" Type="nvarchar(max)" />
+          <Property Name="PaymentForLoans" Type="nvarchar(max)" />
+          <Property Name="PreferredStockPayments" Type="nvarchar(max)" />
+          <Property Name="ShortTermDebtPayments" Type="nvarchar(max)" />
+          <Property Name="PensionAndEmployeeBenefitExpense" Type="nvarchar(max)" />
+          <Property Name="PreferredStockDividendPaid" Type="nvarchar(max)" />
+          <Property Name="ProceedsFromIssuanceOfWarrants" Type="nvarchar(max)" />
+          <Property Name="ProceedsFromLoans" Type="nvarchar(max)" />
+          <Property Name="ProceedsFromStockOptionExercised" Type="nvarchar(max)" />
+          <Property Name="CommonStockIssuance" Type="nvarchar(max)" />
+          <Property Name="PreferredStockIssuance" Type="nvarchar(max)" />
+          <Property Name="ShortTermDebtIssuance" Type="nvarchar(max)" />
+          <Property Name="ProceedsPaymentFederalFundsSoldAndSecuritiesPurchasedUnderAgreementToResell" Type="nvarchar(max)" />
+          <Property Name="NetProceedsPaymentForLoan" Type="nvarchar(max)" />
+          <Property Name="ProceedsPaymentInInterestBearingDepositsInBank" Type="nvarchar(max)" />
+          <Property Name="ProvisionForLoanLeaseAndOtherLosses" Type="nvarchar(max)" />
+          <Property Name="PurchaseOfEquitySecurities" Type="nvarchar(max)" />
+          <Property Name="PurchaseOfFixedMaturitySecurities" Type="nvarchar(max)" />
+          <Property Name="PurchaseOfLongTermInvestments" Type="nvarchar(max)" />
+          <Property Name="PurchaseOfShortTermInvestments" Type="nvarchar(max)" />
+          <Property Name="PurchaseOfTechnology" Type="nvarchar(max)" />
+          <Property Name="NetTechnologyPurchaseAndSale" Type="nvarchar(max)" />
+          <Property Name="RealizedGainLossOnSaleOfLoansAndLease" Type="nvarchar(max)" />
+          <Property Name="SaleOfBusiness" Type="nvarchar(max)" />
+          <Property Name="SaleOfIntangibles" Type="nvarchar(max)" />
+          <Property Name="SaleOfLongTermInvestments" Type="nvarchar(max)" />
+          <Property Name="SaleOfShortTermInvestments" Type="nvarchar(max)" />
+          <Property Name="SaleOfTechnology" Type="nvarchar(max)" />
+          <Property Name="SalesOfEquitySecurities" Type="nvarchar(max)" />
+          <Property Name="SalesOfFixedMaturitySecurities" Type="nvarchar(max)" />
+          <Property Name="UnrealizedGainLossOnInvestmentSecurities" Type="nvarchar(max)" />
+          <Property Name="UnrealizedGainsLossesOnDerivatives" Type="nvarchar(max)" />
+          <Property Name="AllowanceForFundsConstruction" Type="nvarchar(max)" />
+          <Property Name="ChangesInAccountReceivables" Type="nvarchar(max)" />
+          <Property Name="DomesticSales" Type="nvarchar(max)" />
+          <Property Name="ForeignSales" Type="nvarchar(max)" />
+          <Property Name="IssuanceOfCapitalStock" Type="nvarchar(max)" />
+          <Property Name="DirectCashFlowsFromOperatingActivities" Type="nvarchar(max)" />
+          <Property Name="DecreaseinInterestBearingDepositsinBank" Type="nvarchar(max)" />
+          <Property Name="IncreaseinInterestBearingDepositsinBank" Type="nvarchar(max)" />
+          <Property Name="AdjustedGeographySegmentData" Type="nvarchar(max)" />
+          <Property Name="InterestReceivedCFO" Type="nvarchar(max)" />
+          <Property Name="InterestPaidCFO" Type="nvarchar(max)" />
+          <Property Name="PurchaseofSubsidiaries" Type="nvarchar(max)" />
+          <Property Name="PurchaseofJointVentureAssociate" Type="nvarchar(max)" />
+          <Property Name="SaleofSubsidiaries" Type="nvarchar(max)" />
+          <Property Name="SaleofJointVentureAssociate" Type="nvarchar(max)" />
+          <Property Name="IncreaseDecreaseinLeaseFinancing" Type="nvarchar(max)" />
+          <Property Name="IncreaseinLeaseFinancing" Type="nvarchar(max)" />
+          <Property Name="RepaymentinLeaseFinancing" Type="nvarchar(max)" />
+          <Property Name="ShareofAssociates" Type="nvarchar(max)" />
+          <Property Name="ProfitonDisposals" Type="nvarchar(max)" />
+          <Property Name="ReorganizationOtherCosts" Type="nvarchar(max)" />
+          <Property Name="OtherFinancing" Type="nvarchar(max)" />
+          <Property Name="NetOutwardLoans" Type="nvarchar(max)" />
+          <Property Name="IssueExpenses" Type="nvarchar(max)" />
+          <Property Name="ChangeinCertificatesofDepositsandDebtSecuritiesIssued" Type="nvarchar(max)" />
+          <Property Name="PaymentstoAcquireHeldToMaturityInvestments" Type="nvarchar(max)" />
+          <Property Name="PaymentstoAcquireAvailableForSaleFinancialAssets" Type="nvarchar(max)" />
+          <Property Name="PaymentstoAcquireFinancialAssetsDesignatedasFairValue" Type="nvarchar(max)" />
+          <Property Name="ProceedsfromDisposalofHeldToMaturityInvestments" Type="nvarchar(max)" />
+          <Property Name="ProceedsfromDisposalofAvailableForSaleFinancialAssets" Type="nvarchar(max)" />
+          <Property Name="ProceedsfromDisposalofFinancialAssetsDesignatedasFairValue" Type="nvarchar(max)" />
+          <Property Name="ChangeinFairValueofInvestmentProperties" Type="nvarchar(max)" />
+          <Property Name="ChangeinDepositsbyBanksandCustomers" Type="nvarchar(max)" />
+          <Property Name="CashFlowsfromusedinOperatingActivitiesDirect" Type="nvarchar(max)" />
+          <Property Name="ClassesofCashReceiptsfromOperatingActivities" Type="nvarchar(max)" />
+          <Property Name="OtherCashReceiptsfromOperatingActivities" Type="nvarchar(max)" />
+          <Property Name="ClassesofCashPayments" Type="nvarchar(max)" />
+          <Property Name="PaymentstoSuppliersforGoodsandServices" Type="nvarchar(max)" />
+          <Property Name="PaymentsfromContractsHeldforDealingorTradingPurpose" Type="nvarchar(max)" />
+          <Property Name="PaymentsonBehalfofEmployees" Type="nvarchar(max)" />
+          <Property Name="PaymentsforPremiumsandClaimsAnnuitiesandOtherPolicyBenefits" Type="nvarchar(max)" />
+          <Property Name="OtherCashPaymentsfromOperatingActivities" Type="nvarchar(max)" />
+          <Property Name="DividendsPaidDirect" Type="nvarchar(max)" />
+          <Property Name="DividendsReceivedDirect" Type="nvarchar(max)" />
+          <Property Name="InterestPaidDirect" Type="nvarchar(max)" />
+          <Property Name="InterestReceivedDirect" Type="nvarchar(max)" />
+          <Property Name="TaxesRefundPaidDirect" Type="nvarchar(max)" />
+          <Property Name="TotalAdjustmentsforNonCashItems" Type="nvarchar(max)" />
+          <Property Name="ImpairmentLossReversalRecognizedinProfitorLoss" Type="nvarchar(max)" />
+          <Property Name="AdjustmentsforUndistributedProfitsofAssociates" Type="nvarchar(max)" />
+          <Property Name="OtherAdjustmentsforWhichCashEffectsAreInvestingorFinancingCashFlow" Type="nvarchar(max)" />
+          <Property Name="DividendPaidCFO" Type="nvarchar(max)" />
+          <Property Name="DividendReceivedCFO" Type="nvarchar(max)" />
+          <Property Name="TaxesRefundPaid" Type="nvarchar(max)" />
+          <Property Name="OtherOperatingInflowsOutflowsofCash" Type="nvarchar(max)" />
+          <Property Name="ProceedsfromGovernmentGrantsCFI" Type="nvarchar(max)" />
+          <Property Name="CashAdvancesandLoansMadetoOtherParties" Type="nvarchar(max)" />
+          <Property Name="CashReceiptsfromRepaymentofAdvancesandLoansMadetoOtherParties" Type="nvarchar(max)" />
+          <Property Name="CashReceiptsfromPaymentsforFinancialDerivativeContracts" Type="nvarchar(max)" />
+          <Property Name="DividendsReceivedCFI" Type="nvarchar(max)" />
+          <Property Name="InterestReceivedCFI" Type="nvarchar(max)" />
+          <Property Name="IncomeTaxesRefundPaidCFI" Type="nvarchar(max)" />
+          <Property Name="IssuancePaymentofOtherEquityInstrumentsNet" Type="nvarchar(max)" />
+          <Property Name="PaymentsofOtherEquityInstruments" Type="nvarchar(max)" />
+          <Property Name="ProceedsfromIssuingOtherEquityInstruments" Type="nvarchar(max)" />
+          <Property Name="ProceedsfromGovernmentGrantsCFF" Type="nvarchar(max)" />
+          <Property Name="InterestPaidCFF" Type="nvarchar(max)" />
+          <Property Name="IncomeTaxesRefundPaidCFF" Type="nvarchar(max)" />
+          <Property Name="ChangeinAccruedIncome" Type="nvarchar(max)" />
+          <Property Name="ChangeinDeferredIncome" Type="nvarchar(max)" />
+          <Property Name="ChangeinFinancialAssets" Type="nvarchar(max)" />
+          <Property Name="ChangeinAdvancesfromCentralBanks" Type="nvarchar(max)" />
+          <Property Name="ChangeinFinancialLiabilities" Type="nvarchar(max)" />
+          <Property Name="ChangeinInsuranceContractAssets" Type="nvarchar(max)" />
+          <Property Name="ChangeinReinsuranceReceivables" Type="nvarchar(max)" />
+          <Property Name="ChangeinDeferredAcquisitionCostsNet" Type="nvarchar(max)" />
+          <Property Name="ChangeinInsuranceFunds" Type="nvarchar(max)" />
+          <Property Name="ChangeinReinsurancePayables" Type="nvarchar(max)" />
+          <Property Name="ChangeinInvestmentContractLiabilities" Type="nvarchar(max)" />
+          <Property Name="ChangeinInsuranceContractLiabilities" Type="nvarchar(max)" />
+          <Property Name="ProvisionandWriteOffofAssets" Type="nvarchar(max)" />
+          <Property Name="ReceiptsfromCustomers" Type="nvarchar(max)" />
+          <Property Name="ReceiptsfromGovernmentGrants" Type="nvarchar(max)" />
+          <Property Name="MinorityInterest" Type="nvarchar(max)" />
+          <Property Name="CashDividendsForMinorities" Type="nvarchar(max)" />
+          <Property Name="FundFromOperation" Type="nvarchar(max)" />
+          <Property Name="NetInvestmentPropertiesPurchaseAndSale" Type="nvarchar(max)" />
+          <Property Name="PurchaseOfInvestmentProperties" Type="nvarchar(max)" />
+          <Property Name="SaleOfInvestmentProperties" Type="nvarchar(max)" />
+          <Property Name="OtherCashAdjustIncludedIntoChangeinCash" Type="nvarchar(max)" />
+          <Property Name="OtherCashAdjustExcludeFromChangeinCash" Type="nvarchar(max)" />
+          <Property Name="Symbol" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="CompanyFinancialAvailability">
           <Key>
@@ -934,6 +1111,136 @@ warning 6002: The table/view 'Fincurate.dbo.EODPriceSnapshot' does not have a pr
           <Property Name="NumberOfExistingOwnerSelling" Type="int" />
           <Property Name="TotalSharesSold" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
+        <EntityType Name="GrowthRatios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Symbol" Type="varchar" MaxLength="50" />
+          <Property Name="ReportDate" Type="date" />
+          <Property Name="PeriodEndingDate" Type="date" />
+          <Property Name="FileDate" Type="date" />
+          <Property Name="StatementType" Type="varchar" MaxLength="50" />
+          <Property Name="DataType" Type="varchar" MaxLength="50" />
+          <Property Name="Interim" Type="varchar" MaxLength="50" />
+          <Property Name="FiscalYearEnd" Type="int" />
+          <Property Name="DilutedEPS3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedEPS6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedEPS9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedEPSSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedEPS1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedEPS3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedEPS5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedEPS10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedContinuousEPS3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedContinuousEPS6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedContinuousEPS9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedContinuousEPSSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedContinuousEPS1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedContinuousEPS3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedContinuousEPS5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedContinuousEPS10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Dividend3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Dividend6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Dividend9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DividendSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Dividend1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Dividend3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Dividend5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Dividend10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EquityPerShare3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EquityPerShare6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EquityPerShare9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EquityPerShareSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EquityPerShare1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EquityPerShare3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EquityPerShare5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="EquityPerShare10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Revenue3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Revenue6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Revenue9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="RevenueSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Revenue1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Revenue3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Revenue5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Revenue10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingIncome3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingIncome6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingIncome9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingIncomeSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingIncome1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingIncome3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingIncome5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingIncome10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncome3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncome6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncome9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncome1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncome3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncome5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncome10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeContOps3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeContOps6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeContOps9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeContOpsSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeContOps1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeContOps3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeContOps5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeContOps10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CFO3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CFO6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CFO9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CFOSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CFO1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CFO3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CFO5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="CFO10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FCF3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FCF6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FCF9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FCFSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FCF1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FCF3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FCF5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FCF10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingRevenue3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingRevenue6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingRevenue9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingRevenueSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingRevenue1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingRevenue3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingRevenue5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingRevenue10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="GrowthAnnCapitalSpending5Year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="GrowthAnnGrossProfit5Year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AvgGrossMargin5Year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AvgPostTaxMargin5Year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AvgPreTaxMargin5Year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AvgNetProfitMargin5Year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AvgRetCommonEquity5Year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AvgRetAssets5Year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AvgRetInvestedCapital5Year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AccessionNumber" Type="varchar(max)" />
+          <Property Name="FormType" Type="varchar(max)" />
+          <Property Name="RegressionGrowthOperatingRevenue5Years" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedDilutedEPSGrowth1year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedDilutedEPSGrowth3year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedDilutedEPSGrowth5year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedDilutedEPSGrowth10year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedDilutedEPSSamePeriodGrowth3months" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedDilutedEPSSamePeriodGrowth6months" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedDilutedEPSSamePeriodGrowth9months" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedDilutedEPSSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedBasicEPSGrowth1year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedBasicEPSGrowth3year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedBasicEPSGrowth5year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedBasicEPSGrowth10year" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedBasicEPSSamePeriodGrowth3months" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedBasicEPSSamePeriodGrowth6months" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedBasicEPSSamePeriodGrowth9months" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedBasicEPSSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
         <EntityType Name="IncomeStatements">
           <Key>
             <PropertyRef Name="Id" />
@@ -1010,6 +1317,7 @@ warning 6002: The table/view 'Fincurate.dbo.EODPriceSnapshot' does not have a pr
           <Property Name="OtherGandA" Type="float" Nullable="false" />
           <Property Name="NormalizedPretaxIncome" Type="float" Nullable="false" />
           <Property Name="DividendCoverageRatio" Type="float" Nullable="false" />
+          <Property Name="Symbol" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="IncomeStatementTTMs">
           <Key>
@@ -1180,6 +1488,7 @@ warning 6002: The table/view 'Fincurate.dbo.EODPriceSnapshot' does not have a pr
           <Property Name="NonAffiliatedValue" Type="decimal" Precision="18" Scale="0" />
           <Property Name="AccessionNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="FormType" Type="nvarchar" MaxLength="50" />
+          <Property Name="Symbol" Type="varchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Fincurate.dbo.PreferredStockYields' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1288,6 +1597,30 @@ warning 6002: The table/view 'Fincurate.dbo.PreferredStockYields' does not have 
           <Property Name="Beta" Type="decimal" Precision="18" Scale="0" />
           <Property Name="RSquare" Type="decimal" Precision="18" Scale="0" />
           <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SharesHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Symbol" Type="varchar" MaxLength="50" />
+          <Property Name="TSODate" Type="date" />
+          <Property Name="CompanyTSO" Type="nvarchar(max)" />
+          <Property Name="ShareLevelTSOSource" Type="nvarchar(max)" />
+          <Property Name="ShareLevelTSO" Type="nvarchar(max)" />
+          <Property Name="QuotedTSO" Type="nvarchar(max)" />
+          <Property Name="UnquotedTSO" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FloatDate" Type="date" />
+          <Property Name="FloatShare" Type="nvarchar(max)" />
+          <Property Name="InsiderHolding" Type="nvarchar(max)" />
+          <Property Name="FloatShareToTotalSharesOutstanding" Type="nvarchar(max)" />
+          <Property Name="ReasonOfShareChange" Type="varchar(max)" />
+          <Property Name="BalanceSheetDate" Type="date" />
+          <Property Name="ShareClassLevelTreasuryShareOutstanding" Type="nvarchar(max)" />
+          <Property Name="SharesOutstandingWithBalanceSheetEndingDate" Type="nvarchar(max)" />
+          <Property Name="ShareClassLevelTreasuryShareOutstandingFromCover" Type="varchar(max)" Nullable="false" />
+          <Property Name="ShareClassLevelTreasuryShareOutstandingFromInterim" Type="varchar(max)" />
+          <Property Name="ShareClassLevelTreasuryShareOutstandingFromOther" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="SharesSnapshot">
           <Key>
@@ -1434,7 +1767,7 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BalanceSheets" EntityType="Self.BalanceSheets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CashFlows" EntityType="Self.CashFlows" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CashFlowTTMs" EntityType="Self.CashFlowTTMs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CashFlowsTTM" EntityType="Self.CashFlowsTTM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CompanyFinancialAvailability" EntityType="Self.CompanyFinancialAvailability" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Currencies" EntityType="Self.Currencies" Schema="dbo" store:Type="Tables" />
@@ -1443,6 +1776,7 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
           <EntitySet Name="Exchanges" EntityType="Self.Exchanges" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FinancialHealthRatios" EntityType="Self.FinancialHealthRatios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FundHoldingsSummary" EntityType="Self.FundHoldingsSummary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GrowthRatios" EntityType="Self.GrowthRatios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IncomeStatements" EntityType="Self.IncomeStatements" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="IncomeStatementTTMs" EntityType="Self.IncomeStatementTTMs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InsiderHoldingsSummary" EntityType="Self.InsiderHoldingsSummary" Schema="dbo" store:Type="Tables" />
@@ -1457,6 +1791,7 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
           <EntitySet Name="ProfitabilityRatiosTTM" EntityType="Self.ProfitabilityRatiosTTM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReturnStatistics" EntityType="Self.ReturnStatistics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SharesHistory" EntityType="Self.SharesHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SharesSnapshot" EntityType="Self.SharesSnapshot" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StockExchangeSecurities" EntityType="Self.StockExchangeSecurities" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StockExchangeSecurity" EntityType="Self.StockExchangeSecurity" Schema="dbo" store:Type="Tables" />
@@ -1562,7 +1897,6 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
           <EntitySet Name="C__MigrationHistory" EntityType="FincurateModel.C__MigrationHistory" />
           <EntitySet Name="FinancialHealthRatios" EntityType="FincurateModel.FinancialHealthRatio" />
           <EntitySet Name="IncomeStatements" EntityType="FincurateModel.IncomeStatement" />
-          <EntitySet Name="CashFlowTTMs" EntityType="FincurateModel.CashFlowTTM" />
           <EntitySet Name="SharesSnapshots" EntityType="FincurateModel.SharesSnapshot" />
           <EntitySet Name="Exchanges" EntityType="FincurateModel.Exchanx" />
           <EntitySet Name="IncomeStatementTTMs" EntityType="FincurateModel.IncomeStatementTTM" />
@@ -1575,6 +1909,9 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
           <EntitySet Name="StockExchangeSecurities1" EntityType="FincurateModel.StockExchangeSecurity1" />
           <EntitySet Name="BalanceSheets" EntityType="FincurateModel.BalanceSheet" />
           <EntitySet Name="CashFlows" EntityType="FincurateModel.CashFlow" />
+          <EntitySet Name="CashFlowsTTMs" EntityType="FincurateModel.CashFlowsTTM" />
+          <EntitySet Name="SharesHistories" EntityType="FincurateModel.SharesHistory" />
+          <EntitySet Name="GrowthRatios" EntityType="FincurateModel.GrowthRatio" />
         </EntityContainer>
         <EntityType Name="EfficiencyRatio">
           <Key>
@@ -1992,6 +2329,7 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
           <Property Name="NonAffiliatedValue" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="AccessionNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FormType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="C__MigrationHistory">
           <Key>
@@ -2103,76 +2441,7 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
           <Property Name="OtherGandA" Type="Double" Nullable="false" />
           <Property Name="NormalizedPretaxIncome" Type="Double" Nullable="false" />
           <Property Name="DividendCoverageRatio" Type="Double" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CashFlowTTM">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ReportDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PeriodEndingDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="StatementType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="CurrencyId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FiscalYearEnd" Type="Int32" Nullable="false" />
-          <Property Name="Amortization" Type="Double" Nullable="false" />
-          <Property Name="CapitalExpenditure" Type="Double" Nullable="false" />
-          <Property Name="CashDividendsPaid" Type="Double" Nullable="false" />
-          <Property Name="CashFlowFromContinuingFinancingActivities" Type="Double" Nullable="false" />
-          <Property Name="CashFlowFromContinuingInvestingActivities" Type="Double" Nullable="false" />
-          <Property Name="CashFlowFromContinuingOperatingActivities" Type="Double" Nullable="false" />
-          <Property Name="FinancingCashFlow" Type="Double" Nullable="false" />
-          <Property Name="InvestingCashFlow" Type="Double" Nullable="false" />
-          <Property Name="OperatingCashFlow" Type="Double" Nullable="false" />
-          <Property Name="BeginningCashPosition" Type="Double" Nullable="false" />
-          <Property Name="EndCashPosition" Type="Double" Nullable="false" />
-          <Property Name="ChangesInCash" Type="Double" Nullable="false" />
-          <Property Name="ChangeInOtherWorkingCapital" Type="Double" Nullable="false" />
-          <Property Name="ChangeInWorkingCapital" Type="Double" Nullable="false" />
-          <Property Name="CommonStockDividendPaid" Type="Double" Nullable="false" />
-          <Property Name="Depreciation" Type="Double" Nullable="false" />
-          <Property Name="DepreciationAndAmortization" Type="Double" Nullable="false" />
-          <Property Name="DepreciationAmortizationDepletion" Type="Double" Nullable="false" />
-          <Property Name="EffectOfExchangeRateChanges" Type="Double" Nullable="false" />
-          <Property Name="NetCommonStockIssuance" Type="Double" Nullable="false" />
-          <Property Name="NetIssuancePaymentsOfDebt" Type="Double" Nullable="false" />
-          <Property Name="NetLongTermDebtIssuance" Type="Double" Nullable="false" />
-          <Property Name="NetShortTermDebtIssuance" Type="Double" Nullable="false" />
-          <Property Name="NetIncomeFromContinuingOperations" Type="Double" Nullable="false" />
-          <Property Name="OperatingGainsLosses" Type="Double" Nullable="false" />
-          <Property Name="NetOtherFinancingCharges" Type="Double" Nullable="false" />
-          <Property Name="NetOtherInvestingChanges" Type="Double" Nullable="false" />
-          <Property Name="CommonStockPayments" Type="Double" Nullable="false" />
-          <Property Name="LongTermDebtPayments" Type="Double" Nullable="false" />
-          <Property Name="LongTermDebtIssuance" Type="Double" Nullable="false" />
-          <Property Name="PurchaseOfIntangibles" Type="Double" Nullable="false" />
-          <Property Name="PurchaseOfInvestment" Type="Double" Nullable="false" />
-          <Property Name="PurchaseOfPPE" Type="Double" Nullable="false" />
-          <Property Name="PurchaseOfBusiness" Type="Double" Nullable="false" />
-          <Property Name="NetBusinessPurchaseAndSale" Type="Double" Nullable="false" />
-          <Property Name="NetIntangiblesPurchaseAndSale" Type="Double" Nullable="false" />
-          <Property Name="NetInvestmentPurchaseAndSale" Type="Double" Nullable="false" />
-          <Property Name="NetPPEPurchaseAndSale" Type="Double" Nullable="false" />
-          <Property Name="SaleOfInvestment" Type="Double" Nullable="false" />
-          <Property Name="SaleOfPPE" Type="Double" Nullable="false" />
-          <Property Name="StockBasedCompensation" Type="Double" Nullable="false" />
-          <Property Name="AmortizationOfIntangibles" Type="Double" Nullable="false" />
-          <Property Name="IssuanceOfDebt" Type="Double" Nullable="false" />
-          <Property Name="RepaymentOfDebt" Type="Double" Nullable="false" />
-          <Property Name="RepurchaseOfCapitalStock" Type="Double" Nullable="false" />
-          <Property Name="FreeCashFlow" Type="Double" Nullable="false" />
-          <Property Name="FiscalYearChange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FileDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="ChangeInAccountPayable" Type="Double" />
-          <Property Name="ChangeInInventory" Type="Double" />
-          <Property Name="ChangeInPayable" Type="Double" />
-          <Property Name="ChangeInPayablesAndAccruedExpense" Type="Double" />
-          <Property Name="ChangeInReceivables" Type="Double" />
-          <Property Name="DeferredIncomeTax" Type="Double" />
-          <Property Name="DeferredTax" Type="Double" />
-          <Property Name="GainLossOnSaleOfBusiness" Type="Double" />
-          <Property Name="IncomeTaxPaidSupplementalData" Type="Double" />
-          <Property Name="InterestPaidSupplementalData" Type="Double" />
-          <Property Name="AccessionNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="SharesSnapshot">
           <Key>
@@ -2746,6 +3015,7 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
           <Property Name="CurrentOtherFinancialLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="NonCurrentOtherFinancialLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OtherFinancialLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CashFlow">
           <Key>
@@ -2990,6 +3260,406 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
           <Property Name="SaleOfInvestmentProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OtherCashAdjustIncludedIntoChangeinCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OtherCashAdjustExcludeFromChangeinCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CashFlowsTTM">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReportDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PeriodEndingDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StatementType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CurrencyId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FiscalYearEnd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Amortization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DepreciationAndAmortization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DepreciationAmortizationDepletion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AmortizationOfIntangibles" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FiscalYearChange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AccessionNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DataType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CapitalExpenditure" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CashDividendsPaid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CashFlowFromContinuingFinancingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CashFlowFromContinuingInvestingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CashFlowFromContinuingOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FinancingCashFlow" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InvestingCashFlow" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OperatingCashFlow" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BeginningCashPosition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EndCashPosition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInAccountPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangesInCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInInventory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInOtherWorkingCapital" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInPayablesAndAccruedExpense" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInReceivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInWorkingCapital" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CommonStockDividendPaid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DeferredIncomeTax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DeferredTax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Depreciation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EffectOfExchangeRateChanges" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GainLossOnSaleOfBusiness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetCommonStockIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetIssuancePaymentsOfDebt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetLongTermDebtIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetShortTermDebtIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetIncomeFromContinuingOperations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OperatingGainsLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetOtherFinancingCharges" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetOtherInvestingChanges" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CommonStockPayments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LongTermDebtPayments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LongTermDebtIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseOfIntangibles" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseOfInvestment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseOfPPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseOfBusiness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetBusinessPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetIntangiblesPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetInvestmentPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetPPEPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SaleOfInvestment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SaleOfPPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StockBasedCompensation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IncomeTaxPaidSupplementalData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InterestPaidSupplementalData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IssuanceOfDebt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RepaymentOfDebt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RepurchaseOfCapitalStock" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FreeCashFlow" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FormType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Interim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AmortizationOfFinancingCostsAndDiscounts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AmortizationOfSecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AssetImpairmentCharge" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CallsMaturitiesOfMaturitySecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetCapitalExpenditureDisposals" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CapitalExpenditureReported" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CashFlowFromDiscontinuedOperation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CashFromDiscontinuedFinancingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CashFromDiscontinuedInvestingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInDividendPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInTaxPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInAccruedExpense" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInAccruedInvestmentIncome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInDeferredAcquisitionCosts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInDeferredCharges" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInFederalFundsAndSecuritiesSoldForRepurchase" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInFundsWithheld" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInIncomeTaxPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInInterestPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInLoans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInLossAndLossAdjustmentExpenseReserves" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInOtherCurrentAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInOtherCurrentLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInPremiumsReceivable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInPrepaidAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInPrepaidReinsurancePremiums" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInReinsuranceReceivableOnPaidLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInReinsuranceRecoverableOnPaidAndUnpaidLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInReinsuranceRecoverableOnUnpaidLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInRestrictedCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInTradingAccountSecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInUnearnedPremiums" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeInUnearnedPremiumsCeded" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CumulativeEffectOfAccountingChange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Depletion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EarningsLossesFromEquityInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExcessTaxBenefitFromStockBasedCompensation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExtraordinaryItems" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GainLossOnInvestmentSecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GainLossOnSaleOfPPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IncreaseDecreaseInDeposit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InterestCreditedOnPolicyholderDeposits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetPreferredStockIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CashFromDiscontinuedOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetForeignCurrencyExchangeGainLoss" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetIncome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetIncomeFromDiscontinuedOperations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetRealizedInvestmentGains" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherNonCashItems" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentForLoans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PreferredStockPayments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShortTermDebtPayments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PensionAndEmployeeBenefitExpense" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PreferredStockDividendPaid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProceedsFromIssuanceOfWarrants" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProceedsFromLoans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProceedsFromStockOptionExercised" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CommonStockIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PreferredStockIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShortTermDebtIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProceedsPaymentFederalFundsSoldAndSecuritiesPurchasedUnderAgreementToResell" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetProceedsPaymentForLoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProceedsPaymentInInterestBearingDepositsInBank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProvisionForLoanLeaseAndOtherLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseOfEquitySecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseOfFixedMaturitySecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseOfLongTermInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseOfShortTermInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseOfTechnology" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetTechnologyPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RealizedGainLossOnSaleOfLoansAndLease" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SaleOfBusiness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SaleOfIntangibles" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SaleOfLongTermInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SaleOfShortTermInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SaleOfTechnology" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SalesOfEquitySecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SalesOfFixedMaturitySecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UnrealizedGainLossOnInvestmentSecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UnrealizedGainsLossesOnDerivatives" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AllowanceForFundsConstruction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangesInAccountReceivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DomesticSales" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ForeignSales" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IssuanceOfCapitalStock" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DirectCashFlowsFromOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DecreaseinInterestBearingDepositsinBank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IncreaseinInterestBearingDepositsinBank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AdjustedGeographySegmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InterestReceivedCFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InterestPaidCFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseofSubsidiaries" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseofJointVentureAssociate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SaleofSubsidiaries" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SaleofJointVentureAssociate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IncreaseDecreaseinLeaseFinancing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IncreaseinLeaseFinancing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RepaymentinLeaseFinancing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShareofAssociates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProfitonDisposals" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReorganizationOtherCosts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherFinancing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetOutwardLoans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IssueExpenses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeinCertificatesofDepositsandDebtSecuritiesIssued" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentstoAcquireHeldToMaturityInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentstoAcquireAvailableForSaleFinancialAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentstoAcquireFinancialAssetsDesignatedasFairValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProceedsfromDisposalofHeldToMaturityInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProceedsfromDisposalofAvailableForSaleFinancialAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProceedsfromDisposalofFinancialAssetsDesignatedasFairValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeinFairValueofInvestmentProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeinDepositsbyBanksandCustomers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CashFlowsfromusedinOperatingActivitiesDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClassesofCashReceiptsfromOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherCashReceiptsfromOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClassesofCashPayments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentstoSuppliersforGoodsandServices" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentsfromContractsHeldforDealingorTradingPurpose" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentsonBehalfofEmployees" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentsforPremiumsandClaimsAnnuitiesandOtherPolicyBenefits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherCashPaymentsfromOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DividendsPaidDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DividendsReceivedDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InterestPaidDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InterestReceivedDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TaxesRefundPaidDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TotalAdjustmentsforNonCashItems" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImpairmentLossReversalRecognizedinProfitorLoss" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AdjustmentsforUndistributedProfitsofAssociates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherAdjustmentsforWhichCashEffectsAreInvestingorFinancingCashFlow" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DividendPaidCFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DividendReceivedCFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TaxesRefundPaid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherOperatingInflowsOutflowsofCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProceedsfromGovernmentGrantsCFI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CashAdvancesandLoansMadetoOtherParties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CashReceiptsfromRepaymentofAdvancesandLoansMadetoOtherParties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CashReceiptsfromPaymentsforFinancialDerivativeContracts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DividendsReceivedCFI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InterestReceivedCFI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IncomeTaxesRefundPaidCFI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IssuancePaymentofOtherEquityInstrumentsNet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentsofOtherEquityInstruments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProceedsfromIssuingOtherEquityInstruments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProceedsfromGovernmentGrantsCFF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InterestPaidCFF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IncomeTaxesRefundPaidCFF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeinAccruedIncome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeinDeferredIncome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeinFinancialAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeinAdvancesfromCentralBanks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeinFinancialLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeinInsuranceContractAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeinReinsuranceReceivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeinDeferredAcquisitionCostsNet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeinInsuranceFunds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeinReinsurancePayables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeinInvestmentContractLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChangeinInsuranceContractLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProvisionandWriteOffofAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiptsfromCustomers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiptsfromGovernmentGrants" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MinorityInterest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CashDividendsForMinorities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FundFromOperation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NetInvestmentPropertiesPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseOfInvestmentProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SaleOfInvestmentProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherCashAdjustIncludedIntoChangeinCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OtherCashAdjustExcludeFromChangeinCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SharesHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TSODate" Type="DateTime" Precision="0" />
+          <Property Name="CompanyTSO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShareLevelTSOSource" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShareLevelTSO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QuotedTSO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UnquotedTSO" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FloatDate" Type="DateTime" Precision="0" />
+          <Property Name="FloatShare" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InsiderHolding" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FloatShareToTotalSharesOutstanding" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReasonOfShareChange" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BalanceSheetDate" Type="DateTime" Precision="0" />
+          <Property Name="ShareClassLevelTreasuryShareOutstanding" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SharesOutstandingWithBalanceSheetEndingDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ShareClassLevelTreasuryShareOutstandingFromCover" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ShareClassLevelTreasuryShareOutstandingFromInterim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ShareClassLevelTreasuryShareOutstandingFromOther" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="GrowthRatio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReportDate" Type="DateTime" Precision="0" />
+          <Property Name="PeriodEndingDate" Type="DateTime" Precision="0" />
+          <Property Name="FileDate" Type="DateTime" Precision="0" />
+          <Property Name="StatementType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Interim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FiscalYearEnd" Type="Int32" />
+          <Property Name="DilutedEPS3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedEPS6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedEPS9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedEPSSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedEPS1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedEPS3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedEPS5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedEPS10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedContinuousEPS3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedContinuousEPS6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedContinuousEPS9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedContinuousEPSSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedContinuousEPS1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedContinuousEPS3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedContinuousEPS5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DilutedContinuousEPS10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Dividend3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Dividend6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Dividend9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DividendSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Dividend1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Dividend3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Dividend5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Dividend10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EquityPerShare3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EquityPerShare6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EquityPerShare9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EquityPerShareSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EquityPerShare1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EquityPerShare3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EquityPerShare5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="EquityPerShare10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Revenue3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Revenue6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Revenue9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="RevenueSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Revenue1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Revenue3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Revenue5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Revenue10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingIncome3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingIncome6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingIncome9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingIncomeSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingIncome1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingIncome3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingIncome5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingIncome10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncome3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncome6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncome9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncome1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncome3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncome5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncome10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeContOps3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeContOps6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeContOps9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeContOpsSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeContOps1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeContOps3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeContOps5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NetIncomeContOps10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CFO3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CFO6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CFO9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CFOSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CFO1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CFO3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CFO5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CFO10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FCF3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FCF6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FCF9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FCFSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FCF1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FCF3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FCF5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FCF10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingRevenue3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingRevenue6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingRevenue9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingRevenueSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingRevenue1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingRevenue3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingRevenue5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OperatingRevenue10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="GrowthAnnCapitalSpending5Year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="GrowthAnnGrossProfit5Year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AvgGrossMargin5Year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AvgPostTaxMargin5Year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AvgPreTaxMargin5Year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AvgNetProfitMargin5Year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AvgRetCommonEquity5Year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AvgRetAssets5Year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AvgRetInvestedCapital5Year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AccessionNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FormType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RegressionGrowthOperatingRevenue5Years" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedDilutedEPSGrowth1year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedDilutedEPSGrowth3year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedDilutedEPSGrowth5year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedDilutedEPSGrowth10year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedDilutedEPSSamePeriodGrowth3months" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedDilutedEPSSamePeriodGrowth6months" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedDilutedEPSSamePeriodGrowth9months" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedDilutedEPSSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedBasicEPSGrowth1year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedBasicEPSGrowth3year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedBasicEPSGrowth5year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedBasicEPSGrowth10year" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedBasicEPSSamePeriodGrowth3months" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedBasicEPSSamePeriodGrowth6months" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedBasicEPSSamePeriodGrowth9months" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NormalizedBasicEPSSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3415,6 +4085,7 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
           <EntitySetMapping Name="MiscellaneousInfos">
             <EntityTypeMapping TypeName="FincurateModel.MiscellaneousInfo">
               <MappingFragment StoreEntitySet="MiscellaneousInfos">
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
                 <ScalarProperty Name="FormType" ColumnName="FormType" />
                 <ScalarProperty Name="AccessionNumber" ColumnName="AccessionNumber" />
                 <ScalarProperty Name="NonAffiliatedValue" ColumnName="NonAffiliatedValue" />
@@ -3472,6 +4143,7 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
           <EntitySetMapping Name="IncomeStatements">
             <EntityTypeMapping TypeName="FincurateModel.IncomeStatement">
               <MappingFragment StoreEntitySet="IncomeStatements">
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
                 <ScalarProperty Name="DividendCoverageRatio" ColumnName="DividendCoverageRatio" />
                 <ScalarProperty Name="NormalizedPretaxIncome" ColumnName="NormalizedPretaxIncome" />
                 <ScalarProperty Name="OtherGandA" ColumnName="OtherGandA" />
@@ -3541,77 +4213,6 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
                 <ScalarProperty Name="DataType" ColumnName="DataType" />
                 <ScalarProperty Name="StatementType" ColumnName="StatementType" />
                 <ScalarProperty Name="FileDate" ColumnName="FileDate" />
-                <ScalarProperty Name="PeriodEndingDate" ColumnName="PeriodEndingDate" />
-                <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CashFlowTTMs">
-            <EntityTypeMapping TypeName="FincurateModel.CashFlowTTM">
-              <MappingFragment StoreEntitySet="CashFlowTTMs">
-                <ScalarProperty Name="AccessionNumber" ColumnName="AccessionNumber" />
-                <ScalarProperty Name="InterestPaidSupplementalData" ColumnName="InterestPaidSupplementalData" />
-                <ScalarProperty Name="IncomeTaxPaidSupplementalData" ColumnName="IncomeTaxPaidSupplementalData" />
-                <ScalarProperty Name="GainLossOnSaleOfBusiness" ColumnName="GainLossOnSaleOfBusiness" />
-                <ScalarProperty Name="DeferredTax" ColumnName="DeferredTax" />
-                <ScalarProperty Name="DeferredIncomeTax" ColumnName="DeferredIncomeTax" />
-                <ScalarProperty Name="ChangeInReceivables" ColumnName="ChangeInReceivables" />
-                <ScalarProperty Name="ChangeInPayablesAndAccruedExpense" ColumnName="ChangeInPayablesAndAccruedExpense" />
-                <ScalarProperty Name="ChangeInPayable" ColumnName="ChangeInPayable" />
-                <ScalarProperty Name="ChangeInInventory" ColumnName="ChangeInInventory" />
-                <ScalarProperty Name="ChangeInAccountPayable" ColumnName="ChangeInAccountPayable" />
-                <ScalarProperty Name="FileDate" ColumnName="FileDate" />
-                <ScalarProperty Name="FiscalYearChange" ColumnName="FiscalYearChange" />
-                <ScalarProperty Name="FreeCashFlow" ColumnName="FreeCashFlow" />
-                <ScalarProperty Name="RepurchaseOfCapitalStock" ColumnName="RepurchaseOfCapitalStock" />
-                <ScalarProperty Name="RepaymentOfDebt" ColumnName="RepaymentOfDebt" />
-                <ScalarProperty Name="IssuanceOfDebt" ColumnName="IssuanceOfDebt" />
-                <ScalarProperty Name="AmortizationOfIntangibles" ColumnName="AmortizationOfIntangibles" />
-                <ScalarProperty Name="StockBasedCompensation" ColumnName="StockBasedCompensation" />
-                <ScalarProperty Name="SaleOfPPE" ColumnName="SaleOfPPE" />
-                <ScalarProperty Name="SaleOfInvestment" ColumnName="SaleOfInvestment" />
-                <ScalarProperty Name="NetPPEPurchaseAndSale" ColumnName="NetPPEPurchaseAndSale" />
-                <ScalarProperty Name="NetInvestmentPurchaseAndSale" ColumnName="NetInvestmentPurchaseAndSale" />
-                <ScalarProperty Name="NetIntangiblesPurchaseAndSale" ColumnName="NetIntangiblesPurchaseAndSale" />
-                <ScalarProperty Name="NetBusinessPurchaseAndSale" ColumnName="NetBusinessPurchaseAndSale" />
-                <ScalarProperty Name="PurchaseOfBusiness" ColumnName="PurchaseOfBusiness" />
-                <ScalarProperty Name="PurchaseOfPPE" ColumnName="PurchaseOfPPE" />
-                <ScalarProperty Name="PurchaseOfInvestment" ColumnName="PurchaseOfInvestment" />
-                <ScalarProperty Name="PurchaseOfIntangibles" ColumnName="PurchaseOfIntangibles" />
-                <ScalarProperty Name="LongTermDebtIssuance" ColumnName="LongTermDebtIssuance" />
-                <ScalarProperty Name="LongTermDebtPayments" ColumnName="LongTermDebtPayments" />
-                <ScalarProperty Name="CommonStockPayments" ColumnName="CommonStockPayments" />
-                <ScalarProperty Name="NetOtherInvestingChanges" ColumnName="NetOtherInvestingChanges" />
-                <ScalarProperty Name="NetOtherFinancingCharges" ColumnName="NetOtherFinancingCharges" />
-                <ScalarProperty Name="OperatingGainsLosses" ColumnName="OperatingGainsLosses" />
-                <ScalarProperty Name="NetIncomeFromContinuingOperations" ColumnName="NetIncomeFromContinuingOperations" />
-                <ScalarProperty Name="NetShortTermDebtIssuance" ColumnName="NetShortTermDebtIssuance" />
-                <ScalarProperty Name="NetLongTermDebtIssuance" ColumnName="NetLongTermDebtIssuance" />
-                <ScalarProperty Name="NetIssuancePaymentsOfDebt" ColumnName="NetIssuancePaymentsOfDebt" />
-                <ScalarProperty Name="NetCommonStockIssuance" ColumnName="NetCommonStockIssuance" />
-                <ScalarProperty Name="EffectOfExchangeRateChanges" ColumnName="EffectOfExchangeRateChanges" />
-                <ScalarProperty Name="DepreciationAmortizationDepletion" ColumnName="DepreciationAmortizationDepletion" />
-                <ScalarProperty Name="DepreciationAndAmortization" ColumnName="DepreciationAndAmortization" />
-                <ScalarProperty Name="Depreciation" ColumnName="Depreciation" />
-                <ScalarProperty Name="CommonStockDividendPaid" ColumnName="CommonStockDividendPaid" />
-                <ScalarProperty Name="ChangeInWorkingCapital" ColumnName="ChangeInWorkingCapital" />
-                <ScalarProperty Name="ChangeInOtherWorkingCapital" ColumnName="ChangeInOtherWorkingCapital" />
-                <ScalarProperty Name="ChangesInCash" ColumnName="ChangesInCash" />
-                <ScalarProperty Name="EndCashPosition" ColumnName="EndCashPosition" />
-                <ScalarProperty Name="BeginningCashPosition" ColumnName="BeginningCashPosition" />
-                <ScalarProperty Name="OperatingCashFlow" ColumnName="OperatingCashFlow" />
-                <ScalarProperty Name="InvestingCashFlow" ColumnName="InvestingCashFlow" />
-                <ScalarProperty Name="FinancingCashFlow" ColumnName="FinancingCashFlow" />
-                <ScalarProperty Name="CashFlowFromContinuingOperatingActivities" ColumnName="CashFlowFromContinuingOperatingActivities" />
-                <ScalarProperty Name="CashFlowFromContinuingInvestingActivities" ColumnName="CashFlowFromContinuingInvestingActivities" />
-                <ScalarProperty Name="CashFlowFromContinuingFinancingActivities" ColumnName="CashFlowFromContinuingFinancingActivities" />
-                <ScalarProperty Name="CashDividendsPaid" ColumnName="CashDividendsPaid" />
-                <ScalarProperty Name="CapitalExpenditure" ColumnName="CapitalExpenditure" />
-                <ScalarProperty Name="Amortization" ColumnName="Amortization" />
-                <ScalarProperty Name="FiscalYearEnd" ColumnName="FiscalYearEnd" />
-                <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
-                <ScalarProperty Name="StatementType" ColumnName="StatementType" />
                 <ScalarProperty Name="PeriodEndingDate" ColumnName="PeriodEndingDate" />
                 <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -3816,6 +4417,7 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
           <EntitySetMapping Name="BalanceSheets">
             <EntityTypeMapping TypeName="FincurateModel.BalanceSheet">
               <MappingFragment StoreEntitySet="BalanceSheets">
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
                 <ScalarProperty Name="OtherFinancialLiabilities" ColumnName="OtherFinancialLiabilities" />
                 <ScalarProperty Name="NonCurrentOtherFinancialLiabilities" ColumnName="NonCurrentOtherFinancialLiabilities" />
                 <ScalarProperty Name="CurrentOtherFinancialLiabilities" ColumnName="CurrentOtherFinancialLiabilities" />
@@ -4205,6 +4807,7 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
           <EntitySetMapping Name="CashFlows">
             <EntityTypeMapping TypeName="FincurateModel.CashFlow">
               <MappingFragment StoreEntitySet="CashFlows">
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
                 <ScalarProperty Name="OtherCashAdjustExcludeFromChangeinCash" ColumnName="OtherCashAdjustExcludeFromChangeinCash" />
                 <ScalarProperty Name="OtherCashAdjustIncludedIntoChangeinCash" ColumnName="OtherCashAdjustIncludedIntoChangeinCash" />
                 <ScalarProperty Name="SaleOfInvestmentProperties" ColumnName="SaleOfInvestmentProperties" />
@@ -4443,6 +5046,408 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
                 <ScalarProperty Name="StatementType" ColumnName="StatementType" />
                 <ScalarProperty Name="PeriodEndingDate" ColumnName="PeriodEndingDate" />
                 <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CashFlowsTTMs">
+            <EntityTypeMapping TypeName="FincurateModel.CashFlowsTTM">
+              <MappingFragment StoreEntitySet="CashFlowsTTM">
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="OtherCashAdjustExcludeFromChangeinCash" ColumnName="OtherCashAdjustExcludeFromChangeinCash" />
+                <ScalarProperty Name="OtherCashAdjustIncludedIntoChangeinCash" ColumnName="OtherCashAdjustIncludedIntoChangeinCash" />
+                <ScalarProperty Name="SaleOfInvestmentProperties" ColumnName="SaleOfInvestmentProperties" />
+                <ScalarProperty Name="PurchaseOfInvestmentProperties" ColumnName="PurchaseOfInvestmentProperties" />
+                <ScalarProperty Name="NetInvestmentPropertiesPurchaseAndSale" ColumnName="NetInvestmentPropertiesPurchaseAndSale" />
+                <ScalarProperty Name="FundFromOperation" ColumnName="FundFromOperation" />
+                <ScalarProperty Name="CashDividendsForMinorities" ColumnName="CashDividendsForMinorities" />
+                <ScalarProperty Name="MinorityInterest" ColumnName="MinorityInterest" />
+                <ScalarProperty Name="ReceiptsfromGovernmentGrants" ColumnName="ReceiptsfromGovernmentGrants" />
+                <ScalarProperty Name="ReceiptsfromCustomers" ColumnName="ReceiptsfromCustomers" />
+                <ScalarProperty Name="ProvisionandWriteOffofAssets" ColumnName="ProvisionandWriteOffofAssets" />
+                <ScalarProperty Name="ChangeinInsuranceContractLiabilities" ColumnName="ChangeinInsuranceContractLiabilities" />
+                <ScalarProperty Name="ChangeinInvestmentContractLiabilities" ColumnName="ChangeinInvestmentContractLiabilities" />
+                <ScalarProperty Name="ChangeinReinsurancePayables" ColumnName="ChangeinReinsurancePayables" />
+                <ScalarProperty Name="ChangeinInsuranceFunds" ColumnName="ChangeinInsuranceFunds" />
+                <ScalarProperty Name="ChangeinDeferredAcquisitionCostsNet" ColumnName="ChangeinDeferredAcquisitionCostsNet" />
+                <ScalarProperty Name="ChangeinReinsuranceReceivables" ColumnName="ChangeinReinsuranceReceivables" />
+                <ScalarProperty Name="ChangeinInsuranceContractAssets" ColumnName="ChangeinInsuranceContractAssets" />
+                <ScalarProperty Name="ChangeinFinancialLiabilities" ColumnName="ChangeinFinancialLiabilities" />
+                <ScalarProperty Name="ChangeinAdvancesfromCentralBanks" ColumnName="ChangeinAdvancesfromCentralBanks" />
+                <ScalarProperty Name="ChangeinFinancialAssets" ColumnName="ChangeinFinancialAssets" />
+                <ScalarProperty Name="ChangeinDeferredIncome" ColumnName="ChangeinDeferredIncome" />
+                <ScalarProperty Name="ChangeinAccruedIncome" ColumnName="ChangeinAccruedIncome" />
+                <ScalarProperty Name="IncomeTaxesRefundPaidCFF" ColumnName="IncomeTaxesRefundPaidCFF" />
+                <ScalarProperty Name="InterestPaidCFF" ColumnName="InterestPaidCFF" />
+                <ScalarProperty Name="ProceedsfromGovernmentGrantsCFF" ColumnName="ProceedsfromGovernmentGrantsCFF" />
+                <ScalarProperty Name="ProceedsfromIssuingOtherEquityInstruments" ColumnName="ProceedsfromIssuingOtherEquityInstruments" />
+                <ScalarProperty Name="PaymentsofOtherEquityInstruments" ColumnName="PaymentsofOtherEquityInstruments" />
+                <ScalarProperty Name="IssuancePaymentofOtherEquityInstrumentsNet" ColumnName="IssuancePaymentofOtherEquityInstrumentsNet" />
+                <ScalarProperty Name="IncomeTaxesRefundPaidCFI" ColumnName="IncomeTaxesRefundPaidCFI" />
+                <ScalarProperty Name="InterestReceivedCFI" ColumnName="InterestReceivedCFI" />
+                <ScalarProperty Name="DividendsReceivedCFI" ColumnName="DividendsReceivedCFI" />
+                <ScalarProperty Name="CashReceiptsfromPaymentsforFinancialDerivativeContracts" ColumnName="CashReceiptsfromPaymentsforFinancialDerivativeContracts" />
+                <ScalarProperty Name="CashReceiptsfromRepaymentofAdvancesandLoansMadetoOtherParties" ColumnName="CashReceiptsfromRepaymentofAdvancesandLoansMadetoOtherParties" />
+                <ScalarProperty Name="CashAdvancesandLoansMadetoOtherParties" ColumnName="CashAdvancesandLoansMadetoOtherParties" />
+                <ScalarProperty Name="ProceedsfromGovernmentGrantsCFI" ColumnName="ProceedsfromGovernmentGrantsCFI" />
+                <ScalarProperty Name="OtherOperatingInflowsOutflowsofCash" ColumnName="OtherOperatingInflowsOutflowsofCash" />
+                <ScalarProperty Name="TaxesRefundPaid" ColumnName="TaxesRefundPaid" />
+                <ScalarProperty Name="DividendReceivedCFO" ColumnName="DividendReceivedCFO" />
+                <ScalarProperty Name="DividendPaidCFO" ColumnName="DividendPaidCFO" />
+                <ScalarProperty Name="OtherAdjustmentsforWhichCashEffectsAreInvestingorFinancingCashFlow" ColumnName="OtherAdjustmentsforWhichCashEffectsAreInvestingorFinancingCashFlow" />
+                <ScalarProperty Name="AdjustmentsforUndistributedProfitsofAssociates" ColumnName="AdjustmentsforUndistributedProfitsofAssociates" />
+                <ScalarProperty Name="ImpairmentLossReversalRecognizedinProfitorLoss" ColumnName="ImpairmentLossReversalRecognizedinProfitorLoss" />
+                <ScalarProperty Name="TotalAdjustmentsforNonCashItems" ColumnName="TotalAdjustmentsforNonCashItems" />
+                <ScalarProperty Name="TaxesRefundPaidDirect" ColumnName="TaxesRefundPaidDirect" />
+                <ScalarProperty Name="InterestReceivedDirect" ColumnName="InterestReceivedDirect" />
+                <ScalarProperty Name="InterestPaidDirect" ColumnName="InterestPaidDirect" />
+                <ScalarProperty Name="DividendsReceivedDirect" ColumnName="DividendsReceivedDirect" />
+                <ScalarProperty Name="DividendsPaidDirect" ColumnName="DividendsPaidDirect" />
+                <ScalarProperty Name="OtherCashPaymentsfromOperatingActivities" ColumnName="OtherCashPaymentsfromOperatingActivities" />
+                <ScalarProperty Name="PaymentsforPremiumsandClaimsAnnuitiesandOtherPolicyBenefits" ColumnName="PaymentsforPremiumsandClaimsAnnuitiesandOtherPolicyBenefits" />
+                <ScalarProperty Name="PaymentsonBehalfofEmployees" ColumnName="PaymentsonBehalfofEmployees" />
+                <ScalarProperty Name="PaymentsfromContractsHeldforDealingorTradingPurpose" ColumnName="PaymentsfromContractsHeldforDealingorTradingPurpose" />
+                <ScalarProperty Name="PaymentstoSuppliersforGoodsandServices" ColumnName="PaymentstoSuppliersforGoodsandServices" />
+                <ScalarProperty Name="ClassesofCashPayments" ColumnName="ClassesofCashPayments" />
+                <ScalarProperty Name="OtherCashReceiptsfromOperatingActivities" ColumnName="OtherCashReceiptsfromOperatingActivities" />
+                <ScalarProperty Name="ClassesofCashReceiptsfromOperatingActivities" ColumnName="ClassesofCashReceiptsfromOperatingActivities" />
+                <ScalarProperty Name="CashFlowsfromusedinOperatingActivitiesDirect" ColumnName="CashFlowsfromusedinOperatingActivitiesDirect" />
+                <ScalarProperty Name="ChangeinDepositsbyBanksandCustomers" ColumnName="ChangeinDepositsbyBanksandCustomers" />
+                <ScalarProperty Name="ChangeinFairValueofInvestmentProperties" ColumnName="ChangeinFairValueofInvestmentProperties" />
+                <ScalarProperty Name="ProceedsfromDisposalofFinancialAssetsDesignatedasFairValue" ColumnName="ProceedsfromDisposalofFinancialAssetsDesignatedasFairValue" />
+                <ScalarProperty Name="ProceedsfromDisposalofAvailableForSaleFinancialAssets" ColumnName="ProceedsfromDisposalofAvailableForSaleFinancialAssets" />
+                <ScalarProperty Name="ProceedsfromDisposalofHeldToMaturityInvestments" ColumnName="ProceedsfromDisposalofHeldToMaturityInvestments" />
+                <ScalarProperty Name="PaymentstoAcquireFinancialAssetsDesignatedasFairValue" ColumnName="PaymentstoAcquireFinancialAssetsDesignatedasFairValue" />
+                <ScalarProperty Name="PaymentstoAcquireAvailableForSaleFinancialAssets" ColumnName="PaymentstoAcquireAvailableForSaleFinancialAssets" />
+                <ScalarProperty Name="PaymentstoAcquireHeldToMaturityInvestments" ColumnName="PaymentstoAcquireHeldToMaturityInvestments" />
+                <ScalarProperty Name="ChangeinCertificatesofDepositsandDebtSecuritiesIssued" ColumnName="ChangeinCertificatesofDepositsandDebtSecuritiesIssued" />
+                <ScalarProperty Name="IssueExpenses" ColumnName="IssueExpenses" />
+                <ScalarProperty Name="NetOutwardLoans" ColumnName="NetOutwardLoans" />
+                <ScalarProperty Name="OtherFinancing" ColumnName="OtherFinancing" />
+                <ScalarProperty Name="ReorganizationOtherCosts" ColumnName="ReorganizationOtherCosts" />
+                <ScalarProperty Name="ProfitonDisposals" ColumnName="ProfitonDisposals" />
+                <ScalarProperty Name="ShareofAssociates" ColumnName="ShareofAssociates" />
+                <ScalarProperty Name="RepaymentinLeaseFinancing" ColumnName="RepaymentinLeaseFinancing" />
+                <ScalarProperty Name="IncreaseinLeaseFinancing" ColumnName="IncreaseinLeaseFinancing" />
+                <ScalarProperty Name="IncreaseDecreaseinLeaseFinancing" ColumnName="IncreaseDecreaseinLeaseFinancing" />
+                <ScalarProperty Name="SaleofJointVentureAssociate" ColumnName="SaleofJointVentureAssociate" />
+                <ScalarProperty Name="SaleofSubsidiaries" ColumnName="SaleofSubsidiaries" />
+                <ScalarProperty Name="PurchaseofJointVentureAssociate" ColumnName="PurchaseofJointVentureAssociate" />
+                <ScalarProperty Name="PurchaseofSubsidiaries" ColumnName="PurchaseofSubsidiaries" />
+                <ScalarProperty Name="InterestPaidCFO" ColumnName="InterestPaidCFO" />
+                <ScalarProperty Name="InterestReceivedCFO" ColumnName="InterestReceivedCFO" />
+                <ScalarProperty Name="AdjustedGeographySegmentData" ColumnName="AdjustedGeographySegmentData" />
+                <ScalarProperty Name="IncreaseinInterestBearingDepositsinBank" ColumnName="IncreaseinInterestBearingDepositsinBank" />
+                <ScalarProperty Name="DecreaseinInterestBearingDepositsinBank" ColumnName="DecreaseinInterestBearingDepositsinBank" />
+                <ScalarProperty Name="DirectCashFlowsFromOperatingActivities" ColumnName="DirectCashFlowsFromOperatingActivities" />
+                <ScalarProperty Name="IssuanceOfCapitalStock" ColumnName="IssuanceOfCapitalStock" />
+                <ScalarProperty Name="ForeignSales" ColumnName="ForeignSales" />
+                <ScalarProperty Name="DomesticSales" ColumnName="DomesticSales" />
+                <ScalarProperty Name="ChangesInAccountReceivables" ColumnName="ChangesInAccountReceivables" />
+                <ScalarProperty Name="AllowanceForFundsConstruction" ColumnName="AllowanceForFundsConstruction" />
+                <ScalarProperty Name="UnrealizedGainsLossesOnDerivatives" ColumnName="UnrealizedGainsLossesOnDerivatives" />
+                <ScalarProperty Name="UnrealizedGainLossOnInvestmentSecurities" ColumnName="UnrealizedGainLossOnInvestmentSecurities" />
+                <ScalarProperty Name="SalesOfFixedMaturitySecurities" ColumnName="SalesOfFixedMaturitySecurities" />
+                <ScalarProperty Name="SalesOfEquitySecurities" ColumnName="SalesOfEquitySecurities" />
+                <ScalarProperty Name="SaleOfTechnology" ColumnName="SaleOfTechnology" />
+                <ScalarProperty Name="SaleOfShortTermInvestments" ColumnName="SaleOfShortTermInvestments" />
+                <ScalarProperty Name="SaleOfLongTermInvestments" ColumnName="SaleOfLongTermInvestments" />
+                <ScalarProperty Name="SaleOfIntangibles" ColumnName="SaleOfIntangibles" />
+                <ScalarProperty Name="SaleOfBusiness" ColumnName="SaleOfBusiness" />
+                <ScalarProperty Name="RealizedGainLossOnSaleOfLoansAndLease" ColumnName="RealizedGainLossOnSaleOfLoansAndLease" />
+                <ScalarProperty Name="NetTechnologyPurchaseAndSale" ColumnName="NetTechnologyPurchaseAndSale" />
+                <ScalarProperty Name="PurchaseOfTechnology" ColumnName="PurchaseOfTechnology" />
+                <ScalarProperty Name="PurchaseOfShortTermInvestments" ColumnName="PurchaseOfShortTermInvestments" />
+                <ScalarProperty Name="PurchaseOfLongTermInvestments" ColumnName="PurchaseOfLongTermInvestments" />
+                <ScalarProperty Name="PurchaseOfFixedMaturitySecurities" ColumnName="PurchaseOfFixedMaturitySecurities" />
+                <ScalarProperty Name="PurchaseOfEquitySecurities" ColumnName="PurchaseOfEquitySecurities" />
+                <ScalarProperty Name="ProvisionForLoanLeaseAndOtherLosses" ColumnName="ProvisionForLoanLeaseAndOtherLosses" />
+                <ScalarProperty Name="ProceedsPaymentInInterestBearingDepositsInBank" ColumnName="ProceedsPaymentInInterestBearingDepositsInBank" />
+                <ScalarProperty Name="NetProceedsPaymentForLoan" ColumnName="NetProceedsPaymentForLoan" />
+                <ScalarProperty Name="ProceedsPaymentFederalFundsSoldAndSecuritiesPurchasedUnderAgreementToResell" ColumnName="ProceedsPaymentFederalFundsSoldAndSecuritiesPurchasedUnderAgreementToResell" />
+                <ScalarProperty Name="ShortTermDebtIssuance" ColumnName="ShortTermDebtIssuance" />
+                <ScalarProperty Name="PreferredStockIssuance" ColumnName="PreferredStockIssuance" />
+                <ScalarProperty Name="CommonStockIssuance" ColumnName="CommonStockIssuance" />
+                <ScalarProperty Name="ProceedsFromStockOptionExercised" ColumnName="ProceedsFromStockOptionExercised" />
+                <ScalarProperty Name="ProceedsFromLoans" ColumnName="ProceedsFromLoans" />
+                <ScalarProperty Name="ProceedsFromIssuanceOfWarrants" ColumnName="ProceedsFromIssuanceOfWarrants" />
+                <ScalarProperty Name="PreferredStockDividendPaid" ColumnName="PreferredStockDividendPaid" />
+                <ScalarProperty Name="PensionAndEmployeeBenefitExpense" ColumnName="PensionAndEmployeeBenefitExpense" />
+                <ScalarProperty Name="ShortTermDebtPayments" ColumnName="ShortTermDebtPayments" />
+                <ScalarProperty Name="PreferredStockPayments" ColumnName="PreferredStockPayments" />
+                <ScalarProperty Name="PaymentForLoans" ColumnName="PaymentForLoans" />
+                <ScalarProperty Name="OtherNonCashItems" ColumnName="OtherNonCashItems" />
+                <ScalarProperty Name="NetRealizedInvestmentGains" ColumnName="NetRealizedInvestmentGains" />
+                <ScalarProperty Name="NetIncomeFromDiscontinuedOperations" ColumnName="NetIncomeFromDiscontinuedOperations" />
+                <ScalarProperty Name="NetIncome" ColumnName="NetIncome" />
+                <ScalarProperty Name="NetForeignCurrencyExchangeGainLoss" ColumnName="NetForeignCurrencyExchangeGainLoss" />
+                <ScalarProperty Name="CashFromDiscontinuedOperatingActivities" ColumnName="CashFromDiscontinuedOperatingActivities" />
+                <ScalarProperty Name="NetPreferredStockIssuance" ColumnName="NetPreferredStockIssuance" />
+                <ScalarProperty Name="InterestCreditedOnPolicyholderDeposits" ColumnName="InterestCreditedOnPolicyholderDeposits" />
+                <ScalarProperty Name="IncreaseDecreaseInDeposit" ColumnName="IncreaseDecreaseInDeposit" />
+                <ScalarProperty Name="GainLossOnSaleOfPPE" ColumnName="GainLossOnSaleOfPPE" />
+                <ScalarProperty Name="GainLossOnInvestmentSecurities" ColumnName="GainLossOnInvestmentSecurities" />
+                <ScalarProperty Name="ExtraordinaryItems" ColumnName="ExtraordinaryItems" />
+                <ScalarProperty Name="ExcessTaxBenefitFromStockBasedCompensation" ColumnName="ExcessTaxBenefitFromStockBasedCompensation" />
+                <ScalarProperty Name="EarningsLossesFromEquityInvestments" ColumnName="EarningsLossesFromEquityInvestments" />
+                <ScalarProperty Name="Depletion" ColumnName="Depletion" />
+                <ScalarProperty Name="CumulativeEffectOfAccountingChange" ColumnName="CumulativeEffectOfAccountingChange" />
+                <ScalarProperty Name="ChangeInUnearnedPremiumsCeded" ColumnName="ChangeInUnearnedPremiumsCeded" />
+                <ScalarProperty Name="ChangeInUnearnedPremiums" ColumnName="ChangeInUnearnedPremiums" />
+                <ScalarProperty Name="ChangeInTradingAccountSecurities" ColumnName="ChangeInTradingAccountSecurities" />
+                <ScalarProperty Name="ChangeInRestrictedCash" ColumnName="ChangeInRestrictedCash" />
+                <ScalarProperty Name="ChangeInReinsuranceRecoverableOnUnpaidLosses" ColumnName="ChangeInReinsuranceRecoverableOnUnpaidLosses" />
+                <ScalarProperty Name="ChangeInReinsuranceRecoverableOnPaidAndUnpaidLosses" ColumnName="ChangeInReinsuranceRecoverableOnPaidAndUnpaidLosses" />
+                <ScalarProperty Name="ChangeInReinsuranceReceivableOnPaidLosses" ColumnName="ChangeInReinsuranceReceivableOnPaidLosses" />
+                <ScalarProperty Name="ChangeInPrepaidReinsurancePremiums" ColumnName="ChangeInPrepaidReinsurancePremiums" />
+                <ScalarProperty Name="ChangeInPrepaidAssets" ColumnName="ChangeInPrepaidAssets" />
+                <ScalarProperty Name="ChangeInPremiumsReceivable" ColumnName="ChangeInPremiumsReceivable" />
+                <ScalarProperty Name="ChangeInOtherCurrentLiabilities" ColumnName="ChangeInOtherCurrentLiabilities" />
+                <ScalarProperty Name="ChangeInOtherCurrentAssets" ColumnName="ChangeInOtherCurrentAssets" />
+                <ScalarProperty Name="ChangeInLossAndLossAdjustmentExpenseReserves" ColumnName="ChangeInLossAndLossAdjustmentExpenseReserves" />
+                <ScalarProperty Name="ChangeInLoans" ColumnName="ChangeInLoans" />
+                <ScalarProperty Name="ChangeInInterestPayable" ColumnName="ChangeInInterestPayable" />
+                <ScalarProperty Name="ChangeInIncomeTaxPayable" ColumnName="ChangeInIncomeTaxPayable" />
+                <ScalarProperty Name="ChangeInFundsWithheld" ColumnName="ChangeInFundsWithheld" />
+                <ScalarProperty Name="ChangeInFederalFundsAndSecuritiesSoldForRepurchase" ColumnName="ChangeInFederalFundsAndSecuritiesSoldForRepurchase" />
+                <ScalarProperty Name="ChangeInDeferredCharges" ColumnName="ChangeInDeferredCharges" />
+                <ScalarProperty Name="ChangeInDeferredAcquisitionCosts" ColumnName="ChangeInDeferredAcquisitionCosts" />
+                <ScalarProperty Name="ChangeInAccruedInvestmentIncome" ColumnName="ChangeInAccruedInvestmentIncome" />
+                <ScalarProperty Name="ChangeInAccruedExpense" ColumnName="ChangeInAccruedExpense" />
+                <ScalarProperty Name="ChangeInTaxPayable" ColumnName="ChangeInTaxPayable" />
+                <ScalarProperty Name="ChangeInDividendPayable" ColumnName="ChangeInDividendPayable" />
+                <ScalarProperty Name="CashFromDiscontinuedInvestingActivities" ColumnName="CashFromDiscontinuedInvestingActivities" />
+                <ScalarProperty Name="CashFromDiscontinuedFinancingActivities" ColumnName="CashFromDiscontinuedFinancingActivities" />
+                <ScalarProperty Name="CashFlowFromDiscontinuedOperation" ColumnName="CashFlowFromDiscontinuedOperation" />
+                <ScalarProperty Name="CapitalExpenditureReported" ColumnName="CapitalExpenditureReported" />
+                <ScalarProperty Name="NetCapitalExpenditureDisposals" ColumnName="NetCapitalExpenditureDisposals" />
+                <ScalarProperty Name="CallsMaturitiesOfMaturitySecurities" ColumnName="CallsMaturitiesOfMaturitySecurities" />
+                <ScalarProperty Name="AssetImpairmentCharge" ColumnName="AssetImpairmentCharge" />
+                <ScalarProperty Name="AmortizationOfSecurities" ColumnName="AmortizationOfSecurities" />
+                <ScalarProperty Name="AmortizationOfFinancingCostsAndDiscounts" ColumnName="AmortizationOfFinancingCostsAndDiscounts" />
+                <ScalarProperty Name="Interim" ColumnName="Interim" />
+                <ScalarProperty Name="FormType" ColumnName="FormType" />
+                <ScalarProperty Name="FreeCashFlow" ColumnName="FreeCashFlow" />
+                <ScalarProperty Name="RepurchaseOfCapitalStock" ColumnName="RepurchaseOfCapitalStock" />
+                <ScalarProperty Name="RepaymentOfDebt" ColumnName="RepaymentOfDebt" />
+                <ScalarProperty Name="IssuanceOfDebt" ColumnName="IssuanceOfDebt" />
+                <ScalarProperty Name="InterestPaidSupplementalData" ColumnName="InterestPaidSupplementalData" />
+                <ScalarProperty Name="IncomeTaxPaidSupplementalData" ColumnName="IncomeTaxPaidSupplementalData" />
+                <ScalarProperty Name="StockBasedCompensation" ColumnName="StockBasedCompensation" />
+                <ScalarProperty Name="SaleOfPPE" ColumnName="SaleOfPPE" />
+                <ScalarProperty Name="SaleOfInvestment" ColumnName="SaleOfInvestment" />
+                <ScalarProperty Name="NetPPEPurchaseAndSale" ColumnName="NetPPEPurchaseAndSale" />
+                <ScalarProperty Name="NetInvestmentPurchaseAndSale" ColumnName="NetInvestmentPurchaseAndSale" />
+                <ScalarProperty Name="NetIntangiblesPurchaseAndSale" ColumnName="NetIntangiblesPurchaseAndSale" />
+                <ScalarProperty Name="NetBusinessPurchaseAndSale" ColumnName="NetBusinessPurchaseAndSale" />
+                <ScalarProperty Name="PurchaseOfBusiness" ColumnName="PurchaseOfBusiness" />
+                <ScalarProperty Name="PurchaseOfPPE" ColumnName="PurchaseOfPPE" />
+                <ScalarProperty Name="PurchaseOfInvestment" ColumnName="PurchaseOfInvestment" />
+                <ScalarProperty Name="PurchaseOfIntangibles" ColumnName="PurchaseOfIntangibles" />
+                <ScalarProperty Name="LongTermDebtIssuance" ColumnName="LongTermDebtIssuance" />
+                <ScalarProperty Name="LongTermDebtPayments" ColumnName="LongTermDebtPayments" />
+                <ScalarProperty Name="CommonStockPayments" ColumnName="CommonStockPayments" />
+                <ScalarProperty Name="NetOtherInvestingChanges" ColumnName="NetOtherInvestingChanges" />
+                <ScalarProperty Name="NetOtherFinancingCharges" ColumnName="NetOtherFinancingCharges" />
+                <ScalarProperty Name="OperatingGainsLosses" ColumnName="OperatingGainsLosses" />
+                <ScalarProperty Name="NetIncomeFromContinuingOperations" ColumnName="NetIncomeFromContinuingOperations" />
+                <ScalarProperty Name="NetShortTermDebtIssuance" ColumnName="NetShortTermDebtIssuance" />
+                <ScalarProperty Name="NetLongTermDebtIssuance" ColumnName="NetLongTermDebtIssuance" />
+                <ScalarProperty Name="NetIssuancePaymentsOfDebt" ColumnName="NetIssuancePaymentsOfDebt" />
+                <ScalarProperty Name="NetCommonStockIssuance" ColumnName="NetCommonStockIssuance" />
+                <ScalarProperty Name="GainLossOnSaleOfBusiness" ColumnName="GainLossOnSaleOfBusiness" />
+                <ScalarProperty Name="EffectOfExchangeRateChanges" ColumnName="EffectOfExchangeRateChanges" />
+                <ScalarProperty Name="Depreciation" ColumnName="Depreciation" />
+                <ScalarProperty Name="DeferredTax" ColumnName="DeferredTax" />
+                <ScalarProperty Name="DeferredIncomeTax" ColumnName="DeferredIncomeTax" />
+                <ScalarProperty Name="CommonStockDividendPaid" ColumnName="CommonStockDividendPaid" />
+                <ScalarProperty Name="ChangeInWorkingCapital" ColumnName="ChangeInWorkingCapital" />
+                <ScalarProperty Name="ChangeInReceivables" ColumnName="ChangeInReceivables" />
+                <ScalarProperty Name="ChangeInPayablesAndAccruedExpense" ColumnName="ChangeInPayablesAndAccruedExpense" />
+                <ScalarProperty Name="ChangeInPayable" ColumnName="ChangeInPayable" />
+                <ScalarProperty Name="ChangeInOtherWorkingCapital" ColumnName="ChangeInOtherWorkingCapital" />
+                <ScalarProperty Name="ChangeInInventory" ColumnName="ChangeInInventory" />
+                <ScalarProperty Name="ChangesInCash" ColumnName="ChangesInCash" />
+                <ScalarProperty Name="ChangeInAccountPayable" ColumnName="ChangeInAccountPayable" />
+                <ScalarProperty Name="EndCashPosition" ColumnName="EndCashPosition" />
+                <ScalarProperty Name="BeginningCashPosition" ColumnName="BeginningCashPosition" />
+                <ScalarProperty Name="OperatingCashFlow" ColumnName="OperatingCashFlow" />
+                <ScalarProperty Name="InvestingCashFlow" ColumnName="InvestingCashFlow" />
+                <ScalarProperty Name="FinancingCashFlow" ColumnName="FinancingCashFlow" />
+                <ScalarProperty Name="CashFlowFromContinuingOperatingActivities" ColumnName="CashFlowFromContinuingOperatingActivities" />
+                <ScalarProperty Name="CashFlowFromContinuingInvestingActivities" ColumnName="CashFlowFromContinuingInvestingActivities" />
+                <ScalarProperty Name="CashFlowFromContinuingFinancingActivities" ColumnName="CashFlowFromContinuingFinancingActivities" />
+                <ScalarProperty Name="CashDividendsPaid" ColumnName="CashDividendsPaid" />
+                <ScalarProperty Name="CapitalExpenditure" ColumnName="CapitalExpenditure" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="AccessionNumber" ColumnName="AccessionNumber" />
+                <ScalarProperty Name="FileDate" ColumnName="FileDate" />
+                <ScalarProperty Name="FiscalYearChange" ColumnName="FiscalYearChange" />
+                <ScalarProperty Name="AmortizationOfIntangibles" ColumnName="AmortizationOfIntangibles" />
+                <ScalarProperty Name="DepreciationAmortizationDepletion" ColumnName="DepreciationAmortizationDepletion" />
+                <ScalarProperty Name="DepreciationAndAmortization" ColumnName="DepreciationAndAmortization" />
+                <ScalarProperty Name="Amortization" ColumnName="Amortization" />
+                <ScalarProperty Name="FiscalYearEnd" ColumnName="FiscalYearEnd" />
+                <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+                <ScalarProperty Name="StatementType" ColumnName="StatementType" />
+                <ScalarProperty Name="PeriodEndingDate" ColumnName="PeriodEndingDate" />
+                <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SharesHistories">
+            <EntityTypeMapping TypeName="FincurateModel.SharesHistory">
+              <MappingFragment StoreEntitySet="SharesHistory">
+                <ScalarProperty Name="ShareClassLevelTreasuryShareOutstandingFromOther" ColumnName="ShareClassLevelTreasuryShareOutstandingFromOther" />
+                <ScalarProperty Name="ShareClassLevelTreasuryShareOutstandingFromInterim" ColumnName="ShareClassLevelTreasuryShareOutstandingFromInterim" />
+                <ScalarProperty Name="ShareClassLevelTreasuryShareOutstandingFromCover" ColumnName="ShareClassLevelTreasuryShareOutstandingFromCover" />
+                <ScalarProperty Name="SharesOutstandingWithBalanceSheetEndingDate" ColumnName="SharesOutstandingWithBalanceSheetEndingDate" />
+                <ScalarProperty Name="ShareClassLevelTreasuryShareOutstanding" ColumnName="ShareClassLevelTreasuryShareOutstanding" />
+                <ScalarProperty Name="BalanceSheetDate" ColumnName="BalanceSheetDate" />
+                <ScalarProperty Name="ReasonOfShareChange" ColumnName="ReasonOfShareChange" />
+                <ScalarProperty Name="FloatShareToTotalSharesOutstanding" ColumnName="FloatShareToTotalSharesOutstanding" />
+                <ScalarProperty Name="InsiderHolding" ColumnName="InsiderHolding" />
+                <ScalarProperty Name="FloatShare" ColumnName="FloatShare" />
+                <ScalarProperty Name="FloatDate" ColumnName="FloatDate" />
+                <ScalarProperty Name="UnquotedTSO" ColumnName="UnquotedTSO" />
+                <ScalarProperty Name="QuotedTSO" ColumnName="QuotedTSO" />
+                <ScalarProperty Name="ShareLevelTSO" ColumnName="ShareLevelTSO" />
+                <ScalarProperty Name="ShareLevelTSOSource" ColumnName="ShareLevelTSOSource" />
+                <ScalarProperty Name="CompanyTSO" ColumnName="CompanyTSO" />
+                <ScalarProperty Name="TSODate" ColumnName="TSODate" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GrowthRatios">
+            <EntityTypeMapping TypeName="FincurateModel.GrowthRatio">
+              <MappingFragment StoreEntitySet="GrowthRatios">
+                <ScalarProperty Name="NormalizedBasicEPSSequentialGrowth" ColumnName="NormalizedBasicEPSSequentialGrowth" />
+                <ScalarProperty Name="NormalizedBasicEPSSamePeriodGrowth9months" ColumnName="NormalizedBasicEPSSamePeriodGrowth9months" />
+                <ScalarProperty Name="NormalizedBasicEPSSamePeriodGrowth6months" ColumnName="NormalizedBasicEPSSamePeriodGrowth6months" />
+                <ScalarProperty Name="NormalizedBasicEPSSamePeriodGrowth3months" ColumnName="NormalizedBasicEPSSamePeriodGrowth3months" />
+                <ScalarProperty Name="NormalizedBasicEPSGrowth10year" ColumnName="NormalizedBasicEPSGrowth10year" />
+                <ScalarProperty Name="NormalizedBasicEPSGrowth5year" ColumnName="NormalizedBasicEPSGrowth5year" />
+                <ScalarProperty Name="NormalizedBasicEPSGrowth3year" ColumnName="NormalizedBasicEPSGrowth3year" />
+                <ScalarProperty Name="NormalizedBasicEPSGrowth1year" ColumnName="NormalizedBasicEPSGrowth1year" />
+                <ScalarProperty Name="NormalizedDilutedEPSSequentialGrowth" ColumnName="NormalizedDilutedEPSSequentialGrowth" />
+                <ScalarProperty Name="NormalizedDilutedEPSSamePeriodGrowth9months" ColumnName="NormalizedDilutedEPSSamePeriodGrowth9months" />
+                <ScalarProperty Name="NormalizedDilutedEPSSamePeriodGrowth6months" ColumnName="NormalizedDilutedEPSSamePeriodGrowth6months" />
+                <ScalarProperty Name="NormalizedDilutedEPSSamePeriodGrowth3months" ColumnName="NormalizedDilutedEPSSamePeriodGrowth3months" />
+                <ScalarProperty Name="NormalizedDilutedEPSGrowth10year" ColumnName="NormalizedDilutedEPSGrowth10year" />
+                <ScalarProperty Name="NormalizedDilutedEPSGrowth5year" ColumnName="NormalizedDilutedEPSGrowth5year" />
+                <ScalarProperty Name="NormalizedDilutedEPSGrowth3year" ColumnName="NormalizedDilutedEPSGrowth3year" />
+                <ScalarProperty Name="NormalizedDilutedEPSGrowth1year" ColumnName="NormalizedDilutedEPSGrowth1year" />
+                <ScalarProperty Name="RegressionGrowthOperatingRevenue5Years" ColumnName="RegressionGrowthOperatingRevenue5Years" />
+                <ScalarProperty Name="FormType" ColumnName="FormType" />
+                <ScalarProperty Name="AccessionNumber" ColumnName="AccessionNumber" />
+                <ScalarProperty Name="AvgRetInvestedCapital5Year" ColumnName="AvgRetInvestedCapital5Year" />
+                <ScalarProperty Name="AvgRetAssets5Year" ColumnName="AvgRetAssets5Year" />
+                <ScalarProperty Name="AvgRetCommonEquity5Year" ColumnName="AvgRetCommonEquity5Year" />
+                <ScalarProperty Name="AvgNetProfitMargin5Year" ColumnName="AvgNetProfitMargin5Year" />
+                <ScalarProperty Name="AvgPreTaxMargin5Year" ColumnName="AvgPreTaxMargin5Year" />
+                <ScalarProperty Name="AvgPostTaxMargin5Year" ColumnName="AvgPostTaxMargin5Year" />
+                <ScalarProperty Name="AvgGrossMargin5Year" ColumnName="AvgGrossMargin5Year" />
+                <ScalarProperty Name="GrowthAnnGrossProfit5Year" ColumnName="GrowthAnnGrossProfit5Year" />
+                <ScalarProperty Name="GrowthAnnCapitalSpending5Year" ColumnName="GrowthAnnCapitalSpending5Year" />
+                <ScalarProperty Name="OperatingRevenue10YearGrowth" ColumnName="OperatingRevenue10YearGrowth" />
+                <ScalarProperty Name="OperatingRevenue5YearGrowth" ColumnName="OperatingRevenue5YearGrowth" />
+                <ScalarProperty Name="OperatingRevenue3YearGrowth" ColumnName="OperatingRevenue3YearGrowth" />
+                <ScalarProperty Name="OperatingRevenue1YearGrowth" ColumnName="OperatingRevenue1YearGrowth" />
+                <ScalarProperty Name="OperatingRevenueSequentialGrowth" ColumnName="OperatingRevenueSequentialGrowth" />
+                <ScalarProperty Name="OperatingRevenue9MonthSamePeriodGrowth" ColumnName="OperatingRevenue9MonthSamePeriodGrowth" />
+                <ScalarProperty Name="OperatingRevenue6MonthSamePeriodGrowth" ColumnName="OperatingRevenue6MonthSamePeriodGrowth" />
+                <ScalarProperty Name="OperatingRevenue3MonthSamePeriodGrowth" ColumnName="OperatingRevenue3MonthSamePeriodGrowth" />
+                <ScalarProperty Name="FCF10YearGrowth" ColumnName="FCF10YearGrowth" />
+                <ScalarProperty Name="FCF5YearGrowth" ColumnName="FCF5YearGrowth" />
+                <ScalarProperty Name="FCF3YearGrowth" ColumnName="FCF3YearGrowth" />
+                <ScalarProperty Name="FCF1YearGrowth" ColumnName="FCF1YearGrowth" />
+                <ScalarProperty Name="FCFSequentialGrowth" ColumnName="FCFSequentialGrowth" />
+                <ScalarProperty Name="FCF9MonthSamePeriodGrowth" ColumnName="FCF9MonthSamePeriodGrowth" />
+                <ScalarProperty Name="FCF6MonthSamePeriodGrowth" ColumnName="FCF6MonthSamePeriodGrowth" />
+                <ScalarProperty Name="FCF3MonthSamePeriodGrowth" ColumnName="FCF3MonthSamePeriodGrowth" />
+                <ScalarProperty Name="CFO10YearGrowth" ColumnName="CFO10YearGrowth" />
+                <ScalarProperty Name="CFO5YearGrowth" ColumnName="CFO5YearGrowth" />
+                <ScalarProperty Name="CFO3YearGrowth" ColumnName="CFO3YearGrowth" />
+                <ScalarProperty Name="CFO1YearGrowth" ColumnName="CFO1YearGrowth" />
+                <ScalarProperty Name="CFOSequentialGrowth" ColumnName="CFOSequentialGrowth" />
+                <ScalarProperty Name="CFO9MonthSamePeriodGrowth" ColumnName="CFO9MonthSamePeriodGrowth" />
+                <ScalarProperty Name="CFO6MonthSamePeriodGrowth" ColumnName="CFO6MonthSamePeriodGrowth" />
+                <ScalarProperty Name="CFO3MonthSamePeriodGrowth" ColumnName="CFO3MonthSamePeriodGrowth" />
+                <ScalarProperty Name="NetIncomeContOps10YearGrowth" ColumnName="NetIncomeContOps10YearGrowth" />
+                <ScalarProperty Name="NetIncomeContOps5YearGrowth" ColumnName="NetIncomeContOps5YearGrowth" />
+                <ScalarProperty Name="NetIncomeContOps3YearGrowth" ColumnName="NetIncomeContOps3YearGrowth" />
+                <ScalarProperty Name="NetIncomeContOps1YearGrowth" ColumnName="NetIncomeContOps1YearGrowth" />
+                <ScalarProperty Name="NetIncomeContOpsSequentialGrowth" ColumnName="NetIncomeContOpsSequentialGrowth" />
+                <ScalarProperty Name="NetIncomeContOps9MonthSamePeriodGrowth" ColumnName="NetIncomeContOps9MonthSamePeriodGrowth" />
+                <ScalarProperty Name="NetIncomeContOps6MonthSamePeriodGrowth" ColumnName="NetIncomeContOps6MonthSamePeriodGrowth" />
+                <ScalarProperty Name="NetIncomeContOps3MonthSamePeriodGrowth" ColumnName="NetIncomeContOps3MonthSamePeriodGrowth" />
+                <ScalarProperty Name="NetIncome10YearGrowth" ColumnName="NetIncome10YearGrowth" />
+                <ScalarProperty Name="NetIncome5YearGrowth" ColumnName="NetIncome5YearGrowth" />
+                <ScalarProperty Name="NetIncome3YearGrowth" ColumnName="NetIncome3YearGrowth" />
+                <ScalarProperty Name="NetIncome1YearGrowth" ColumnName="NetIncome1YearGrowth" />
+                <ScalarProperty Name="NetIncomeSequentialGrowth" ColumnName="NetIncomeSequentialGrowth" />
+                <ScalarProperty Name="NetIncome9MonthSamePeriodGrowth" ColumnName="NetIncome9MonthSamePeriodGrowth" />
+                <ScalarProperty Name="NetIncome6MonthSamePeriodGrowth" ColumnName="NetIncome6MonthSamePeriodGrowth" />
+                <ScalarProperty Name="NetIncome3MonthSamePeriodGrowth" ColumnName="NetIncome3MonthSamePeriodGrowth" />
+                <ScalarProperty Name="OperatingIncome10YearGrowth" ColumnName="OperatingIncome10YearGrowth" />
+                <ScalarProperty Name="OperatingIncome5YearGrowth" ColumnName="OperatingIncome5YearGrowth" />
+                <ScalarProperty Name="OperatingIncome3YearGrowth" ColumnName="OperatingIncome3YearGrowth" />
+                <ScalarProperty Name="OperatingIncome1YearGrowth" ColumnName="OperatingIncome1YearGrowth" />
+                <ScalarProperty Name="OperatingIncomeSequentialGrowth" ColumnName="OperatingIncomeSequentialGrowth" />
+                <ScalarProperty Name="OperatingIncome9MonthSamePeriodGrowth" ColumnName="OperatingIncome9MonthSamePeriodGrowth" />
+                <ScalarProperty Name="OperatingIncome6MonthSamePeriodGrowth" ColumnName="OperatingIncome6MonthSamePeriodGrowth" />
+                <ScalarProperty Name="OperatingIncome3MonthSamePeriodGrowth" ColumnName="OperatingIncome3MonthSamePeriodGrowth" />
+                <ScalarProperty Name="Revenue10YearGrowth" ColumnName="Revenue10YearGrowth" />
+                <ScalarProperty Name="Revenue5YearGrowth" ColumnName="Revenue5YearGrowth" />
+                <ScalarProperty Name="Revenue3YearGrowth" ColumnName="Revenue3YearGrowth" />
+                <ScalarProperty Name="Revenue1YearGrowth" ColumnName="Revenue1YearGrowth" />
+                <ScalarProperty Name="RevenueSequentialGrowth" ColumnName="RevenueSequentialGrowth" />
+                <ScalarProperty Name="Revenue9MonthSamePeriodGrowth" ColumnName="Revenue9MonthSamePeriodGrowth" />
+                <ScalarProperty Name="Revenue6MonthSamePeriodGrowth" ColumnName="Revenue6MonthSamePeriodGrowth" />
+                <ScalarProperty Name="Revenue3MonthSamePeriodGrowth" ColumnName="Revenue3MonthSamePeriodGrowth" />
+                <ScalarProperty Name="EquityPerShare10YearGrowth" ColumnName="EquityPerShare10YearGrowth" />
+                <ScalarProperty Name="EquityPerShare5YearGrowth" ColumnName="EquityPerShare5YearGrowth" />
+                <ScalarProperty Name="EquityPerShare3YearGrowth" ColumnName="EquityPerShare3YearGrowth" />
+                <ScalarProperty Name="EquityPerShare1YearGrowth" ColumnName="EquityPerShare1YearGrowth" />
+                <ScalarProperty Name="EquityPerShareSequentialGrowth" ColumnName="EquityPerShareSequentialGrowth" />
+                <ScalarProperty Name="EquityPerShare9MonthSamePeriodGrowth" ColumnName="EquityPerShare9MonthSamePeriodGrowth" />
+                <ScalarProperty Name="EquityPerShare6MonthSamePeriodGrowth" ColumnName="EquityPerShare6MonthSamePeriodGrowth" />
+                <ScalarProperty Name="EquityPerShare3MonthSamePeriodGrowth" ColumnName="EquityPerShare3MonthSamePeriodGrowth" />
+                <ScalarProperty Name="Dividend10YearGrowth" ColumnName="Dividend10YearGrowth" />
+                <ScalarProperty Name="Dividend5YearGrowth" ColumnName="Dividend5YearGrowth" />
+                <ScalarProperty Name="Dividend3YearGrowth" ColumnName="Dividend3YearGrowth" />
+                <ScalarProperty Name="Dividend1YearGrowth" ColumnName="Dividend1YearGrowth" />
+                <ScalarProperty Name="DividendSequentialGrowth" ColumnName="DividendSequentialGrowth" />
+                <ScalarProperty Name="Dividend9MonthSamePeriodGrowth" ColumnName="Dividend9MonthSamePeriodGrowth" />
+                <ScalarProperty Name="Dividend6MonthSamePeriodGrowth" ColumnName="Dividend6MonthSamePeriodGrowth" />
+                <ScalarProperty Name="Dividend3MonthSamePeriodGrowth" ColumnName="Dividend3MonthSamePeriodGrowth" />
+                <ScalarProperty Name="DilutedContinuousEPS10YearGrowth" ColumnName="DilutedContinuousEPS10YearGrowth" />
+                <ScalarProperty Name="DilutedContinuousEPS5YearGrowth" ColumnName="DilutedContinuousEPS5YearGrowth" />
+                <ScalarProperty Name="DilutedContinuousEPS3YearGrowth" ColumnName="DilutedContinuousEPS3YearGrowth" />
+                <ScalarProperty Name="DilutedContinuousEPS1YearGrowth" ColumnName="DilutedContinuousEPS1YearGrowth" />
+                <ScalarProperty Name="DilutedContinuousEPSSequentialGrowth" ColumnName="DilutedContinuousEPSSequentialGrowth" />
+                <ScalarProperty Name="DilutedContinuousEPS9MonthSamePeriodGrowth" ColumnName="DilutedContinuousEPS9MonthSamePeriodGrowth" />
+                <ScalarProperty Name="DilutedContinuousEPS6MonthSamePeriodGrowth" ColumnName="DilutedContinuousEPS6MonthSamePeriodGrowth" />
+                <ScalarProperty Name="DilutedContinuousEPS3MonthSamePeriodGrowth" ColumnName="DilutedContinuousEPS3MonthSamePeriodGrowth" />
+                <ScalarProperty Name="DilutedEPS10YearGrowth" ColumnName="DilutedEPS10YearGrowth" />
+                <ScalarProperty Name="DilutedEPS5YearGrowth" ColumnName="DilutedEPS5YearGrowth" />
+                <ScalarProperty Name="DilutedEPS3YearGrowth" ColumnName="DilutedEPS3YearGrowth" />
+                <ScalarProperty Name="DilutedEPS1YearGrowth" ColumnName="DilutedEPS1YearGrowth" />
+                <ScalarProperty Name="DilutedEPSSequentialGrowth" ColumnName="DilutedEPSSequentialGrowth" />
+                <ScalarProperty Name="DilutedEPS9MonthSamePeriodGrowth" ColumnName="DilutedEPS9MonthSamePeriodGrowth" />
+                <ScalarProperty Name="DilutedEPS6MonthSamePeriodGrowth" ColumnName="DilutedEPS6MonthSamePeriodGrowth" />
+                <ScalarProperty Name="DilutedEPS3MonthSamePeriodGrowth" ColumnName="DilutedEPS3MonthSamePeriodGrowth" />
+                <ScalarProperty Name="FiscalYearEnd" ColumnName="FiscalYearEnd" />
+                <ScalarProperty Name="Interim" ColumnName="Interim" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="StatementType" ColumnName="StatementType" />
+                <ScalarProperty Name="FileDate" ColumnName="FileDate" />
+                <ScalarProperty Name="PeriodEndingDate" ColumnName="PeriodEndingDate" />
+                <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

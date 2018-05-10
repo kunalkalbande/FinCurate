@@ -397,6 +397,7 @@
     <Property Name="CurrentOtherFinancialLiabilities" Type="nvarchar(max)" />
     <Property Name="NonCurrentOtherFinancialLiabilities" Type="nvarchar(max)" />
     <Property Name="OtherFinancialLiabilities" Type="nvarchar(max)" />
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="CashFlows">
     <Key>
@@ -641,8 +642,9 @@
     <Property Name="SaleOfInvestmentProperties" Type="nvarchar(max)" />
     <Property Name="OtherCashAdjustIncludedIntoChangeinCash" Type="nvarchar(max)" />
     <Property Name="OtherCashAdjustExcludeFromChangeinCash" Type="nvarchar(max)" />
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="CashFlowTTMs">
+  <EntityType Name="CashFlowsTTM">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -651,66 +653,241 @@
     <Property Name="PeriodEndingDate" Type="nvarchar(max)" />
     <Property Name="StatementType" Type="nvarchar(max)" />
     <Property Name="CurrencyId" Type="nvarchar(max)" />
-    <Property Name="FiscalYearEnd" Type="int" Nullable="false" />
-    <Property Name="Amortization" Type="float" Nullable="false" />
-    <Property Name="CapitalExpenditure" Type="float" Nullable="false" />
-    <Property Name="CashDividendsPaid" Type="float" Nullable="false" />
-    <Property Name="CashFlowFromContinuingFinancingActivities" Type="float" Nullable="false" />
-    <Property Name="CashFlowFromContinuingInvestingActivities" Type="float" Nullable="false" />
-    <Property Name="CashFlowFromContinuingOperatingActivities" Type="float" Nullable="false" />
-    <Property Name="FinancingCashFlow" Type="float" Nullable="false" />
-    <Property Name="InvestingCashFlow" Type="float" Nullable="false" />
-    <Property Name="OperatingCashFlow" Type="float" Nullable="false" />
-    <Property Name="BeginningCashPosition" Type="float" Nullable="false" />
-    <Property Name="EndCashPosition" Type="float" Nullable="false" />
-    <Property Name="ChangesInCash" Type="float" Nullable="false" />
-    <Property Name="ChangeInOtherWorkingCapital" Type="float" Nullable="false" />
-    <Property Name="ChangeInWorkingCapital" Type="float" Nullable="false" />
-    <Property Name="CommonStockDividendPaid" Type="float" Nullable="false" />
-    <Property Name="Depreciation" Type="float" Nullable="false" />
-    <Property Name="DepreciationAndAmortization" Type="float" Nullable="false" />
-    <Property Name="DepreciationAmortizationDepletion" Type="float" Nullable="false" />
-    <Property Name="EffectOfExchangeRateChanges" Type="float" Nullable="false" />
-    <Property Name="NetCommonStockIssuance" Type="float" Nullable="false" />
-    <Property Name="NetIssuancePaymentsOfDebt" Type="float" Nullable="false" />
-    <Property Name="NetLongTermDebtIssuance" Type="float" Nullable="false" />
-    <Property Name="NetShortTermDebtIssuance" Type="float" Nullable="false" />
-    <Property Name="NetIncomeFromContinuingOperations" Type="float" Nullable="false" />
-    <Property Name="OperatingGainsLosses" Type="float" Nullable="false" />
-    <Property Name="NetOtherFinancingCharges" Type="float" Nullable="false" />
-    <Property Name="NetOtherInvestingChanges" Type="float" Nullable="false" />
-    <Property Name="CommonStockPayments" Type="float" Nullable="false" />
-    <Property Name="LongTermDebtPayments" Type="float" Nullable="false" />
-    <Property Name="LongTermDebtIssuance" Type="float" Nullable="false" />
-    <Property Name="PurchaseOfIntangibles" Type="float" Nullable="false" />
-    <Property Name="PurchaseOfInvestment" Type="float" Nullable="false" />
-    <Property Name="PurchaseOfPPE" Type="float" Nullable="false" />
-    <Property Name="PurchaseOfBusiness" Type="float" Nullable="false" />
-    <Property Name="NetBusinessPurchaseAndSale" Type="float" Nullable="false" />
-    <Property Name="NetIntangiblesPurchaseAndSale" Type="float" Nullable="false" />
-    <Property Name="NetInvestmentPurchaseAndSale" Type="float" Nullable="false" />
-    <Property Name="NetPPEPurchaseAndSale" Type="float" Nullable="false" />
-    <Property Name="SaleOfInvestment" Type="float" Nullable="false" />
-    <Property Name="SaleOfPPE" Type="float" Nullable="false" />
-    <Property Name="StockBasedCompensation" Type="float" Nullable="false" />
-    <Property Name="AmortizationOfIntangibles" Type="float" Nullable="false" />
-    <Property Name="IssuanceOfDebt" Type="float" Nullable="false" />
-    <Property Name="RepaymentOfDebt" Type="float" Nullable="false" />
-    <Property Name="RepurchaseOfCapitalStock" Type="float" Nullable="false" />
-    <Property Name="FreeCashFlow" Type="float" Nullable="false" />
+    <Property Name="FiscalYearEnd" Type="nvarchar(max)" />
+    <Property Name="Amortization" Type="nvarchar(max)" />
+    <Property Name="DepreciationAndAmortization" Type="nvarchar(max)" />
+    <Property Name="DepreciationAmortizationDepletion" Type="nvarchar(max)" />
+    <Property Name="AmortizationOfIntangibles" Type="nvarchar(max)" />
     <Property Name="FiscalYearChange" Type="nvarchar(max)" />
     <Property Name="FileDate" Type="nvarchar(max)" />
-    <Property Name="ChangeInAccountPayable" Type="float" />
-    <Property Name="ChangeInInventory" Type="float" />
-    <Property Name="ChangeInPayable" Type="float" />
-    <Property Name="ChangeInPayablesAndAccruedExpense" Type="float" />
-    <Property Name="ChangeInReceivables" Type="float" />
-    <Property Name="DeferredIncomeTax" Type="float" />
-    <Property Name="DeferredTax" Type="float" />
-    <Property Name="GainLossOnSaleOfBusiness" Type="float" />
-    <Property Name="IncomeTaxPaidSupplementalData" Type="float" />
-    <Property Name="InterestPaidSupplementalData" Type="float" />
     <Property Name="AccessionNumber" Type="nvarchar(max)" />
+    <Property Name="DataType" Type="nvarchar(max)" />
+    <Property Name="CapitalExpenditure" Type="nvarchar(max)" />
+    <Property Name="CashDividendsPaid" Type="nvarchar(max)" />
+    <Property Name="CashFlowFromContinuingFinancingActivities" Type="nvarchar(max)" />
+    <Property Name="CashFlowFromContinuingInvestingActivities" Type="nvarchar(max)" />
+    <Property Name="CashFlowFromContinuingOperatingActivities" Type="nvarchar(max)" />
+    <Property Name="FinancingCashFlow" Type="nvarchar(max)" />
+    <Property Name="InvestingCashFlow" Type="nvarchar(max)" />
+    <Property Name="OperatingCashFlow" Type="nvarchar(max)" />
+    <Property Name="BeginningCashPosition" Type="nvarchar(max)" />
+    <Property Name="EndCashPosition" Type="nvarchar(max)" />
+    <Property Name="ChangeInAccountPayable" Type="nvarchar(max)" />
+    <Property Name="ChangesInCash" Type="nvarchar(max)" />
+    <Property Name="ChangeInInventory" Type="nvarchar(max)" />
+    <Property Name="ChangeInOtherWorkingCapital" Type="nvarchar(max)" />
+    <Property Name="ChangeInPayable" Type="nvarchar(max)" />
+    <Property Name="ChangeInPayablesAndAccruedExpense" Type="nvarchar(max)" />
+    <Property Name="ChangeInReceivables" Type="nvarchar(max)" />
+    <Property Name="ChangeInWorkingCapital" Type="nvarchar(max)" />
+    <Property Name="CommonStockDividendPaid" Type="nvarchar(max)" />
+    <Property Name="DeferredIncomeTax" Type="nvarchar(max)" />
+    <Property Name="DeferredTax" Type="nvarchar(max)" />
+    <Property Name="Depreciation" Type="nvarchar(max)" />
+    <Property Name="EffectOfExchangeRateChanges" Type="nvarchar(max)" />
+    <Property Name="GainLossOnSaleOfBusiness" Type="nvarchar(max)" />
+    <Property Name="NetCommonStockIssuance" Type="nvarchar(max)" />
+    <Property Name="NetIssuancePaymentsOfDebt" Type="nvarchar(max)" />
+    <Property Name="NetLongTermDebtIssuance" Type="nvarchar(max)" />
+    <Property Name="NetShortTermDebtIssuance" Type="nvarchar(max)" />
+    <Property Name="NetIncomeFromContinuingOperations" Type="nvarchar(max)" />
+    <Property Name="OperatingGainsLosses" Type="nvarchar(max)" />
+    <Property Name="NetOtherFinancingCharges" Type="nvarchar(max)" />
+    <Property Name="NetOtherInvestingChanges" Type="nvarchar(max)" />
+    <Property Name="CommonStockPayments" Type="nvarchar(max)" />
+    <Property Name="LongTermDebtPayments" Type="nvarchar(max)" />
+    <Property Name="LongTermDebtIssuance" Type="nvarchar(max)" />
+    <Property Name="PurchaseOfIntangibles" Type="nvarchar(max)" />
+    <Property Name="PurchaseOfInvestment" Type="nvarchar(max)" />
+    <Property Name="PurchaseOfPPE" Type="nvarchar(max)" />
+    <Property Name="PurchaseOfBusiness" Type="nvarchar(max)" />
+    <Property Name="NetBusinessPurchaseAndSale" Type="nvarchar(max)" />
+    <Property Name="NetIntangiblesPurchaseAndSale" Type="nvarchar(max)" />
+    <Property Name="NetInvestmentPurchaseAndSale" Type="nvarchar(max)" />
+    <Property Name="NetPPEPurchaseAndSale" Type="nvarchar(max)" />
+    <Property Name="SaleOfInvestment" Type="nvarchar(max)" />
+    <Property Name="SaleOfPPE" Type="nvarchar(max)" />
+    <Property Name="StockBasedCompensation" Type="nvarchar(max)" />
+    <Property Name="IncomeTaxPaidSupplementalData" Type="nvarchar(max)" />
+    <Property Name="InterestPaidSupplementalData" Type="nvarchar(max)" />
+    <Property Name="IssuanceOfDebt" Type="nvarchar(max)" />
+    <Property Name="RepaymentOfDebt" Type="nvarchar(max)" />
+    <Property Name="RepurchaseOfCapitalStock" Type="nvarchar(max)" />
+    <Property Name="FreeCashFlow" Type="nvarchar(max)" />
+    <Property Name="FormType" Type="nvarchar(max)" />
+    <Property Name="Interim" Type="nvarchar(max)" />
+    <Property Name="AmortizationOfFinancingCostsAndDiscounts" Type="nvarchar(max)" />
+    <Property Name="AmortizationOfSecurities" Type="nvarchar(max)" />
+    <Property Name="AssetImpairmentCharge" Type="nvarchar(max)" />
+    <Property Name="CallsMaturitiesOfMaturitySecurities" Type="nvarchar(max)" />
+    <Property Name="NetCapitalExpenditureDisposals" Type="nvarchar(max)" />
+    <Property Name="CapitalExpenditureReported" Type="nvarchar(max)" />
+    <Property Name="CashFlowFromDiscontinuedOperation" Type="nvarchar(max)" />
+    <Property Name="CashFromDiscontinuedFinancingActivities" Type="nvarchar(max)" />
+    <Property Name="CashFromDiscontinuedInvestingActivities" Type="nvarchar(max)" />
+    <Property Name="ChangeInDividendPayable" Type="nvarchar(max)" />
+    <Property Name="ChangeInTaxPayable" Type="nvarchar(max)" />
+    <Property Name="ChangeInAccruedExpense" Type="nvarchar(max)" />
+    <Property Name="ChangeInAccruedInvestmentIncome" Type="nvarchar(max)" />
+    <Property Name="ChangeInDeferredAcquisitionCosts" Type="nvarchar(max)" />
+    <Property Name="ChangeInDeferredCharges" Type="nvarchar(max)" />
+    <Property Name="ChangeInFederalFundsAndSecuritiesSoldForRepurchase" Type="nvarchar(max)" />
+    <Property Name="ChangeInFundsWithheld" Type="nvarchar(max)" />
+    <Property Name="ChangeInIncomeTaxPayable" Type="nvarchar(max)" />
+    <Property Name="ChangeInInterestPayable" Type="nvarchar(max)" />
+    <Property Name="ChangeInLoans" Type="nvarchar(max)" />
+    <Property Name="ChangeInLossAndLossAdjustmentExpenseReserves" Type="nvarchar(max)" />
+    <Property Name="ChangeInOtherCurrentAssets" Type="nvarchar(max)" />
+    <Property Name="ChangeInOtherCurrentLiabilities" Type="nvarchar(max)" />
+    <Property Name="ChangeInPremiumsReceivable" Type="nvarchar(max)" />
+    <Property Name="ChangeInPrepaidAssets" Type="nvarchar(max)" />
+    <Property Name="ChangeInPrepaidReinsurancePremiums" Type="nvarchar(max)" />
+    <Property Name="ChangeInReinsuranceReceivableOnPaidLosses" Type="nvarchar(max)" />
+    <Property Name="ChangeInReinsuranceRecoverableOnPaidAndUnpaidLosses" Type="nvarchar(max)" />
+    <Property Name="ChangeInReinsuranceRecoverableOnUnpaidLosses" Type="nvarchar(max)" />
+    <Property Name="ChangeInRestrictedCash" Type="nvarchar(max)" />
+    <Property Name="ChangeInTradingAccountSecurities" Type="nvarchar(max)" />
+    <Property Name="ChangeInUnearnedPremiums" Type="nvarchar(max)" />
+    <Property Name="ChangeInUnearnedPremiumsCeded" Type="nvarchar(max)" />
+    <Property Name="CumulativeEffectOfAccountingChange" Type="nvarchar(max)" />
+    <Property Name="Depletion" Type="nvarchar(max)" />
+    <Property Name="EarningsLossesFromEquityInvestments" Type="nvarchar(max)" />
+    <Property Name="ExcessTaxBenefitFromStockBasedCompensation" Type="nvarchar(max)" />
+    <Property Name="ExtraordinaryItems" Type="nvarchar(max)" />
+    <Property Name="GainLossOnInvestmentSecurities" Type="nvarchar(max)" />
+    <Property Name="GainLossOnSaleOfPPE" Type="nvarchar(max)" />
+    <Property Name="IncreaseDecreaseInDeposit" Type="nvarchar(max)" />
+    <Property Name="InterestCreditedOnPolicyholderDeposits" Type="nvarchar(max)" />
+    <Property Name="NetPreferredStockIssuance" Type="nvarchar(max)" />
+    <Property Name="CashFromDiscontinuedOperatingActivities" Type="nvarchar(max)" />
+    <Property Name="NetForeignCurrencyExchangeGainLoss" Type="nvarchar(max)" />
+    <Property Name="NetIncome" Type="nvarchar(max)" />
+    <Property Name="NetIncomeFromDiscontinuedOperations" Type="nvarchar(max)" />
+    <Property Name="NetRealizedInvestmentGains" Type="nvarchar(max)" />
+    <Property Name="OtherNonCashItems" Type="nvarchar(max)" />
+    <Property Name="PaymentForLoans" Type="nvarchar(max)" />
+    <Property Name="PreferredStockPayments" Type="nvarchar(max)" />
+    <Property Name="ShortTermDebtPayments" Type="nvarchar(max)" />
+    <Property Name="PensionAndEmployeeBenefitExpense" Type="nvarchar(max)" />
+    <Property Name="PreferredStockDividendPaid" Type="nvarchar(max)" />
+    <Property Name="ProceedsFromIssuanceOfWarrants" Type="nvarchar(max)" />
+    <Property Name="ProceedsFromLoans" Type="nvarchar(max)" />
+    <Property Name="ProceedsFromStockOptionExercised" Type="nvarchar(max)" />
+    <Property Name="CommonStockIssuance" Type="nvarchar(max)" />
+    <Property Name="PreferredStockIssuance" Type="nvarchar(max)" />
+    <Property Name="ShortTermDebtIssuance" Type="nvarchar(max)" />
+    <Property Name="ProceedsPaymentFederalFundsSoldAndSecuritiesPurchasedUnderAgreementToResell" Type="nvarchar(max)" />
+    <Property Name="NetProceedsPaymentForLoan" Type="nvarchar(max)" />
+    <Property Name="ProceedsPaymentInInterestBearingDepositsInBank" Type="nvarchar(max)" />
+    <Property Name="ProvisionForLoanLeaseAndOtherLosses" Type="nvarchar(max)" />
+    <Property Name="PurchaseOfEquitySecurities" Type="nvarchar(max)" />
+    <Property Name="PurchaseOfFixedMaturitySecurities" Type="nvarchar(max)" />
+    <Property Name="PurchaseOfLongTermInvestments" Type="nvarchar(max)" />
+    <Property Name="PurchaseOfShortTermInvestments" Type="nvarchar(max)" />
+    <Property Name="PurchaseOfTechnology" Type="nvarchar(max)" />
+    <Property Name="NetTechnologyPurchaseAndSale" Type="nvarchar(max)" />
+    <Property Name="RealizedGainLossOnSaleOfLoansAndLease" Type="nvarchar(max)" />
+    <Property Name="SaleOfBusiness" Type="nvarchar(max)" />
+    <Property Name="SaleOfIntangibles" Type="nvarchar(max)" />
+    <Property Name="SaleOfLongTermInvestments" Type="nvarchar(max)" />
+    <Property Name="SaleOfShortTermInvestments" Type="nvarchar(max)" />
+    <Property Name="SaleOfTechnology" Type="nvarchar(max)" />
+    <Property Name="SalesOfEquitySecurities" Type="nvarchar(max)" />
+    <Property Name="SalesOfFixedMaturitySecurities" Type="nvarchar(max)" />
+    <Property Name="UnrealizedGainLossOnInvestmentSecurities" Type="nvarchar(max)" />
+    <Property Name="UnrealizedGainsLossesOnDerivatives" Type="nvarchar(max)" />
+    <Property Name="AllowanceForFundsConstruction" Type="nvarchar(max)" />
+    <Property Name="ChangesInAccountReceivables" Type="nvarchar(max)" />
+    <Property Name="DomesticSales" Type="nvarchar(max)" />
+    <Property Name="ForeignSales" Type="nvarchar(max)" />
+    <Property Name="IssuanceOfCapitalStock" Type="nvarchar(max)" />
+    <Property Name="DirectCashFlowsFromOperatingActivities" Type="nvarchar(max)" />
+    <Property Name="DecreaseinInterestBearingDepositsinBank" Type="nvarchar(max)" />
+    <Property Name="IncreaseinInterestBearingDepositsinBank" Type="nvarchar(max)" />
+    <Property Name="AdjustedGeographySegmentData" Type="nvarchar(max)" />
+    <Property Name="InterestReceivedCFO" Type="nvarchar(max)" />
+    <Property Name="InterestPaidCFO" Type="nvarchar(max)" />
+    <Property Name="PurchaseofSubsidiaries" Type="nvarchar(max)" />
+    <Property Name="PurchaseofJointVentureAssociate" Type="nvarchar(max)" />
+    <Property Name="SaleofSubsidiaries" Type="nvarchar(max)" />
+    <Property Name="SaleofJointVentureAssociate" Type="nvarchar(max)" />
+    <Property Name="IncreaseDecreaseinLeaseFinancing" Type="nvarchar(max)" />
+    <Property Name="IncreaseinLeaseFinancing" Type="nvarchar(max)" />
+    <Property Name="RepaymentinLeaseFinancing" Type="nvarchar(max)" />
+    <Property Name="ShareofAssociates" Type="nvarchar(max)" />
+    <Property Name="ProfitonDisposals" Type="nvarchar(max)" />
+    <Property Name="ReorganizationOtherCosts" Type="nvarchar(max)" />
+    <Property Name="OtherFinancing" Type="nvarchar(max)" />
+    <Property Name="NetOutwardLoans" Type="nvarchar(max)" />
+    <Property Name="IssueExpenses" Type="nvarchar(max)" />
+    <Property Name="ChangeinCertificatesofDepositsandDebtSecuritiesIssued" Type="nvarchar(max)" />
+    <Property Name="PaymentstoAcquireHeldToMaturityInvestments" Type="nvarchar(max)" />
+    <Property Name="PaymentstoAcquireAvailableForSaleFinancialAssets" Type="nvarchar(max)" />
+    <Property Name="PaymentstoAcquireFinancialAssetsDesignatedasFairValue" Type="nvarchar(max)" />
+    <Property Name="ProceedsfromDisposalofHeldToMaturityInvestments" Type="nvarchar(max)" />
+    <Property Name="ProceedsfromDisposalofAvailableForSaleFinancialAssets" Type="nvarchar(max)" />
+    <Property Name="ProceedsfromDisposalofFinancialAssetsDesignatedasFairValue" Type="nvarchar(max)" />
+    <Property Name="ChangeinFairValueofInvestmentProperties" Type="nvarchar(max)" />
+    <Property Name="ChangeinDepositsbyBanksandCustomers" Type="nvarchar(max)" />
+    <Property Name="CashFlowsfromusedinOperatingActivitiesDirect" Type="nvarchar(max)" />
+    <Property Name="ClassesofCashReceiptsfromOperatingActivities" Type="nvarchar(max)" />
+    <Property Name="OtherCashReceiptsfromOperatingActivities" Type="nvarchar(max)" />
+    <Property Name="ClassesofCashPayments" Type="nvarchar(max)" />
+    <Property Name="PaymentstoSuppliersforGoodsandServices" Type="nvarchar(max)" />
+    <Property Name="PaymentsfromContractsHeldforDealingorTradingPurpose" Type="nvarchar(max)" />
+    <Property Name="PaymentsonBehalfofEmployees" Type="nvarchar(max)" />
+    <Property Name="PaymentsforPremiumsandClaimsAnnuitiesandOtherPolicyBenefits" Type="nvarchar(max)" />
+    <Property Name="OtherCashPaymentsfromOperatingActivities" Type="nvarchar(max)" />
+    <Property Name="DividendsPaidDirect" Type="nvarchar(max)" />
+    <Property Name="DividendsReceivedDirect" Type="nvarchar(max)" />
+    <Property Name="InterestPaidDirect" Type="nvarchar(max)" />
+    <Property Name="InterestReceivedDirect" Type="nvarchar(max)" />
+    <Property Name="TaxesRefundPaidDirect" Type="nvarchar(max)" />
+    <Property Name="TotalAdjustmentsforNonCashItems" Type="nvarchar(max)" />
+    <Property Name="ImpairmentLossReversalRecognizedinProfitorLoss" Type="nvarchar(max)" />
+    <Property Name="AdjustmentsforUndistributedProfitsofAssociates" Type="nvarchar(max)" />
+    <Property Name="OtherAdjustmentsforWhichCashEffectsAreInvestingorFinancingCashFlow" Type="nvarchar(max)" />
+    <Property Name="DividendPaidCFO" Type="nvarchar(max)" />
+    <Property Name="DividendReceivedCFO" Type="nvarchar(max)" />
+    <Property Name="TaxesRefundPaid" Type="nvarchar(max)" />
+    <Property Name="OtherOperatingInflowsOutflowsofCash" Type="nvarchar(max)" />
+    <Property Name="ProceedsfromGovernmentGrantsCFI" Type="nvarchar(max)" />
+    <Property Name="CashAdvancesandLoansMadetoOtherParties" Type="nvarchar(max)" />
+    <Property Name="CashReceiptsfromRepaymentofAdvancesandLoansMadetoOtherParties" Type="nvarchar(max)" />
+    <Property Name="CashReceiptsfromPaymentsforFinancialDerivativeContracts" Type="nvarchar(max)" />
+    <Property Name="DividendsReceivedCFI" Type="nvarchar(max)" />
+    <Property Name="InterestReceivedCFI" Type="nvarchar(max)" />
+    <Property Name="IncomeTaxesRefundPaidCFI" Type="nvarchar(max)" />
+    <Property Name="IssuancePaymentofOtherEquityInstrumentsNet" Type="nvarchar(max)" />
+    <Property Name="PaymentsofOtherEquityInstruments" Type="nvarchar(max)" />
+    <Property Name="ProceedsfromIssuingOtherEquityInstruments" Type="nvarchar(max)" />
+    <Property Name="ProceedsfromGovernmentGrantsCFF" Type="nvarchar(max)" />
+    <Property Name="InterestPaidCFF" Type="nvarchar(max)" />
+    <Property Name="IncomeTaxesRefundPaidCFF" Type="nvarchar(max)" />
+    <Property Name="ChangeinAccruedIncome" Type="nvarchar(max)" />
+    <Property Name="ChangeinDeferredIncome" Type="nvarchar(max)" />
+    <Property Name="ChangeinFinancialAssets" Type="nvarchar(max)" />
+    <Property Name="ChangeinAdvancesfromCentralBanks" Type="nvarchar(max)" />
+    <Property Name="ChangeinFinancialLiabilities" Type="nvarchar(max)" />
+    <Property Name="ChangeinInsuranceContractAssets" Type="nvarchar(max)" />
+    <Property Name="ChangeinReinsuranceReceivables" Type="nvarchar(max)" />
+    <Property Name="ChangeinDeferredAcquisitionCostsNet" Type="nvarchar(max)" />
+    <Property Name="ChangeinInsuranceFunds" Type="nvarchar(max)" />
+    <Property Name="ChangeinReinsurancePayables" Type="nvarchar(max)" />
+    <Property Name="ChangeinInvestmentContractLiabilities" Type="nvarchar(max)" />
+    <Property Name="ChangeinInsuranceContractLiabilities" Type="nvarchar(max)" />
+    <Property Name="ProvisionandWriteOffofAssets" Type="nvarchar(max)" />
+    <Property Name="ReceiptsfromCustomers" Type="nvarchar(max)" />
+    <Property Name="ReceiptsfromGovernmentGrants" Type="nvarchar(max)" />
+    <Property Name="MinorityInterest" Type="nvarchar(max)" />
+    <Property Name="CashDividendsForMinorities" Type="nvarchar(max)" />
+    <Property Name="FundFromOperation" Type="nvarchar(max)" />
+    <Property Name="NetInvestmentPropertiesPurchaseAndSale" Type="nvarchar(max)" />
+    <Property Name="PurchaseOfInvestmentProperties" Type="nvarchar(max)" />
+    <Property Name="SaleOfInvestmentProperties" Type="nvarchar(max)" />
+    <Property Name="OtherCashAdjustIncludedIntoChangeinCash" Type="nvarchar(max)" />
+    <Property Name="OtherCashAdjustExcludeFromChangeinCash" Type="nvarchar(max)" />
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="CompanyFinancialAvailability">
     <Key>
@@ -929,6 +1106,136 @@ warning 6002: The table/view 'Fincurate.dbo.EODPriceSnapshot' does not have a pr
     <Property Name="NumberOfExistingOwnerSelling" Type="int" />
     <Property Name="TotalSharesSold" Type="decimal" Precision="18" Scale="0" />
   </EntityType>
+  <EntityType Name="GrowthRatios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
+    <Property Name="ReportDate" Type="date" />
+    <Property Name="PeriodEndingDate" Type="date" />
+    <Property Name="FileDate" Type="date" />
+    <Property Name="StatementType" Type="varchar" MaxLength="50" />
+    <Property Name="DataType" Type="varchar" MaxLength="50" />
+    <Property Name="Interim" Type="varchar" MaxLength="50" />
+    <Property Name="FiscalYearEnd" Type="int" />
+    <Property Name="DilutedEPS3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedEPS6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedEPS9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedEPSSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedEPS1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedEPS3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedEPS5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedEPS10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedContinuousEPS3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedContinuousEPS6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedContinuousEPS9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedContinuousEPSSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedContinuousEPS1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedContinuousEPS3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedContinuousEPS5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedContinuousEPS10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Dividend3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Dividend6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Dividend9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DividendSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Dividend1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Dividend3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Dividend5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Dividend10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EquityPerShare3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EquityPerShare6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EquityPerShare9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EquityPerShareSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EquityPerShare1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EquityPerShare3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EquityPerShare5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="EquityPerShare10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Revenue3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Revenue6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Revenue9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="RevenueSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Revenue1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Revenue3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Revenue5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Revenue10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingIncome3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingIncome6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingIncome9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingIncomeSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingIncome1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingIncome3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingIncome5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingIncome10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncome3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncome6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncome9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncome1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncome3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncome5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncome10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeContOps3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeContOps6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeContOps9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeContOpsSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeContOps1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeContOps3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeContOps5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeContOps10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CFO3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CFO6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CFO9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CFOSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CFO1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CFO3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CFO5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CFO10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FCF3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FCF6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FCF9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FCFSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FCF1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FCF3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FCF5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="FCF10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingRevenue3MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingRevenue6MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingRevenue9MonthSamePeriodGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingRevenueSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingRevenue1YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingRevenue3YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingRevenue5YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingRevenue10YearGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="GrowthAnnCapitalSpending5Year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="GrowthAnnGrossProfit5Year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AvgGrossMargin5Year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AvgPostTaxMargin5Year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AvgPreTaxMargin5Year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AvgNetProfitMargin5Year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AvgRetCommonEquity5Year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AvgRetAssets5Year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AvgRetInvestedCapital5Year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AccessionNumber" Type="varchar(max)" />
+    <Property Name="FormType" Type="varchar(max)" />
+    <Property Name="RegressionGrowthOperatingRevenue5Years" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedDilutedEPSGrowth1year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedDilutedEPSGrowth3year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedDilutedEPSGrowth5year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedDilutedEPSGrowth10year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedDilutedEPSSamePeriodGrowth3months" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedDilutedEPSSamePeriodGrowth6months" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedDilutedEPSSamePeriodGrowth9months" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedDilutedEPSSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedBasicEPSGrowth1year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedBasicEPSGrowth3year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedBasicEPSGrowth5year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedBasicEPSGrowth10year" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedBasicEPSSamePeriodGrowth3months" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedBasicEPSSamePeriodGrowth6months" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedBasicEPSSamePeriodGrowth9months" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedBasicEPSSequentialGrowth" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
   <EntityType Name="IncomeStatements">
     <Key>
       <PropertyRef Name="Id" />
@@ -1005,6 +1312,7 @@ warning 6002: The table/view 'Fincurate.dbo.EODPriceSnapshot' does not have a pr
     <Property Name="OtherGandA" Type="float" Nullable="false" />
     <Property Name="NormalizedPretaxIncome" Type="float" Nullable="false" />
     <Property Name="DividendCoverageRatio" Type="float" Nullable="false" />
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="IncomeStatementTTMs">
     <Key>
@@ -1175,6 +1483,7 @@ warning 6002: The table/view 'Fincurate.dbo.EODPriceSnapshot' does not have a pr
     <Property Name="NonAffiliatedValue" Type="decimal" Precision="18" Scale="0" />
     <Property Name="AccessionNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="FormType" Type="nvarchar" MaxLength="50" />
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Fincurate.dbo.PreferredStockYields' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1283,6 +1592,30 @@ warning 6002: The table/view 'Fincurate.dbo.PreferredStockYields' does not have 
     <Property Name="Beta" Type="decimal" Precision="18" Scale="0" />
     <Property Name="RSquare" Type="decimal" Precision="18" Scale="0" />
     <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SharesHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Symbol" Type="varchar" MaxLength="50" />
+    <Property Name="TSODate" Type="date" />
+    <Property Name="CompanyTSO" Type="nvarchar(max)" />
+    <Property Name="ShareLevelTSOSource" Type="nvarchar(max)" />
+    <Property Name="ShareLevelTSO" Type="nvarchar(max)" />
+    <Property Name="QuotedTSO" Type="nvarchar(max)" />
+    <Property Name="UnquotedTSO" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FloatDate" Type="date" />
+    <Property Name="FloatShare" Type="nvarchar(max)" />
+    <Property Name="InsiderHolding" Type="nvarchar(max)" />
+    <Property Name="FloatShareToTotalSharesOutstanding" Type="nvarchar(max)" />
+    <Property Name="ReasonOfShareChange" Type="varchar(max)" />
+    <Property Name="BalanceSheetDate" Type="date" />
+    <Property Name="ShareClassLevelTreasuryShareOutstanding" Type="nvarchar(max)" />
+    <Property Name="SharesOutstandingWithBalanceSheetEndingDate" Type="nvarchar(max)" />
+    <Property Name="ShareClassLevelTreasuryShareOutstandingFromCover" Type="varchar(max)" Nullable="false" />
+    <Property Name="ShareClassLevelTreasuryShareOutstandingFromInterim" Type="varchar(max)" />
+    <Property Name="ShareClassLevelTreasuryShareOutstandingFromOther" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="SharesSnapshot">
     <Key>
@@ -1429,7 +1762,7 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
     <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BalanceSheets" EntityType="Self.BalanceSheets" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CashFlows" EntityType="Self.CashFlows" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="CashFlowTTMs" EntityType="Self.CashFlowTTMs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CashFlowsTTM" EntityType="Self.CashFlowsTTM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CompanyFinancialAvailability" EntityType="Self.CompanyFinancialAvailability" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Currencies" EntityType="Self.Currencies" Schema="dbo" store:Type="Tables" />
@@ -1438,6 +1771,7 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
     <EntitySet Name="Exchanges" EntityType="Self.Exchanges" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FinancialHealthRatios" EntityType="Self.FinancialHealthRatios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FundHoldingsSummary" EntityType="Self.FundHoldingsSummary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GrowthRatios" EntityType="Self.GrowthRatios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="IncomeStatements" EntityType="Self.IncomeStatements" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="IncomeStatementTTMs" EntityType="Self.IncomeStatementTTMs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InsiderHoldingsSummary" EntityType="Self.InsiderHoldingsSummary" Schema="dbo" store:Type="Tables" />
@@ -1452,6 +1786,7 @@ warning 6002: The table/view 'Fincurate.dbo.TrailingMarketReturns' does not have
     <EntitySet Name="ProfitabilityRatiosTTM" EntityType="Self.ProfitabilityRatiosTTM" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ReturnStatistics" EntityType="Self.ReturnStatistics" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SharesHistory" EntityType="Self.SharesHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SharesSnapshot" EntityType="Self.SharesSnapshot" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StockExchangeSecurities" EntityType="Self.StockExchangeSecurities" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StockExchangeSecurity" EntityType="Self.StockExchangeSecurity" Schema="dbo" store:Type="Tables" />

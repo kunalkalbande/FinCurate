@@ -36,7 +36,23 @@ namespace FinCurate.Controllers
             return request.CreateResponse(HttpStatusCode.NotModified, "Unable to update data");
         }
 
-    
+        [HttpPost]
+        public HttpResponseMessage PostSharesHistorys(HttpRequestMessage request, [FromBody] APIRequest apiRequest)
+        {
+            SharesHistoryModel objSharesHistory = new SharesHistoryModel();
+            objSharesHistory = Common.GetSharesHistorys(tokenEntity.Token, apiRequest);
+            if (objSharesHistory != null) //&& objCompanyFinancials.MessageInfo.MessageCode.Equals(200)
+            {
+                bool result = InsertUpdateSharesHistory(objSharesHistory, connstring);
+                if (result)
+                {
+                    return request.CreateResponse(HttpStatusCode.OK, "Data is updated Sucessfully");
+                }
+            }
+            return request.CreateResponse(HttpStatusCode.NotModified, "Unable to update data");
+        }
+
+
         private static bool InsertUpdateSharesSnapshot(SharesSnapshotModel objSharesSnapshot, string connstring)
         {
             try
@@ -62,6 +78,37 @@ namespace FinCurate.Controllers
                 return true;
             }
             catch (Exception)
+            {
+                return false;
+                throw;
+            }
+
+        }
+
+        private static bool InsertUpdateSharesHistory(SharesHistoryModel objSharesHistory, string connstring)
+        {
+            try
+            {
+                var result = AutoMapper.Mapper.Map<FinCurate.SharesHistory>(objSharesHistory.SharesHistoryEntityList.FirstOrDefault());
+                using (FincurateEntities context = new FincurateEntities())
+                {
+                    var IsExisting = context.SharesHistories.Where(m => m.Symbol == result.Symbol).FirstOrDefault();
+                    if (IsExisting == null)
+                    {
+                        context.SharesHistories.Add(result);
+                    }
+                    else
+                    {
+                        context.SharesHistories.Remove(IsExisting);
+                        context.SaveChanges();
+                    }
+                    context.SharesHistories.Add(result);
+
+                    context.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
             {
                 return false;
                 throw;

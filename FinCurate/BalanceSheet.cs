@@ -397,5 +397,6 @@ namespace FinCurate
         public string CurrentOtherFinancialLiabilities { get; set; }
         public string NonCurrentOtherFinancialLiabilities { get; set; }
         public string OtherFinancialLiabilities { get; set; }
+        public string Symbol { get; set; }
     }
 }

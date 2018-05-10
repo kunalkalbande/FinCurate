@@ -194,7 +194,7 @@
     <Compile Include="CashFlow.cs">
       <DependentUpon>FincurateEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="CashFlowTTM.cs">
+    <Compile Include="CashFlowsTTM.cs">
       <DependentUpon>FincurateEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="CompanyFinancialAvailability.cs">
@@ -257,6 +257,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GrowthRatio.cs">
+      <DependentUpon>FincurateEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="IncomeStatement.cs">
       <DependentUpon>FincurateEntities.tt</DependentUpon>
     </Compile>
@@ -301,6 +304,9 @@
       <DependentUpon>FincurateEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ReturnStatistic.cs">
+      <DependentUpon>FincurateEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SharesHistory.cs">
       <DependentUpon>FincurateEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="SharesSnapshot.cs">

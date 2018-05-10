@@ -30,5 +30,6 @@ namespace FinCurate
         public Nullable<decimal> NonAffiliatedValue { get; set; }
         public string AccessionNumber { get; set; }
         public string FormType { get; set; }
+        public string Symbol { get; set; }
     }
 }

@@ -28,7 +28,6 @@
         <EntityTypeShape EntityType="FincurateModel.C__MigrationHistory" Width="1.5" PointX="15.375" PointY="14.75" />
         <EntityTypeShape EntityType="FincurateModel.FinancialHealthRatio" Width="1.5" PointX="16.375" PointY="0.75" />
         <EntityTypeShape EntityType="FincurateModel.IncomeStatement" Width="1.5" PointX="17.375" PointY="6.75" />
-        <EntityTypeShape EntityType="FincurateModel.CashFlowTTM" Width="1.5" PointX="7.375" PointY="17.75" />
         <EntityTypeShape EntityType="FincurateModel.SharesSnapshot" Width="1.5" PointX="13.375" PointY="17.75" />
         <EntityTypeShape EntityType="FincurateModel.Exchanx" Width="1.5" PointX="18.75" PointY="0.75" />
         <EntityTypeShape EntityType="FincurateModel.IncomeStatementTTM" Width="1.5" PointX="9.75" PointY="18.75" />
@@ -41,6 +40,9 @@
         <EntityTypeShape EntityType="FincurateModel.BalanceSheet" Width="1.5" PointX="19.375" PointY="19.75" />
         <EntityTypeShape EntityType="FincurateModel.StockExchangeSecurity1" Width="1.5" PointX="19.375" PointY="19.75" />
         <EntityTypeShape EntityType="FincurateModel.CashFlow" Width="1.5" PointX="3.375" PointY="19.75" />
+        <EntityTypeShape EntityType="FincurateModel.CashFlowsTTM" Width="1.5" PointX="21.375" PointY="0.75" />
+        <EntityTypeShape EntityType="FincurateModel.SharesHistory" Width="1.5" PointX="5.375" PointY="14.75" />
+        <EntityTypeShape EntityType="FincurateModel.GrowthRatio" Width="1.5" PointX="5.375" PointY="20.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

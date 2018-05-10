@@ -48,7 +48,6 @@ namespace FinCurate
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<FinancialHealthRatio> FinancialHealthRatios { get; set; }
         public virtual DbSet<IncomeStatement> IncomeStatements { get; set; }
-        public virtual DbSet<CashFlowTTM> CashFlowTTMs { get; set; }
         public virtual DbSet<SharesSnapshot> SharesSnapshots { get; set; }
         public virtual DbSet<Exchanx> Exchanges { get; set; }
         public virtual DbSet<IncomeStatementTTM> IncomeStatementTTMs { get; set; }
@@ -61,5 +60,8 @@ namespace FinCurate
         public virtual DbSet<StockExchangeSecurity1> StockExchangeSecurities1 { get; set; }
         public virtual DbSet<BalanceSheet> BalanceSheets { get; set; }
         public virtual DbSet<CashFlow> CashFlows { get; set; }
+        public virtual DbSet<CashFlowsTTM> CashFlowsTTMs { get; set; }
+        public virtual DbSet<SharesHistory> SharesHistories { get; set; }
+        public virtual DbSet<GrowthRatio> GrowthRatios { get; set; }
     }
 }

@@ -15,3 +15,4 @@ E:\FinCurate\CommonLibrary\obj\Debug\netstandard2.0\CommonLibrary.AssemblyInfoIn
 E:\FinCurate\CommonLibrary\obj\Debug\netstandard2.0\CommonLibrary.AssemblyInfo.cs
 E:\FinCurate\CommonLibrary\obj\Debug\netstandard2.0\CommonLibrary.dll
 E:\FinCurate\CommonLibrary\obj\Debug\netstandard2.0\CommonLibrary.pdb
+E:\FinCurate\CommonLibrary\obj\Debug\netstandard2.0\CommonLibrary.csprojResolveAssemblyReference.cache

@@ -139,6 +139,22 @@ namespace FinCurate.Controllers
             return request.CreateResponse(HttpStatusCode.NotModified, "Unable to update data");
         }
 
+        [HttpPost]
+        public HttpResponseMessage PostGrowthRatios(HttpRequestMessage request, [FromBody] APIRequest apiRequest)
+        {
+            GrowthRatiosModel objGrowthRatios = new GrowthRatiosModel();
+            objGrowthRatios = Common.GetGrowthRatios(tokenEntity.Token, apiRequest);
+            if (objGrowthRatios != null) //&& objValuationRatios.MessageInfo.MessageCode.Equals(200)
+            {
+                bool result = InsertUpdateGrowthRatios(objGrowthRatios, connstring);
+                if (result)
+                {
+                    return request.CreateResponse(HttpStatusCode.OK, "Data is updated Sucessfully");
+                }
+            }
+            return request.CreateResponse(HttpStatusCode.NotModified, "Unable to update data");
+        }
+
         #region PrivateMethods
 
         private static bool InsertUpdateProfitabilityRatios(ProfitabilityRatios objProfitability, string connstring)
@@ -394,6 +410,41 @@ namespace FinCurate.Controllers
             }
             catch (Exception)
             {
+                return false;
+                throw;
+            }
+
+        }
+
+        private static bool InsertUpdateGrowthRatios(GrowthRatiosModel objGrowthRatios, string connstring)
+        {
+            try
+            {
+
+                var result = AutoMapper.Mapper.Map<FinCurate.GrowthRatio>(objGrowthRatios.GrowthEntityList.FirstOrDefault());
+
+                using (FincurateEntities context = new FincurateEntities())
+                {
+                    var IsExisting = context.GrowthRatios.Where(m => m.Symbol == result.Symbol).FirstOrDefault();
+                    if (IsExisting == null)
+                    {
+                        context.GrowthRatios.Add(result);
+                    }
+                    else
+                    {
+                        context.GrowthRatios.Remove(IsExisting);
+                        context.SaveChanges();
+                    }
+                    context.GrowthRatios.Add(result);
+
+                    context.SaveChanges();
+
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+
                 return false;
                 throw;
             }

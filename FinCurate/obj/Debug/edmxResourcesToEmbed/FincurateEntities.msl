@@ -419,6 +419,7 @@
     <EntitySetMapping Name="MiscellaneousInfos">
       <EntityTypeMapping TypeName="FincurateModel.MiscellaneousInfo">
         <MappingFragment StoreEntitySet="MiscellaneousInfos">
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
           <ScalarProperty Name="FormType" ColumnName="FormType" />
           <ScalarProperty Name="AccessionNumber" ColumnName="AccessionNumber" />
           <ScalarProperty Name="NonAffiliatedValue" ColumnName="NonAffiliatedValue" />
@@ -476,6 +477,7 @@
     <EntitySetMapping Name="IncomeStatements">
       <EntityTypeMapping TypeName="FincurateModel.IncomeStatement">
         <MappingFragment StoreEntitySet="IncomeStatements">
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
           <ScalarProperty Name="DividendCoverageRatio" ColumnName="DividendCoverageRatio" />
           <ScalarProperty Name="NormalizedPretaxIncome" ColumnName="NormalizedPretaxIncome" />
           <ScalarProperty Name="OtherGandA" ColumnName="OtherGandA" />
@@ -545,77 +547,6 @@
           <ScalarProperty Name="DataType" ColumnName="DataType" />
           <ScalarProperty Name="StatementType" ColumnName="StatementType" />
           <ScalarProperty Name="FileDate" ColumnName="FileDate" />
-          <ScalarProperty Name="PeriodEndingDate" ColumnName="PeriodEndingDate" />
-          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CashFlowTTMs">
-      <EntityTypeMapping TypeName="FincurateModel.CashFlowTTM">
-        <MappingFragment StoreEntitySet="CashFlowTTMs">
-          <ScalarProperty Name="AccessionNumber" ColumnName="AccessionNumber" />
-          <ScalarProperty Name="InterestPaidSupplementalData" ColumnName="InterestPaidSupplementalData" />
-          <ScalarProperty Name="IncomeTaxPaidSupplementalData" ColumnName="IncomeTaxPaidSupplementalData" />
-          <ScalarProperty Name="GainLossOnSaleOfBusiness" ColumnName="GainLossOnSaleOfBusiness" />
-          <ScalarProperty Name="DeferredTax" ColumnName="DeferredTax" />
-          <ScalarProperty Name="DeferredIncomeTax" ColumnName="DeferredIncomeTax" />
-          <ScalarProperty Name="ChangeInReceivables" ColumnName="ChangeInReceivables" />
-          <ScalarProperty Name="ChangeInPayablesAndAccruedExpense" ColumnName="ChangeInPayablesAndAccruedExpense" />
-          <ScalarProperty Name="ChangeInPayable" ColumnName="ChangeInPayable" />
-          <ScalarProperty Name="ChangeInInventory" ColumnName="ChangeInInventory" />
-          <ScalarProperty Name="ChangeInAccountPayable" ColumnName="ChangeInAccountPayable" />
-          <ScalarProperty Name="FileDate" ColumnName="FileDate" />
-          <ScalarProperty Name="FiscalYearChange" ColumnName="FiscalYearChange" />
-          <ScalarProperty Name="FreeCashFlow" ColumnName="FreeCashFlow" />
-          <ScalarProperty Name="RepurchaseOfCapitalStock" ColumnName="RepurchaseOfCapitalStock" />
-          <ScalarProperty Name="RepaymentOfDebt" ColumnName="RepaymentOfDebt" />
-          <ScalarProperty Name="IssuanceOfDebt" ColumnName="IssuanceOfDebt" />
-          <ScalarProperty Name="AmortizationOfIntangibles" ColumnName="AmortizationOfIntangibles" />
-          <ScalarProperty Name="StockBasedCompensation" ColumnName="StockBasedCompensation" />
-          <ScalarProperty Name="SaleOfPPE" ColumnName="SaleOfPPE" />
-          <ScalarProperty Name="SaleOfInvestment" ColumnName="SaleOfInvestment" />
-          <ScalarProperty Name="NetPPEPurchaseAndSale" ColumnName="NetPPEPurchaseAndSale" />
-          <ScalarProperty Name="NetInvestmentPurchaseAndSale" ColumnName="NetInvestmentPurchaseAndSale" />
-          <ScalarProperty Name="NetIntangiblesPurchaseAndSale" ColumnName="NetIntangiblesPurchaseAndSale" />
-          <ScalarProperty Name="NetBusinessPurchaseAndSale" ColumnName="NetBusinessPurchaseAndSale" />
-          <ScalarProperty Name="PurchaseOfBusiness" ColumnName="PurchaseOfBusiness" />
-          <ScalarProperty Name="PurchaseOfPPE" ColumnName="PurchaseOfPPE" />
-          <ScalarProperty Name="PurchaseOfInvestment" ColumnName="PurchaseOfInvestment" />
-          <ScalarProperty Name="PurchaseOfIntangibles" ColumnName="PurchaseOfIntangibles" />
-          <ScalarProperty Name="LongTermDebtIssuance" ColumnName="LongTermDebtIssuance" />
-          <ScalarProperty Name="LongTermDebtPayments" ColumnName="LongTermDebtPayments" />
-          <ScalarProperty Name="CommonStockPayments" ColumnName="CommonStockPayments" />
-          <ScalarProperty Name="NetOtherInvestingChanges" ColumnName="NetOtherInvestingChanges" />
-          <ScalarProperty Name="NetOtherFinancingCharges" ColumnName="NetOtherFinancingCharges" />
-          <ScalarProperty Name="OperatingGainsLosses" ColumnName="OperatingGainsLosses" />
-          <ScalarProperty Name="NetIncomeFromContinuingOperations" ColumnName="NetIncomeFromContinuingOperations" />
-          <ScalarProperty Name="NetShortTermDebtIssuance" ColumnName="NetShortTermDebtIssuance" />
-          <ScalarProperty Name="NetLongTermDebtIssuance" ColumnName="NetLongTermDebtIssuance" />
-          <ScalarProperty Name="NetIssuancePaymentsOfDebt" ColumnName="NetIssuancePaymentsOfDebt" />
-          <ScalarProperty Name="NetCommonStockIssuance" ColumnName="NetCommonStockIssuance" />
-          <ScalarProperty Name="EffectOfExchangeRateChanges" ColumnName="EffectOfExchangeRateChanges" />
-          <ScalarProperty Name="DepreciationAmortizationDepletion" ColumnName="DepreciationAmortizationDepletion" />
-          <ScalarProperty Name="DepreciationAndAmortization" ColumnName="DepreciationAndAmortization" />
-          <ScalarProperty Name="Depreciation" ColumnName="Depreciation" />
-          <ScalarProperty Name="CommonStockDividendPaid" ColumnName="CommonStockDividendPaid" />
-          <ScalarProperty Name="ChangeInWorkingCapital" ColumnName="ChangeInWorkingCapital" />
-          <ScalarProperty Name="ChangeInOtherWorkingCapital" ColumnName="ChangeInOtherWorkingCapital" />
-          <ScalarProperty Name="ChangesInCash" ColumnName="ChangesInCash" />
-          <ScalarProperty Name="EndCashPosition" ColumnName="EndCashPosition" />
-          <ScalarProperty Name="BeginningCashPosition" ColumnName="BeginningCashPosition" />
-          <ScalarProperty Name="OperatingCashFlow" ColumnName="OperatingCashFlow" />
-          <ScalarProperty Name="InvestingCashFlow" ColumnName="InvestingCashFlow" />
-          <ScalarProperty Name="FinancingCashFlow" ColumnName="FinancingCashFlow" />
-          <ScalarProperty Name="CashFlowFromContinuingOperatingActivities" ColumnName="CashFlowFromContinuingOperatingActivities" />
-          <ScalarProperty Name="CashFlowFromContinuingInvestingActivities" ColumnName="CashFlowFromContinuingInvestingActivities" />
-          <ScalarProperty Name="CashFlowFromContinuingFinancingActivities" ColumnName="CashFlowFromContinuingFinancingActivities" />
-          <ScalarProperty Name="CashDividendsPaid" ColumnName="CashDividendsPaid" />
-          <ScalarProperty Name="CapitalExpenditure" ColumnName="CapitalExpenditure" />
-          <ScalarProperty Name="Amortization" ColumnName="Amortization" />
-          <ScalarProperty Name="FiscalYearEnd" ColumnName="FiscalYearEnd" />
-          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
-          <ScalarProperty Name="StatementType" ColumnName="StatementType" />
           <ScalarProperty Name="PeriodEndingDate" ColumnName="PeriodEndingDate" />
           <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
           <ScalarProperty Name="Id" ColumnName="Id" />
@@ -820,6 +751,7 @@
     <EntitySetMapping Name="BalanceSheets">
       <EntityTypeMapping TypeName="FincurateModel.BalanceSheet">
         <MappingFragment StoreEntitySet="BalanceSheets">
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
           <ScalarProperty Name="OtherFinancialLiabilities" ColumnName="OtherFinancialLiabilities" />
           <ScalarProperty Name="NonCurrentOtherFinancialLiabilities" ColumnName="NonCurrentOtherFinancialLiabilities" />
           <ScalarProperty Name="CurrentOtherFinancialLiabilities" ColumnName="CurrentOtherFinancialLiabilities" />
@@ -1209,6 +1141,7 @@
     <EntitySetMapping Name="CashFlows">
       <EntityTypeMapping TypeName="FincurateModel.CashFlow">
         <MappingFragment StoreEntitySet="CashFlows">
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
           <ScalarProperty Name="OtherCashAdjustExcludeFromChangeinCash" ColumnName="OtherCashAdjustExcludeFromChangeinCash" />
           <ScalarProperty Name="OtherCashAdjustIncludedIntoChangeinCash" ColumnName="OtherCashAdjustIncludedIntoChangeinCash" />
           <ScalarProperty Name="SaleOfInvestmentProperties" ColumnName="SaleOfInvestmentProperties" />
@@ -1447,6 +1380,408 @@
           <ScalarProperty Name="StatementType" ColumnName="StatementType" />
           <ScalarProperty Name="PeriodEndingDate" ColumnName="PeriodEndingDate" />
           <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CashFlowsTTMs">
+      <EntityTypeMapping TypeName="FincurateModel.CashFlowsTTM">
+        <MappingFragment StoreEntitySet="CashFlowsTTM">
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="OtherCashAdjustExcludeFromChangeinCash" ColumnName="OtherCashAdjustExcludeFromChangeinCash" />
+          <ScalarProperty Name="OtherCashAdjustIncludedIntoChangeinCash" ColumnName="OtherCashAdjustIncludedIntoChangeinCash" />
+          <ScalarProperty Name="SaleOfInvestmentProperties" ColumnName="SaleOfInvestmentProperties" />
+          <ScalarProperty Name="PurchaseOfInvestmentProperties" ColumnName="PurchaseOfInvestmentProperties" />
+          <ScalarProperty Name="NetInvestmentPropertiesPurchaseAndSale" ColumnName="NetInvestmentPropertiesPurchaseAndSale" />
+          <ScalarProperty Name="FundFromOperation" ColumnName="FundFromOperation" />
+          <ScalarProperty Name="CashDividendsForMinorities" ColumnName="CashDividendsForMinorities" />
+          <ScalarProperty Name="MinorityInterest" ColumnName="MinorityInterest" />
+          <ScalarProperty Name="ReceiptsfromGovernmentGrants" ColumnName="ReceiptsfromGovernmentGrants" />
+          <ScalarProperty Name="ReceiptsfromCustomers" ColumnName="ReceiptsfromCustomers" />
+          <ScalarProperty Name="ProvisionandWriteOffofAssets" ColumnName="ProvisionandWriteOffofAssets" />
+          <ScalarProperty Name="ChangeinInsuranceContractLiabilities" ColumnName="ChangeinInsuranceContractLiabilities" />
+          <ScalarProperty Name="ChangeinInvestmentContractLiabilities" ColumnName="ChangeinInvestmentContractLiabilities" />
+          <ScalarProperty Name="ChangeinReinsurancePayables" ColumnName="ChangeinReinsurancePayables" />
+          <ScalarProperty Name="ChangeinInsuranceFunds" ColumnName="ChangeinInsuranceFunds" />
+          <ScalarProperty Name="ChangeinDeferredAcquisitionCostsNet" ColumnName="ChangeinDeferredAcquisitionCostsNet" />
+          <ScalarProperty Name="ChangeinReinsuranceReceivables" ColumnName="ChangeinReinsuranceReceivables" />
+          <ScalarProperty Name="ChangeinInsuranceContractAssets" ColumnName="ChangeinInsuranceContractAssets" />
+          <ScalarProperty Name="ChangeinFinancialLiabilities" ColumnName="ChangeinFinancialLiabilities" />
+          <ScalarProperty Name="ChangeinAdvancesfromCentralBanks" ColumnName="ChangeinAdvancesfromCentralBanks" />
+          <ScalarProperty Name="ChangeinFinancialAssets" ColumnName="ChangeinFinancialAssets" />
+          <ScalarProperty Name="ChangeinDeferredIncome" ColumnName="ChangeinDeferredIncome" />
+          <ScalarProperty Name="ChangeinAccruedIncome" ColumnName="ChangeinAccruedIncome" />
+          <ScalarProperty Name="IncomeTaxesRefundPaidCFF" ColumnName="IncomeTaxesRefundPaidCFF" />
+          <ScalarProperty Name="InterestPaidCFF" ColumnName="InterestPaidCFF" />
+          <ScalarProperty Name="ProceedsfromGovernmentGrantsCFF" ColumnName="ProceedsfromGovernmentGrantsCFF" />
+          <ScalarProperty Name="ProceedsfromIssuingOtherEquityInstruments" ColumnName="ProceedsfromIssuingOtherEquityInstruments" />
+          <ScalarProperty Name="PaymentsofOtherEquityInstruments" ColumnName="PaymentsofOtherEquityInstruments" />
+          <ScalarProperty Name="IssuancePaymentofOtherEquityInstrumentsNet" ColumnName="IssuancePaymentofOtherEquityInstrumentsNet" />
+          <ScalarProperty Name="IncomeTaxesRefundPaidCFI" ColumnName="IncomeTaxesRefundPaidCFI" />
+          <ScalarProperty Name="InterestReceivedCFI" ColumnName="InterestReceivedCFI" />
+          <ScalarProperty Name="DividendsReceivedCFI" ColumnName="DividendsReceivedCFI" />
+          <ScalarProperty Name="CashReceiptsfromPaymentsforFinancialDerivativeContracts" ColumnName="CashReceiptsfromPaymentsforFinancialDerivativeContracts" />
+          <ScalarProperty Name="CashReceiptsfromRepaymentofAdvancesandLoansMadetoOtherParties" ColumnName="CashReceiptsfromRepaymentofAdvancesandLoansMadetoOtherParties" />
+          <ScalarProperty Name="CashAdvancesandLoansMadetoOtherParties" ColumnName="CashAdvancesandLoansMadetoOtherParties" />
+          <ScalarProperty Name="ProceedsfromGovernmentGrantsCFI" ColumnName="ProceedsfromGovernmentGrantsCFI" />
+          <ScalarProperty Name="OtherOperatingInflowsOutflowsofCash" ColumnName="OtherOperatingInflowsOutflowsofCash" />
+          <ScalarProperty Name="TaxesRefundPaid" ColumnName="TaxesRefundPaid" />
+          <ScalarProperty Name="DividendReceivedCFO" ColumnName="DividendReceivedCFO" />
+          <ScalarProperty Name="DividendPaidCFO" ColumnName="DividendPaidCFO" />
+          <ScalarProperty Name="OtherAdjustmentsforWhichCashEffectsAreInvestingorFinancingCashFlow" ColumnName="OtherAdjustmentsforWhichCashEffectsAreInvestingorFinancingCashFlow" />
+          <ScalarProperty Name="AdjustmentsforUndistributedProfitsofAssociates" ColumnName="AdjustmentsforUndistributedProfitsofAssociates" />
+          <ScalarProperty Name="ImpairmentLossReversalRecognizedinProfitorLoss" ColumnName="ImpairmentLossReversalRecognizedinProfitorLoss" />
+          <ScalarProperty Name="TotalAdjustmentsforNonCashItems" ColumnName="TotalAdjustmentsforNonCashItems" />
+          <ScalarProperty Name="TaxesRefundPaidDirect" ColumnName="TaxesRefundPaidDirect" />
+          <ScalarProperty Name="InterestReceivedDirect" ColumnName="InterestReceivedDirect" />
+          <ScalarProperty Name="InterestPaidDirect" ColumnName="InterestPaidDirect" />
+          <ScalarProperty Name="DividendsReceivedDirect" ColumnName="DividendsReceivedDirect" />
+          <ScalarProperty Name="DividendsPaidDirect" ColumnName="DividendsPaidDirect" />
+          <ScalarProperty Name="OtherCashPaymentsfromOperatingActivities" ColumnName="OtherCashPaymentsfromOperatingActivities" />
+          <ScalarProperty Name="PaymentsforPremiumsandClaimsAnnuitiesandOtherPolicyBenefits" ColumnName="PaymentsforPremiumsandClaimsAnnuitiesandOtherPolicyBenefits" />
+          <ScalarProperty Name="PaymentsonBehalfofEmployees" ColumnName="PaymentsonBehalfofEmployees" />
+          <ScalarProperty Name="PaymentsfromContractsHeldforDealingorTradingPurpose" ColumnName="PaymentsfromContractsHeldforDealingorTradingPurpose" />
+          <ScalarProperty Name="PaymentstoSuppliersforGoodsandServices" ColumnName="PaymentstoSuppliersforGoodsandServices" />
+          <ScalarProperty Name="ClassesofCashPayments" ColumnName="ClassesofCashPayments" />
+          <ScalarProperty Name="OtherCashReceiptsfromOperatingActivities" ColumnName="OtherCashReceiptsfromOperatingActivities" />
+          <ScalarProperty Name="ClassesofCashReceiptsfromOperatingActivities" ColumnName="ClassesofCashReceiptsfromOperatingActivities" />
+          <ScalarProperty Name="CashFlowsfromusedinOperatingActivitiesDirect" ColumnName="CashFlowsfromusedinOperatingActivitiesDirect" />
+          <ScalarProperty Name="ChangeinDepositsbyBanksandCustomers" ColumnName="ChangeinDepositsbyBanksandCustomers" />
+          <ScalarProperty Name="ChangeinFairValueofInvestmentProperties" ColumnName="ChangeinFairValueofInvestmentProperties" />
+          <ScalarProperty Name="ProceedsfromDisposalofFinancialAssetsDesignatedasFairValue" ColumnName="ProceedsfromDisposalofFinancialAssetsDesignatedasFairValue" />
+          <ScalarProperty Name="ProceedsfromDisposalofAvailableForSaleFinancialAssets" ColumnName="ProceedsfromDisposalofAvailableForSaleFinancialAssets" />
+          <ScalarProperty Name="ProceedsfromDisposalofHeldToMaturityInvestments" ColumnName="ProceedsfromDisposalofHeldToMaturityInvestments" />
+          <ScalarProperty Name="PaymentstoAcquireFinancialAssetsDesignatedasFairValue" ColumnName="PaymentstoAcquireFinancialAssetsDesignatedasFairValue" />
+          <ScalarProperty Name="PaymentstoAcquireAvailableForSaleFinancialAssets" ColumnName="PaymentstoAcquireAvailableForSaleFinancialAssets" />
+          <ScalarProperty Name="PaymentstoAcquireHeldToMaturityInvestments" ColumnName="PaymentstoAcquireHeldToMaturityInvestments" />
+          <ScalarProperty Name="ChangeinCertificatesofDepositsandDebtSecuritiesIssued" ColumnName="ChangeinCertificatesofDepositsandDebtSecuritiesIssued" />
+          <ScalarProperty Name="IssueExpenses" ColumnName="IssueExpenses" />
+          <ScalarProperty Name="NetOutwardLoans" ColumnName="NetOutwardLoans" />
+          <ScalarProperty Name="OtherFinancing" ColumnName="OtherFinancing" />
+          <ScalarProperty Name="ReorganizationOtherCosts" ColumnName="ReorganizationOtherCosts" />
+          <ScalarProperty Name="ProfitonDisposals" ColumnName="ProfitonDisposals" />
+          <ScalarProperty Name="ShareofAssociates" ColumnName="ShareofAssociates" />
+          <ScalarProperty Name="RepaymentinLeaseFinancing" ColumnName="RepaymentinLeaseFinancing" />
+          <ScalarProperty Name="IncreaseinLeaseFinancing" ColumnName="IncreaseinLeaseFinancing" />
+          <ScalarProperty Name="IncreaseDecreaseinLeaseFinancing" ColumnName="IncreaseDecreaseinLeaseFinancing" />
+          <ScalarProperty Name="SaleofJointVentureAssociate" ColumnName="SaleofJointVentureAssociate" />
+          <ScalarProperty Name="SaleofSubsidiaries" ColumnName="SaleofSubsidiaries" />
+          <ScalarProperty Name="PurchaseofJointVentureAssociate" ColumnName="PurchaseofJointVentureAssociate" />
+          <ScalarProperty Name="PurchaseofSubsidiaries" ColumnName="PurchaseofSubsidiaries" />
+          <ScalarProperty Name="InterestPaidCFO" ColumnName="InterestPaidCFO" />
+          <ScalarProperty Name="InterestReceivedCFO" ColumnName="InterestReceivedCFO" />
+          <ScalarProperty Name="AdjustedGeographySegmentData" ColumnName="AdjustedGeographySegmentData" />
+          <ScalarProperty Name="IncreaseinInterestBearingDepositsinBank" ColumnName="IncreaseinInterestBearingDepositsinBank" />
+          <ScalarProperty Name="DecreaseinInterestBearingDepositsinBank" ColumnName="DecreaseinInterestBearingDepositsinBank" />
+          <ScalarProperty Name="DirectCashFlowsFromOperatingActivities" ColumnName="DirectCashFlowsFromOperatingActivities" />
+          <ScalarProperty Name="IssuanceOfCapitalStock" ColumnName="IssuanceOfCapitalStock" />
+          <ScalarProperty Name="ForeignSales" ColumnName="ForeignSales" />
+          <ScalarProperty Name="DomesticSales" ColumnName="DomesticSales" />
+          <ScalarProperty Name="ChangesInAccountReceivables" ColumnName="ChangesInAccountReceivables" />
+          <ScalarProperty Name="AllowanceForFundsConstruction" ColumnName="AllowanceForFundsConstruction" />
+          <ScalarProperty Name="UnrealizedGainsLossesOnDerivatives" ColumnName="UnrealizedGainsLossesOnDerivatives" />
+          <ScalarProperty Name="UnrealizedGainLossOnInvestmentSecurities" ColumnName="UnrealizedGainLossOnInvestmentSecurities" />
+          <ScalarProperty Name="SalesOfFixedMaturitySecurities" ColumnName="SalesOfFixedMaturitySecurities" />
+          <ScalarProperty Name="SalesOfEquitySecurities" ColumnName="SalesOfEquitySecurities" />
+          <ScalarProperty Name="SaleOfTechnology" ColumnName="SaleOfTechnology" />
+          <ScalarProperty Name="SaleOfShortTermInvestments" ColumnName="SaleOfShortTermInvestments" />
+          <ScalarProperty Name="SaleOfLongTermInvestments" ColumnName="SaleOfLongTermInvestments" />
+          <ScalarProperty Name="SaleOfIntangibles" ColumnName="SaleOfIntangibles" />
+          <ScalarProperty Name="SaleOfBusiness" ColumnName="SaleOfBusiness" />
+          <ScalarProperty Name="RealizedGainLossOnSaleOfLoansAndLease" ColumnName="RealizedGainLossOnSaleOfLoansAndLease" />
+          <ScalarProperty Name="NetTechnologyPurchaseAndSale" ColumnName="NetTechnologyPurchaseAndSale" />
+          <ScalarProperty Name="PurchaseOfTechnology" ColumnName="PurchaseOfTechnology" />
+          <ScalarProperty Name="PurchaseOfShortTermInvestments" ColumnName="PurchaseOfShortTermInvestments" />
+          <ScalarProperty Name="PurchaseOfLongTermInvestments" ColumnName="PurchaseOfLongTermInvestments" />
+          <ScalarProperty Name="PurchaseOfFixedMaturitySecurities" ColumnName="PurchaseOfFixedMaturitySecurities" />
+          <ScalarProperty Name="PurchaseOfEquitySecurities" ColumnName="PurchaseOfEquitySecurities" />
+          <ScalarProperty Name="ProvisionForLoanLeaseAndOtherLosses" ColumnName="ProvisionForLoanLeaseAndOtherLosses" />
+          <ScalarProperty Name="ProceedsPaymentInInterestBearingDepositsInBank" ColumnName="ProceedsPaymentInInterestBearingDepositsInBank" />
+          <ScalarProperty Name="NetProceedsPaymentForLoan" ColumnName="NetProceedsPaymentForLoan" />
+          <ScalarProperty Name="ProceedsPaymentFederalFundsSoldAndSecuritiesPurchasedUnderAgreementToResell" ColumnName="ProceedsPaymentFederalFundsSoldAndSecuritiesPurchasedUnderAgreementToResell" />
+          <ScalarProperty Name="ShortTermDebtIssuance" ColumnName="ShortTermDebtIssuance" />
+          <ScalarProperty Name="PreferredStockIssuance" ColumnName="PreferredStockIssuance" />
+          <ScalarProperty Name="CommonStockIssuance" ColumnName="CommonStockIssuance" />
+          <ScalarProperty Name="ProceedsFromStockOptionExercised" ColumnName="ProceedsFromStockOptionExercised" />
+          <ScalarProperty Name="ProceedsFromLoans" ColumnName="ProceedsFromLoans" />
+          <ScalarProperty Name="ProceedsFromIssuanceOfWarrants" ColumnName="ProceedsFromIssuanceOfWarrants" />
+          <ScalarProperty Name="PreferredStockDividendPaid" ColumnName="PreferredStockDividendPaid" />
+          <ScalarProperty Name="PensionAndEmployeeBenefitExpense" ColumnName="PensionAndEmployeeBenefitExpense" />
+          <ScalarProperty Name="ShortTermDebtPayments" ColumnName="ShortTermDebtPayments" />
+          <ScalarProperty Name="PreferredStockPayments" ColumnName="PreferredStockPayments" />
+          <ScalarProperty Name="PaymentForLoans" ColumnName="PaymentForLoans" />
+          <ScalarProperty Name="OtherNonCashItems" ColumnName="OtherNonCashItems" />
+          <ScalarProperty Name="NetRealizedInvestmentGains" ColumnName="NetRealizedInvestmentGains" />
+          <ScalarProperty Name="NetIncomeFromDiscontinuedOperations" ColumnName="NetIncomeFromDiscontinuedOperations" />
+          <ScalarProperty Name="NetIncome" ColumnName="NetIncome" />
+          <ScalarProperty Name="NetForeignCurrencyExchangeGainLoss" ColumnName="NetForeignCurrencyExchangeGainLoss" />
+          <ScalarProperty Name="CashFromDiscontinuedOperatingActivities" ColumnName="CashFromDiscontinuedOperatingActivities" />
+          <ScalarProperty Name="NetPreferredStockIssuance" ColumnName="NetPreferredStockIssuance" />
+          <ScalarProperty Name="InterestCreditedOnPolicyholderDeposits" ColumnName="InterestCreditedOnPolicyholderDeposits" />
+          <ScalarProperty Name="IncreaseDecreaseInDeposit" ColumnName="IncreaseDecreaseInDeposit" />
+          <ScalarProperty Name="GainLossOnSaleOfPPE" ColumnName="GainLossOnSaleOfPPE" />
+          <ScalarProperty Name="GainLossOnInvestmentSecurities" ColumnName="GainLossOnInvestmentSecurities" />
+          <ScalarProperty Name="ExtraordinaryItems" ColumnName="ExtraordinaryItems" />
+          <ScalarProperty Name="ExcessTaxBenefitFromStockBasedCompensation" ColumnName="ExcessTaxBenefitFromStockBasedCompensation" />
+          <ScalarProperty Name="EarningsLossesFromEquityInvestments" ColumnName="EarningsLossesFromEquityInvestments" />
+          <ScalarProperty Name="Depletion" ColumnName="Depletion" />
+          <ScalarProperty Name="CumulativeEffectOfAccountingChange" ColumnName="CumulativeEffectOfAccountingChange" />
+          <ScalarProperty Name="ChangeInUnearnedPremiumsCeded" ColumnName="ChangeInUnearnedPremiumsCeded" />
+          <ScalarProperty Name="ChangeInUnearnedPremiums" ColumnName="ChangeInUnearnedPremiums" />
+          <ScalarProperty Name="ChangeInTradingAccountSecurities" ColumnName="ChangeInTradingAccountSecurities" />
+          <ScalarProperty Name="ChangeInRestrictedCash" ColumnName="ChangeInRestrictedCash" />
+          <ScalarProperty Name="ChangeInReinsuranceRecoverableOnUnpaidLosses" ColumnName="ChangeInReinsuranceRecoverableOnUnpaidLosses" />
+          <ScalarProperty Name="ChangeInReinsuranceRecoverableOnPaidAndUnpaidLosses" ColumnName="ChangeInReinsuranceRecoverableOnPaidAndUnpaidLosses" />
+          <ScalarProperty Name="ChangeInReinsuranceReceivableOnPaidLosses" ColumnName="ChangeInReinsuranceReceivableOnPaidLosses" />
+          <ScalarProperty Name="ChangeInPrepaidReinsurancePremiums" ColumnName="ChangeInPrepaidReinsurancePremiums" />
+          <ScalarProperty Name="ChangeInPrepaidAssets" ColumnName="ChangeInPrepaidAssets" />
+          <ScalarProperty Name="ChangeInPremiumsReceivable" ColumnName="ChangeInPremiumsReceivable" />
+          <ScalarProperty Name="ChangeInOtherCurrentLiabilities" ColumnName="ChangeInOtherCurrentLiabilities" />
+          <ScalarProperty Name="ChangeInOtherCurrentAssets" ColumnName="ChangeInOtherCurrentAssets" />
+          <ScalarProperty Name="ChangeInLossAndLossAdjustmentExpenseReserves" ColumnName="ChangeInLossAndLossAdjustmentExpenseReserves" />
+          <ScalarProperty Name="ChangeInLoans" ColumnName="ChangeInLoans" />
+          <ScalarProperty Name="ChangeInInterestPayable" ColumnName="ChangeInInterestPayable" />
+          <ScalarProperty Name="ChangeInIncomeTaxPayable" ColumnName="ChangeInIncomeTaxPayable" />
+          <ScalarProperty Name="ChangeInFundsWithheld" ColumnName="ChangeInFundsWithheld" />
+          <ScalarProperty Name="ChangeInFederalFundsAndSecuritiesSoldForRepurchase" ColumnName="ChangeInFederalFundsAndSecuritiesSoldForRepurchase" />
+          <ScalarProperty Name="ChangeInDeferredCharges" ColumnName="ChangeInDeferredCharges" />
+          <ScalarProperty Name="ChangeInDeferredAcquisitionCosts" ColumnName="ChangeInDeferredAcquisitionCosts" />
+          <ScalarProperty Name="ChangeInAccruedInvestmentIncome" ColumnName="ChangeInAccruedInvestmentIncome" />
+          <ScalarProperty Name="ChangeInAccruedExpense" ColumnName="ChangeInAccruedExpense" />
+          <ScalarProperty Name="ChangeInTaxPayable" ColumnName="ChangeInTaxPayable" />
+          <ScalarProperty Name="ChangeInDividendPayable" ColumnName="ChangeInDividendPayable" />
+          <ScalarProperty Name="CashFromDiscontinuedInvestingActivities" ColumnName="CashFromDiscontinuedInvestingActivities" />
+          <ScalarProperty Name="CashFromDiscontinuedFinancingActivities" ColumnName="CashFromDiscontinuedFinancingActivities" />
+          <ScalarProperty Name="CashFlowFromDiscontinuedOperation" ColumnName="CashFlowFromDiscontinuedOperation" />
+          <ScalarProperty Name="CapitalExpenditureReported" ColumnName="CapitalExpenditureReported" />
+          <ScalarProperty Name="NetCapitalExpenditureDisposals" ColumnName="NetCapitalExpenditureDisposals" />
+          <ScalarProperty Name="CallsMaturitiesOfMaturitySecurities" ColumnName="CallsMaturitiesOfMaturitySecurities" />
+          <ScalarProperty Name="AssetImpairmentCharge" ColumnName="AssetImpairmentCharge" />
+          <ScalarProperty Name="AmortizationOfSecurities" ColumnName="AmortizationOfSecurities" />
+          <ScalarProperty Name="AmortizationOfFinancingCostsAndDiscounts" ColumnName="AmortizationOfFinancingCostsAndDiscounts" />
+          <ScalarProperty Name="Interim" ColumnName="Interim" />
+          <ScalarProperty Name="FormType" ColumnName="FormType" />
+          <ScalarProperty Name="FreeCashFlow" ColumnName="FreeCashFlow" />
+          <ScalarProperty Name="RepurchaseOfCapitalStock" ColumnName="RepurchaseOfCapitalStock" />
+          <ScalarProperty Name="RepaymentOfDebt" ColumnName="RepaymentOfDebt" />
+          <ScalarProperty Name="IssuanceOfDebt" ColumnName="IssuanceOfDebt" />
+          <ScalarProperty Name="InterestPaidSupplementalData" ColumnName="InterestPaidSupplementalData" />
+          <ScalarProperty Name="IncomeTaxPaidSupplementalData" ColumnName="IncomeTaxPaidSupplementalData" />
+          <ScalarProperty Name="StockBasedCompensation" ColumnName="StockBasedCompensation" />
+          <ScalarProperty Name="SaleOfPPE" ColumnName="SaleOfPPE" />
+          <ScalarProperty Name="SaleOfInvestment" ColumnName="SaleOfInvestment" />
+          <ScalarProperty Name="NetPPEPurchaseAndSale" ColumnName="NetPPEPurchaseAndSale" />
+          <ScalarProperty Name="NetInvestmentPurchaseAndSale" ColumnName="NetInvestmentPurchaseAndSale" />
+          <ScalarProperty Name="NetIntangiblesPurchaseAndSale" ColumnName="NetIntangiblesPurchaseAndSale" />
+          <ScalarProperty Name="NetBusinessPurchaseAndSale" ColumnName="NetBusinessPurchaseAndSale" />
+          <ScalarProperty Name="PurchaseOfBusiness" ColumnName="PurchaseOfBusiness" />
+          <ScalarProperty Name="PurchaseOfPPE" ColumnName="PurchaseOfPPE" />
+          <ScalarProperty Name="PurchaseOfInvestment" ColumnName="PurchaseOfInvestment" />
+          <ScalarProperty Name="PurchaseOfIntangibles" ColumnName="PurchaseOfIntangibles" />
+          <ScalarProperty Name="LongTermDebtIssuance" ColumnName="LongTermDebtIssuance" />
+          <ScalarProperty Name="LongTermDebtPayments" ColumnName="LongTermDebtPayments" />
+          <ScalarProperty Name="CommonStockPayments" ColumnName="CommonStockPayments" />
+          <ScalarProperty Name="NetOtherInvestingChanges" ColumnName="NetOtherInvestingChanges" />
+          <ScalarProperty Name="NetOtherFinancingCharges" ColumnName="NetOtherFinancingCharges" />
+          <ScalarProperty Name="OperatingGainsLosses" ColumnName="OperatingGainsLosses" />
+          <ScalarProperty Name="NetIncomeFromContinuingOperations" ColumnName="NetIncomeFromContinuingOperations" />
+          <ScalarProperty Name="NetShortTermDebtIssuance" ColumnName="NetShortTermDebtIssuance" />
+          <ScalarProperty Name="NetLongTermDebtIssuance" ColumnName="NetLongTermDebtIssuance" />
+          <ScalarProperty Name="NetIssuancePaymentsOfDebt" ColumnName="NetIssuancePaymentsOfDebt" />
+          <ScalarProperty Name="NetCommonStockIssuance" ColumnName="NetCommonStockIssuance" />
+          <ScalarProperty Name="GainLossOnSaleOfBusiness" ColumnName="GainLossOnSaleOfBusiness" />
+          <ScalarProperty Name="EffectOfExchangeRateChanges" ColumnName="EffectOfExchangeRateChanges" />
+          <ScalarProperty Name="Depreciation" ColumnName="Depreciation" />
+          <ScalarProperty Name="DeferredTax" ColumnName="DeferredTax" />
+          <ScalarProperty Name="DeferredIncomeTax" ColumnName="DeferredIncomeTax" />
+          <ScalarProperty Name="CommonStockDividendPaid" ColumnName="CommonStockDividendPaid" />
+          <ScalarProperty Name="ChangeInWorkingCapital" ColumnName="ChangeInWorkingCapital" />
+          <ScalarProperty Name="ChangeInReceivables" ColumnName="ChangeInReceivables" />
+          <ScalarProperty Name="ChangeInPayablesAndAccruedExpense" ColumnName="ChangeInPayablesAndAccruedExpense" />
+          <ScalarProperty Name="ChangeInPayable" ColumnName="ChangeInPayable" />
+          <ScalarProperty Name="ChangeInOtherWorkingCapital" ColumnName="ChangeInOtherWorkingCapital" />
+          <ScalarProperty Name="ChangeInInventory" ColumnName="ChangeInInventory" />
+          <ScalarProperty Name="ChangesInCash" ColumnName="ChangesInCash" />
+          <ScalarProperty Name="ChangeInAccountPayable" ColumnName="ChangeInAccountPayable" />
+          <ScalarProperty Name="EndCashPosition" ColumnName="EndCashPosition" />
+          <ScalarProperty Name="BeginningCashPosition" ColumnName="BeginningCashPosition" />
+          <ScalarProperty Name="OperatingCashFlow" ColumnName="OperatingCashFlow" />
+          <ScalarProperty Name="InvestingCashFlow" ColumnName="InvestingCashFlow" />
+          <ScalarProperty Name="FinancingCashFlow" ColumnName="FinancingCashFlow" />
+          <ScalarProperty Name="CashFlowFromContinuingOperatingActivities" ColumnName="CashFlowFromContinuingOperatingActivities" />
+          <ScalarProperty Name="CashFlowFromContinuingInvestingActivities" ColumnName="CashFlowFromContinuingInvestingActivities" />
+          <ScalarProperty Name="CashFlowFromContinuingFinancingActivities" ColumnName="CashFlowFromContinuingFinancingActivities" />
+          <ScalarProperty Name="CashDividendsPaid" ColumnName="CashDividendsPaid" />
+          <ScalarProperty Name="CapitalExpenditure" ColumnName="CapitalExpenditure" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="AccessionNumber" ColumnName="AccessionNumber" />
+          <ScalarProperty Name="FileDate" ColumnName="FileDate" />
+          <ScalarProperty Name="FiscalYearChange" ColumnName="FiscalYearChange" />
+          <ScalarProperty Name="AmortizationOfIntangibles" ColumnName="AmortizationOfIntangibles" />
+          <ScalarProperty Name="DepreciationAmortizationDepletion" ColumnName="DepreciationAmortizationDepletion" />
+          <ScalarProperty Name="DepreciationAndAmortization" ColumnName="DepreciationAndAmortization" />
+          <ScalarProperty Name="Amortization" ColumnName="Amortization" />
+          <ScalarProperty Name="FiscalYearEnd" ColumnName="FiscalYearEnd" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyId" />
+          <ScalarProperty Name="StatementType" ColumnName="StatementType" />
+          <ScalarProperty Name="PeriodEndingDate" ColumnName="PeriodEndingDate" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SharesHistories">
+      <EntityTypeMapping TypeName="FincurateModel.SharesHistory">
+        <MappingFragment StoreEntitySet="SharesHistory">
+          <ScalarProperty Name="ShareClassLevelTreasuryShareOutstandingFromOther" ColumnName="ShareClassLevelTreasuryShareOutstandingFromOther" />
+          <ScalarProperty Name="ShareClassLevelTreasuryShareOutstandingFromInterim" ColumnName="ShareClassLevelTreasuryShareOutstandingFromInterim" />
+          <ScalarProperty Name="ShareClassLevelTreasuryShareOutstandingFromCover" ColumnName="ShareClassLevelTreasuryShareOutstandingFromCover" />
+          <ScalarProperty Name="SharesOutstandingWithBalanceSheetEndingDate" ColumnName="SharesOutstandingWithBalanceSheetEndingDate" />
+          <ScalarProperty Name="ShareClassLevelTreasuryShareOutstanding" ColumnName="ShareClassLevelTreasuryShareOutstanding" />
+          <ScalarProperty Name="BalanceSheetDate" ColumnName="BalanceSheetDate" />
+          <ScalarProperty Name="ReasonOfShareChange" ColumnName="ReasonOfShareChange" />
+          <ScalarProperty Name="FloatShareToTotalSharesOutstanding" ColumnName="FloatShareToTotalSharesOutstanding" />
+          <ScalarProperty Name="InsiderHolding" ColumnName="InsiderHolding" />
+          <ScalarProperty Name="FloatShare" ColumnName="FloatShare" />
+          <ScalarProperty Name="FloatDate" ColumnName="FloatDate" />
+          <ScalarProperty Name="UnquotedTSO" ColumnName="UnquotedTSO" />
+          <ScalarProperty Name="QuotedTSO" ColumnName="QuotedTSO" />
+          <ScalarProperty Name="ShareLevelTSO" ColumnName="ShareLevelTSO" />
+          <ScalarProperty Name="ShareLevelTSOSource" ColumnName="ShareLevelTSOSource" />
+          <ScalarProperty Name="CompanyTSO" ColumnName="CompanyTSO" />
+          <ScalarProperty Name="TSODate" ColumnName="TSODate" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GrowthRatios">
+      <EntityTypeMapping TypeName="FincurateModel.GrowthRatio">
+        <MappingFragment StoreEntitySet="GrowthRatios">
+          <ScalarProperty Name="NormalizedBasicEPSSequentialGrowth" ColumnName="NormalizedBasicEPSSequentialGrowth" />
+          <ScalarProperty Name="NormalizedBasicEPSSamePeriodGrowth9months" ColumnName="NormalizedBasicEPSSamePeriodGrowth9months" />
+          <ScalarProperty Name="NormalizedBasicEPSSamePeriodGrowth6months" ColumnName="NormalizedBasicEPSSamePeriodGrowth6months" />
+          <ScalarProperty Name="NormalizedBasicEPSSamePeriodGrowth3months" ColumnName="NormalizedBasicEPSSamePeriodGrowth3months" />
+          <ScalarProperty Name="NormalizedBasicEPSGrowth10year" ColumnName="NormalizedBasicEPSGrowth10year" />
+          <ScalarProperty Name="NormalizedBasicEPSGrowth5year" ColumnName="NormalizedBasicEPSGrowth5year" />
+          <ScalarProperty Name="NormalizedBasicEPSGrowth3year" ColumnName="NormalizedBasicEPSGrowth3year" />
+          <ScalarProperty Name="NormalizedBasicEPSGrowth1year" ColumnName="NormalizedBasicEPSGrowth1year" />
+          <ScalarProperty Name="NormalizedDilutedEPSSequentialGrowth" ColumnName="NormalizedDilutedEPSSequentialGrowth" />
+          <ScalarProperty Name="NormalizedDilutedEPSSamePeriodGrowth9months" ColumnName="NormalizedDilutedEPSSamePeriodGrowth9months" />
+          <ScalarProperty Name="NormalizedDilutedEPSSamePeriodGrowth6months" ColumnName="NormalizedDilutedEPSSamePeriodGrowth6months" />
+          <ScalarProperty Name="NormalizedDilutedEPSSamePeriodGrowth3months" ColumnName="NormalizedDilutedEPSSamePeriodGrowth3months" />
+          <ScalarProperty Name="NormalizedDilutedEPSGrowth10year" ColumnName="NormalizedDilutedEPSGrowth10year" />
+          <ScalarProperty Name="NormalizedDilutedEPSGrowth5year" ColumnName="NormalizedDilutedEPSGrowth5year" />
+          <ScalarProperty Name="NormalizedDilutedEPSGrowth3year" ColumnName="NormalizedDilutedEPSGrowth3year" />
+          <ScalarProperty Name="NormalizedDilutedEPSGrowth1year" ColumnName="NormalizedDilutedEPSGrowth1year" />
+          <ScalarProperty Name="RegressionGrowthOperatingRevenue5Years" ColumnName="RegressionGrowthOperatingRevenue5Years" />
+          <ScalarProperty Name="FormType" ColumnName="FormType" />
+          <ScalarProperty Name="AccessionNumber" ColumnName="AccessionNumber" />
+          <ScalarProperty Name="AvgRetInvestedCapital5Year" ColumnName="AvgRetInvestedCapital5Year" />
+          <ScalarProperty Name="AvgRetAssets5Year" ColumnName="AvgRetAssets5Year" />
+          <ScalarProperty Name="AvgRetCommonEquity5Year" ColumnName="AvgRetCommonEquity5Year" />
+          <ScalarProperty Name="AvgNetProfitMargin5Year" ColumnName="AvgNetProfitMargin5Year" />
+          <ScalarProperty Name="AvgPreTaxMargin5Year" ColumnName="AvgPreTaxMargin5Year" />
+          <ScalarProperty Name="AvgPostTaxMargin5Year" ColumnName="AvgPostTaxMargin5Year" />
+          <ScalarProperty Name="AvgGrossMargin5Year" ColumnName="AvgGrossMargin5Year" />
+          <ScalarProperty Name="GrowthAnnGrossProfit5Year" ColumnName="GrowthAnnGrossProfit5Year" />
+          <ScalarProperty Name="GrowthAnnCapitalSpending5Year" ColumnName="GrowthAnnCapitalSpending5Year" />
+          <ScalarProperty Name="OperatingRevenue10YearGrowth" ColumnName="OperatingRevenue10YearGrowth" />
+          <ScalarProperty Name="OperatingRevenue5YearGrowth" ColumnName="OperatingRevenue5YearGrowth" />
+          <ScalarProperty Name="OperatingRevenue3YearGrowth" ColumnName="OperatingRevenue3YearGrowth" />
+          <ScalarProperty Name="OperatingRevenue1YearGrowth" ColumnName="OperatingRevenue1YearGrowth" />
+          <ScalarProperty Name="OperatingRevenueSequentialGrowth" ColumnName="OperatingRevenueSequentialGrowth" />
+          <ScalarProperty Name="OperatingRevenue9MonthSamePeriodGrowth" ColumnName="OperatingRevenue9MonthSamePeriodGrowth" />
+          <ScalarProperty Name="OperatingRevenue6MonthSamePeriodGrowth" ColumnName="OperatingRevenue6MonthSamePeriodGrowth" />
+          <ScalarProperty Name="OperatingRevenue3MonthSamePeriodGrowth" ColumnName="OperatingRevenue3MonthSamePeriodGrowth" />
+          <ScalarProperty Name="FCF10YearGrowth" ColumnName="FCF10YearGrowth" />
+          <ScalarProperty Name="FCF5YearGrowth" ColumnName="FCF5YearGrowth" />
+          <ScalarProperty Name="FCF3YearGrowth" ColumnName="FCF3YearGrowth" />
+          <ScalarProperty Name="FCF1YearGrowth" ColumnName="FCF1YearGrowth" />
+          <ScalarProperty Name="FCFSequentialGrowth" ColumnName="FCFSequentialGrowth" />
+          <ScalarProperty Name="FCF9MonthSamePeriodGrowth" ColumnName="FCF9MonthSamePeriodGrowth" />
+          <ScalarProperty Name="FCF6MonthSamePeriodGrowth" ColumnName="FCF6MonthSamePeriodGrowth" />
+          <ScalarProperty Name="FCF3MonthSamePeriodGrowth" ColumnName="FCF3MonthSamePeriodGrowth" />
+          <ScalarProperty Name="CFO10YearGrowth" ColumnName="CFO10YearGrowth" />
+          <ScalarProperty Name="CFO5YearGrowth" ColumnName="CFO5YearGrowth" />
+          <ScalarProperty Name="CFO3YearGrowth" ColumnName="CFO3YearGrowth" />
+          <ScalarProperty Name="CFO1YearGrowth" ColumnName="CFO1YearGrowth" />
+          <ScalarProperty Name="CFOSequentialGrowth" ColumnName="CFOSequentialGrowth" />
+          <ScalarProperty Name="CFO9MonthSamePeriodGrowth" ColumnName="CFO9MonthSamePeriodGrowth" />
+          <ScalarProperty Name="CFO6MonthSamePeriodGrowth" ColumnName="CFO6MonthSamePeriodGrowth" />
+          <ScalarProperty Name="CFO3MonthSamePeriodGrowth" ColumnName="CFO3MonthSamePeriodGrowth" />
+          <ScalarProperty Name="NetIncomeContOps10YearGrowth" ColumnName="NetIncomeContOps10YearGrowth" />
+          <ScalarProperty Name="NetIncomeContOps5YearGrowth" ColumnName="NetIncomeContOps5YearGrowth" />
+          <ScalarProperty Name="NetIncomeContOps3YearGrowth" ColumnName="NetIncomeContOps3YearGrowth" />
+          <ScalarProperty Name="NetIncomeContOps1YearGrowth" ColumnName="NetIncomeContOps1YearGrowth" />
+          <ScalarProperty Name="NetIncomeContOpsSequentialGrowth" ColumnName="NetIncomeContOpsSequentialGrowth" />
+          <ScalarProperty Name="NetIncomeContOps9MonthSamePeriodGrowth" ColumnName="NetIncomeContOps9MonthSamePeriodGrowth" />
+          <ScalarProperty Name="NetIncomeContOps6MonthSamePeriodGrowth" ColumnName="NetIncomeContOps6MonthSamePeriodGrowth" />
+          <ScalarProperty Name="NetIncomeContOps3MonthSamePeriodGrowth" ColumnName="NetIncomeContOps3MonthSamePeriodGrowth" />
+          <ScalarProperty Name="NetIncome10YearGrowth" ColumnName="NetIncome10YearGrowth" />
+          <ScalarProperty Name="NetIncome5YearGrowth" ColumnName="NetIncome5YearGrowth" />
+          <ScalarProperty Name="NetIncome3YearGrowth" ColumnName="NetIncome3YearGrowth" />
+          <ScalarProperty Name="NetIncome1YearGrowth" ColumnName="NetIncome1YearGrowth" />
+          <ScalarProperty Name="NetIncomeSequentialGrowth" ColumnName="NetIncomeSequentialGrowth" />
+          <ScalarProperty Name="NetIncome9MonthSamePeriodGrowth" ColumnName="NetIncome9MonthSamePeriodGrowth" />
+          <ScalarProperty Name="NetIncome6MonthSamePeriodGrowth" ColumnName="NetIncome6MonthSamePeriodGrowth" />
+          <ScalarProperty Name="NetIncome3MonthSamePeriodGrowth" ColumnName="NetIncome3MonthSamePeriodGrowth" />
+          <ScalarProperty Name="OperatingIncome10YearGrowth" ColumnName="OperatingIncome10YearGrowth" />
+          <ScalarProperty Name="OperatingIncome5YearGrowth" ColumnName="OperatingIncome5YearGrowth" />
+          <ScalarProperty Name="OperatingIncome3YearGrowth" ColumnName="OperatingIncome3YearGrowth" />
+          <ScalarProperty Name="OperatingIncome1YearGrowth" ColumnName="OperatingIncome1YearGrowth" />
+          <ScalarProperty Name="OperatingIncomeSequentialGrowth" ColumnName="OperatingIncomeSequentialGrowth" />
+          <ScalarProperty Name="OperatingIncome9MonthSamePeriodGrowth" ColumnName="OperatingIncome9MonthSamePeriodGrowth" />
+          <ScalarProperty Name="OperatingIncome6MonthSamePeriodGrowth" ColumnName="OperatingIncome6MonthSamePeriodGrowth" />
+          <ScalarProperty Name="OperatingIncome3MonthSamePeriodGrowth" ColumnName="OperatingIncome3MonthSamePeriodGrowth" />
+          <ScalarProperty Name="Revenue10YearGrowth" ColumnName="Revenue10YearGrowth" />
+          <ScalarProperty Name="Revenue5YearGrowth" ColumnName="Revenue5YearGrowth" />
+          <ScalarProperty Name="Revenue3YearGrowth" ColumnName="Revenue3YearGrowth" />
+          <ScalarProperty Name="Revenue1YearGrowth" ColumnName="Revenue1YearGrowth" />
+          <ScalarProperty Name="RevenueSequentialGrowth" ColumnName="RevenueSequentialGrowth" />
+          <ScalarProperty Name="Revenue9MonthSamePeriodGrowth" ColumnName="Revenue9MonthSamePeriodGrowth" />
+          <ScalarProperty Name="Revenue6MonthSamePeriodGrowth" ColumnName="Revenue6MonthSamePeriodGrowth" />
+          <ScalarProperty Name="Revenue3MonthSamePeriodGrowth" ColumnName="Revenue3MonthSamePeriodGrowth" />
+          <ScalarProperty Name="EquityPerShare10YearGrowth" ColumnName="EquityPerShare10YearGrowth" />
+          <ScalarProperty Name="EquityPerShare5YearGrowth" ColumnName="EquityPerShare5YearGrowth" />
+          <ScalarProperty Name="EquityPerShare3YearGrowth" ColumnName="EquityPerShare3YearGrowth" />
+          <ScalarProperty Name="EquityPerShare1YearGrowth" ColumnName="EquityPerShare1YearGrowth" />
+          <ScalarProperty Name="EquityPerShareSequentialGrowth" ColumnName="EquityPerShareSequentialGrowth" />
+          <ScalarProperty Name="EquityPerShare9MonthSamePeriodGrowth" ColumnName="EquityPerShare9MonthSamePeriodGrowth" />
+          <ScalarProperty Name="EquityPerShare6MonthSamePeriodGrowth" ColumnName="EquityPerShare6MonthSamePeriodGrowth" />
+          <ScalarProperty Name="EquityPerShare3MonthSamePeriodGrowth" ColumnName="EquityPerShare3MonthSamePeriodGrowth" />
+          <ScalarProperty Name="Dividend10YearGrowth" ColumnName="Dividend10YearGrowth" />
+          <ScalarProperty Name="Dividend5YearGrowth" ColumnName="Dividend5YearGrowth" />
+          <ScalarProperty Name="Dividend3YearGrowth" ColumnName="Dividend3YearGrowth" />
+          <ScalarProperty Name="Dividend1YearGrowth" ColumnName="Dividend1YearGrowth" />
+          <ScalarProperty Name="DividendSequentialGrowth" ColumnName="DividendSequentialGrowth" />
+          <ScalarProperty Name="Dividend9MonthSamePeriodGrowth" ColumnName="Dividend9MonthSamePeriodGrowth" />
+          <ScalarProperty Name="Dividend6MonthSamePeriodGrowth" ColumnName="Dividend6MonthSamePeriodGrowth" />
+          <ScalarProperty Name="Dividend3MonthSamePeriodGrowth" ColumnName="Dividend3MonthSamePeriodGrowth" />
+          <ScalarProperty Name="DilutedContinuousEPS10YearGrowth" ColumnName="DilutedContinuousEPS10YearGrowth" />
+          <ScalarProperty Name="DilutedContinuousEPS5YearGrowth" ColumnName="DilutedContinuousEPS5YearGrowth" />
+          <ScalarProperty Name="DilutedContinuousEPS3YearGrowth" ColumnName="DilutedContinuousEPS3YearGrowth" />
+          <ScalarProperty Name="DilutedContinuousEPS1YearGrowth" ColumnName="DilutedContinuousEPS1YearGrowth" />
+          <ScalarProperty Name="DilutedContinuousEPSSequentialGrowth" ColumnName="DilutedContinuousEPSSequentialGrowth" />
+          <ScalarProperty Name="DilutedContinuousEPS9MonthSamePeriodGrowth" ColumnName="DilutedContinuousEPS9MonthSamePeriodGrowth" />
+          <ScalarProperty Name="DilutedContinuousEPS6MonthSamePeriodGrowth" ColumnName="DilutedContinuousEPS6MonthSamePeriodGrowth" />
+          <ScalarProperty Name="DilutedContinuousEPS3MonthSamePeriodGrowth" ColumnName="DilutedContinuousEPS3MonthSamePeriodGrowth" />
+          <ScalarProperty Name="DilutedEPS10YearGrowth" ColumnName="DilutedEPS10YearGrowth" />
+          <ScalarProperty Name="DilutedEPS5YearGrowth" ColumnName="DilutedEPS5YearGrowth" />
+          <ScalarProperty Name="DilutedEPS3YearGrowth" ColumnName="DilutedEPS3YearGrowth" />
+          <ScalarProperty Name="DilutedEPS1YearGrowth" ColumnName="DilutedEPS1YearGrowth" />
+          <ScalarProperty Name="DilutedEPSSequentialGrowth" ColumnName="DilutedEPSSequentialGrowth" />
+          <ScalarProperty Name="DilutedEPS9MonthSamePeriodGrowth" ColumnName="DilutedEPS9MonthSamePeriodGrowth" />
+          <ScalarProperty Name="DilutedEPS6MonthSamePeriodGrowth" ColumnName="DilutedEPS6MonthSamePeriodGrowth" />
+          <ScalarProperty Name="DilutedEPS3MonthSamePeriodGrowth" ColumnName="DilutedEPS3MonthSamePeriodGrowth" />
+          <ScalarProperty Name="FiscalYearEnd" ColumnName="FiscalYearEnd" />
+          <ScalarProperty Name="Interim" ColumnName="Interim" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="StatementType" ColumnName="StatementType" />
+          <ScalarProperty Name="FileDate" ColumnName="FileDate" />
+          <ScalarProperty Name="PeriodEndingDate" ColumnName="PeriodEndingDate" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

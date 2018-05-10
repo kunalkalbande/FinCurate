@@ -12,7 +12,7 @@ namespace FinCurate
     using System;
     using System.Collections.Generic;
     
-    public partial class CashFlow
+    public partial class CashFlowsTTM
     {
         public int Id { get; set; }
         public string ReportDate { get; set; }

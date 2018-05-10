@@ -22,10 +22,8 @@
     <EntitySet Name="InstitutionalHoldingsSummaryHistories" EntityType="FincurateModel.InstitutionalHoldingsSummaryHistory" />
     <EntitySet Name="MiscellaneousInfos" EntityType="FincurateModel.MiscellaneousInfo" />
     <EntitySet Name="C__MigrationHistory" EntityType="FincurateModel.C__MigrationHistory" />
-    <EntitySet Name="CashFlows" EntityType="FincurateModel.CashFlow" />
     <EntitySet Name="FinancialHealthRatios" EntityType="FincurateModel.FinancialHealthRatio" />
     <EntitySet Name="IncomeStatements" EntityType="FincurateModel.IncomeStatement" />
-    <EntitySet Name="CashFlowTTMs" EntityType="FincurateModel.CashFlowTTM" />
     <EntitySet Name="SharesSnapshots" EntityType="FincurateModel.SharesSnapshot" />
     <EntitySet Name="Exchanges" EntityType="FincurateModel.Exchanx" />
     <EntitySet Name="IncomeStatementTTMs" EntityType="FincurateModel.IncomeStatementTTM" />
@@ -35,6 +33,12 @@
     <EntitySet Name="InvestmentTypes" EntityType="FincurateModel.InvestmentType" />
     <EntitySet Name="LanguageCodeLists" EntityType="FincurateModel.LanguageCodeList" />
     <EntitySet Name="Regions" EntityType="FincurateModel.Region" />
+    <EntitySet Name="StockExchangeSecurities1" EntityType="FincurateModel.StockExchangeSecurity1" />
+    <EntitySet Name="BalanceSheets" EntityType="FincurateModel.BalanceSheet" />
+    <EntitySet Name="CashFlows" EntityType="FincurateModel.CashFlow" />
+    <EntitySet Name="CashFlowsTTMs" EntityType="FincurateModel.CashFlowsTTM" />
+    <EntitySet Name="SharesHistories" EntityType="FincurateModel.SharesHistory" />
+    <EntitySet Name="GrowthRatios" EntityType="FincurateModel.GrowthRatio" />
   </EntityContainer>
   <EntityType Name="EfficiencyRatio">
     <Key>
@@ -452,6 +456,7 @@
     <Property Name="NonAffiliatedValue" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="AccessionNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FormType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="C__MigrationHistory">
     <Key>
@@ -462,81 +467,6 @@
     <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
     <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="CashFlow">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ReportDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="PeriodEndingDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="StatementType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="CurrencyId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="FiscalYearEnd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Amortization" Type="Double" Nullable="false" />
-    <Property Name="CostOfRevenue" Type="Double" Nullable="false" />
-    <Property Name="DepreciationAndAmortization" Type="Double" Nullable="false" />
-    <Property Name="DepreciationAmortizationDepletion" Type="Double" Nullable="false" />
-    <Property Name="NetIncomeDiscontinuousOperations" Type="Double" Nullable="false" />
-    <Property Name="GainOnSaleOfSecurity" Type="Double" Nullable="false" />
-    <Property Name="GeneralAndAdministrativeExpense" Type="Double" Nullable="false" />
-    <Property Name="GrossProfit" Type="Double" Nullable="false" />
-    <Property Name="InterestExpense" Type="Double" Nullable="false" />
-    <Property Name="InterestExpenseNonOperating" Type="Double" Nullable="false" />
-    <Property Name="InterestIncomeNonOperating" Type="Double" Nullable="false" />
-    <Property Name="NetNonOperatingInterestIncomeExpense" Type="Double" Nullable="false" />
-    <Property Name="NetIncome" Type="Double" Nullable="false" />
-    <Property Name="NetIncomeCommonStockholders" Type="Double" Nullable="false" />
-    <Property Name="NetIncomeContinuousOperations" Type="Double" Nullable="false" />
-    <Property Name="NetInterestIncome" Type="Double" Nullable="false" />
-    <Property Name="TotalRevenue" Type="Double" Nullable="false" />
-    <Property Name="OperatingExpense" Type="Double" Nullable="false" />
-    <Property Name="OperatingIncome" Type="Double" Nullable="false" />
-    <Property Name="OperatingRevenue" Type="Double" Nullable="false" />
-    <Property Name="OtherIncomeExpense" Type="Double" Nullable="false" />
-    <Property Name="PretaxIncome" Type="Double" Nullable="false" />
-    <Property Name="ProvisionForDoubtfulAccounts" Type="Double" Nullable="false" />
-    <Property Name="TaxProvision" Type="Double" Nullable="false" />
-    <Property Name="ResearchAndDevelopment" Type="Double" Nullable="false" />
-    <Property Name="SalariesAndWages" Type="Double" Nullable="false" />
-    <Property Name="SellingAndMarketingExpense" Type="Double" Nullable="false" />
-    <Property Name="SellingGeneralAndAdministration" Type="Double" Nullable="false" />
-    <Property Name="TotalExpenses" Type="Double" Nullable="false" />
-    <Property Name="AmortizationOfIntangibles" Type="Double" Nullable="false" />
-    <Property Name="InterestIncome" Type="Double" Nullable="false" />
-    <Property Name="NetIncomeFromContinuingAndDiscontinuedOperation" Type="Double" Nullable="false" />
-    <Property Name="OtherOperatingExpenses" Type="Double" Nullable="false" />
-    <Property Name="ReconciledCostOfRevenue" Type="Double" Nullable="false" />
-    <Property Name="ReconciledDepreciation" Type="Double" Nullable="false" />
-    <Property Name="EarningBeforeInterestAndTax" Type="Double" Nullable="false" />
-    <Property Name="NormalizedIncome" Type="Double" Nullable="false" />
-    <Property Name="EBITDA" Type="Double" Nullable="false" />
-    <Property Name="BasicContinuousOperations" Type="Double" Nullable="false" />
-    <Property Name="BasicDiscontinuousOperations" Type="Double" Nullable="false" />
-    <Property Name="BasicEPS" Type="Double" Nullable="false" />
-    <Property Name="DilutedContinuousOperations" Type="Double" Nullable="false" />
-    <Property Name="DilutedDiscontinuousOperations" Type="Double" Nullable="false" />
-    <Property Name="DilutedEPS" Type="Double" Nullable="false" />
-    <Property Name="BasicAverageShares" Type="Double" Nullable="false" />
-    <Property Name="DilutedAverageShares" Type="Double" Nullable="false" />
-    <Property Name="DividendPerShare" Type="Double" Nullable="false" />
-    <Property Name="ContinuingAndDiscontinuedBasicEPS" Type="Double" Nullable="false" />
-    <Property Name="ContinuingAndDiscontinuedDilutedEPS" Type="Double" Nullable="false" />
-    <Property Name="NetIncomeFromContinuingOperationNetMinorityInterest" Type="Double" Nullable="false" />
-    <Property Name="NetIncomeIncludingNoncontrollingInterests" Type="Double" Nullable="false" />
-    <Property Name="OtherNonOperatingIncomeExpenses" Type="Double" Nullable="false" />
-    <Property Name="TotalUnusualItems" Type="Double" Nullable="false" />
-    <Property Name="TotalUnusualItemsExcludingGoodwill" Type="Double" Nullable="false" />
-    <Property Name="TaxRateForCalcs" Type="Double" Nullable="false" />
-    <Property Name="CalculatedTaxEffectOfUnusualItems" Type="Double" Nullable="false" />
-    <Property Name="NormalizedBasicEPS" Type="Double" Nullable="false" />
-    <Property Name="NormalizedDilutedEPS" Type="Double" Nullable="false" />
-    <Property Name="FiscalYearChange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="OtherGandA" Type="Double" Nullable="false" />
-    <Property Name="NormalizedPretaxIncome" Type="Double" Nullable="false" />
-    <Property Name="DividendCoverageRatio" Type="Double" Nullable="false" />
-    <Property Name="FileDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="AccessionNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="FinancialHealthRatio">
     <Key>
@@ -638,76 +568,7 @@
     <Property Name="OtherGandA" Type="Double" Nullable="false" />
     <Property Name="NormalizedPretaxIncome" Type="Double" Nullable="false" />
     <Property Name="DividendCoverageRatio" Type="Double" Nullable="false" />
-  </EntityType>
-  <EntityType Name="CashFlowTTM">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ReportDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="PeriodEndingDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="StatementType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="CurrencyId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="FiscalYearEnd" Type="Int32" Nullable="false" />
-    <Property Name="Amortization" Type="Double" Nullable="false" />
-    <Property Name="CapitalExpenditure" Type="Double" Nullable="false" />
-    <Property Name="CashDividendsPaid" Type="Double" Nullable="false" />
-    <Property Name="CashFlowFromContinuingFinancingActivities" Type="Double" Nullable="false" />
-    <Property Name="CashFlowFromContinuingInvestingActivities" Type="Double" Nullable="false" />
-    <Property Name="CashFlowFromContinuingOperatingActivities" Type="Double" Nullable="false" />
-    <Property Name="FinancingCashFlow" Type="Double" Nullable="false" />
-    <Property Name="InvestingCashFlow" Type="Double" Nullable="false" />
-    <Property Name="OperatingCashFlow" Type="Double" Nullable="false" />
-    <Property Name="BeginningCashPosition" Type="Double" Nullable="false" />
-    <Property Name="EndCashPosition" Type="Double" Nullable="false" />
-    <Property Name="ChangesInCash" Type="Double" Nullable="false" />
-    <Property Name="ChangeInOtherWorkingCapital" Type="Double" Nullable="false" />
-    <Property Name="ChangeInWorkingCapital" Type="Double" Nullable="false" />
-    <Property Name="CommonStockDividendPaid" Type="Double" Nullable="false" />
-    <Property Name="Depreciation" Type="Double" Nullable="false" />
-    <Property Name="DepreciationAndAmortization" Type="Double" Nullable="false" />
-    <Property Name="DepreciationAmortizationDepletion" Type="Double" Nullable="false" />
-    <Property Name="EffectOfExchangeRateChanges" Type="Double" Nullable="false" />
-    <Property Name="NetCommonStockIssuance" Type="Double" Nullable="false" />
-    <Property Name="NetIssuancePaymentsOfDebt" Type="Double" Nullable="false" />
-    <Property Name="NetLongTermDebtIssuance" Type="Double" Nullable="false" />
-    <Property Name="NetShortTermDebtIssuance" Type="Double" Nullable="false" />
-    <Property Name="NetIncomeFromContinuingOperations" Type="Double" Nullable="false" />
-    <Property Name="OperatingGainsLosses" Type="Double" Nullable="false" />
-    <Property Name="NetOtherFinancingCharges" Type="Double" Nullable="false" />
-    <Property Name="NetOtherInvestingChanges" Type="Double" Nullable="false" />
-    <Property Name="CommonStockPayments" Type="Double" Nullable="false" />
-    <Property Name="LongTermDebtPayments" Type="Double" Nullable="false" />
-    <Property Name="LongTermDebtIssuance" Type="Double" Nullable="false" />
-    <Property Name="PurchaseOfIntangibles" Type="Double" Nullable="false" />
-    <Property Name="PurchaseOfInvestment" Type="Double" Nullable="false" />
-    <Property Name="PurchaseOfPPE" Type="Double" Nullable="false" />
-    <Property Name="PurchaseOfBusiness" Type="Double" Nullable="false" />
-    <Property Name="NetBusinessPurchaseAndSale" Type="Double" Nullable="false" />
-    <Property Name="NetIntangiblesPurchaseAndSale" Type="Double" Nullable="false" />
-    <Property Name="NetInvestmentPurchaseAndSale" Type="Double" Nullable="false" />
-    <Property Name="NetPPEPurchaseAndSale" Type="Double" Nullable="false" />
-    <Property Name="SaleOfInvestment" Type="Double" Nullable="false" />
-    <Property Name="SaleOfPPE" Type="Double" Nullable="false" />
-    <Property Name="StockBasedCompensation" Type="Double" Nullable="false" />
-    <Property Name="AmortizationOfIntangibles" Type="Double" Nullable="false" />
-    <Property Name="IssuanceOfDebt" Type="Double" Nullable="false" />
-    <Property Name="RepaymentOfDebt" Type="Double" Nullable="false" />
-    <Property Name="RepurchaseOfCapitalStock" Type="Double" Nullable="false" />
-    <Property Name="FreeCashFlow" Type="Double" Nullable="false" />
-    <Property Name="FiscalYearChange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="FileDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ChangeInAccountPayable" Type="Double" />
-    <Property Name="ChangeInInventory" Type="Double" />
-    <Property Name="ChangeInPayable" Type="Double" />
-    <Property Name="ChangeInPayablesAndAccruedExpense" Type="Double" />
-    <Property Name="ChangeInReceivables" Type="Double" />
-    <Property Name="DeferredIncomeTax" Type="Double" />
-    <Property Name="DeferredTax" Type="Double" />
-    <Property Name="GainLossOnSaleOfBusiness" Type="Double" />
-    <Property Name="IncomeTaxPaidSupplementalData" Type="Double" />
-    <Property Name="InterestPaidSupplementalData" Type="Double" />
-    <Property Name="AccessionNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="SharesSnapshot">
     <Key>
@@ -874,5 +735,1057 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RegionId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="RegionName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StockExchangeSecurity1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExchangeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CUSIP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CIK" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ISIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SEDOL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InvestmentTypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StockStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DelistingDate" Type="DateTime" Precision="0" />
+    <Property Name="DelistingReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExchangeSubMarketGlobalId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ParValue" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="BalanceSheet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PeriodEndingDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FileDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StatementType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DataType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FiscalYearEnd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccountsPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccountsReceivable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GrossAccountsReceivable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NonCurrentAccountsReceivable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NonCurrentAccruedExpenses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccumulatedDepreciation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GainsLossesNotAffectingRetainedEarnings" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AllowanceForDoubtfulAccountsReceivable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BuildingsAndImprovements" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CapitalStock" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashAndCashEquivalents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashCashEquivalentsAndShortTermInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CommercialPaper" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CommonStock" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CommonStockEquity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentDebt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentDebtAndCapitalLeaseObligation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NonCurrentDeferredLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentDeferredLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentDeferredRevenue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NonCurrentDeferredRevenue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NonCurrentDeferredTaxesAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NonCurrentDeferredTaxesLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DefinedPensionBenefit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DerivativeProductLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeBenefits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FinancialAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FinishedGoods" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Goodwill" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GoodwillAndOtherIntangibleAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GrossPPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Inventory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InvestmentsAndAdvances" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LandAndImprovements" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LoansReceivable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LongTermDebt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LongTermDebtAndCapitalLeaseObligation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LongTermEquityInvestment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MachineryFurnitureEquipment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MinorityInterest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetPPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NonCurrentNoteReceivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherCurrentAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherCurrentBorrowings" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherCurrentLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherIntangibleAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherNonCurrentAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherReceivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShortTermInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Payables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PayablesAndAccruedExpenses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NonCurrentPensionAndOtherPostretirementBenefitPlans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PrepaidAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NonCurrentPrepaidAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Properties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LongTermProvisions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Receivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RecievablesAdjustmentsAllowances" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RetainedEarnings" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StockholdersEquity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalTaxPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalCapitalization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalNonCurrentAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TreasuryStock" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WorkInProcess" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherNonCurrentLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InvestedCapital" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TangibleBookValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalEquity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WorkingCapital" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalDebt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NonCurrentDeferredAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OrdinarySharesNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TreasurySharesNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalLiabilitiesNetMinorityInterest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalNonCurrentLiabilitiesNetMinorityInterest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalEquityGrossMinorityInterest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccessionNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FormType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetTangibleAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InvestmentsinAssociatesatCost" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherEquityInterest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TradeandOtherPayablesNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PensionandOtherPostRetirementBenefitPlansCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FiscalYearChange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Interim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentAccruedExpenses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccruedInterestReceivable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccruedInvestmentIncome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdditionalPaidInCapital" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdvanceFromFederalHomeLoanBanks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AllowanceForLoansAndLeaseLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AllowanceForNotesReceivable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AssetsHeldForSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AssetsOfDiscontinuedOperations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AvailableForSaleSecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BankAcceptanceExecutedAndOutstanding" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BankIndebtedness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BankLoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BankOwnedLifeInsurance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityBorrowed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashEquivalents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashAndDueFromBanks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashCashEquivalentsAndFederalFundsSold" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CasualtyClaims" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CededUnearnedPremiums" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CommercialLoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CommonStocksAvailableForSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConstructionInProgress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConsumerLoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MinimumPensionLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentCapitalLeaseObligation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerAcceptances" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeferredAcquisitionCosts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeferredAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeferredCosts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeferredFinancingCosts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeferredPolicyAcquisitionCosts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeferredTaxAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentDeferredTaxesAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentDeferredTaxesLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DerivativeAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DividendsPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ESOPDebtGuarantee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EquityInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FacilitiesAndOther" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FederalFundsPurchased" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FederalFundsPurchasedAndSecuritiesSoldUnderAgreementToRepurchase" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FederalFundsSold" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FederalFundsSoldAndSecuritiesPurchaseUnderAgreementsToResell" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FederalHomeLoanBankStock" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FinancialInstrumentsSoldUnderAgreementsToRepurchase" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FixedMaturitiesAvailableForSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FixedMaturitiesHeldToMaturity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FixedMaturitiesTrading" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FixedMaturityInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FlightFleetVehicleAndRelatedEquipments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForeclosedAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForeignComponent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForeignCurrencyTranslationAdjustments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FuelAndNaturalGas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FuturePolicyBenefits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GeneralPartnershipCapital" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GrossLoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GuaranteedInvestmentContract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HeldToMaturitySecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IncomeTaxPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestBearingDepositsLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestBearingDepositsAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InventoriesAdjustmentsAllowances" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InvestmentTaxCredits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InvestmentsInAffiliatesSubsidiariesAssociatesAndJointVentures" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InvestmentsInOtherVenturesUnderEquityMethod" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InvestmentsInVariableInterestEntity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Leases" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LiabilitiesOfDiscontinuedOperations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LimitedPartnershipCapital" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LimitedPartnership" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LineOfCredit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LoansHeldForSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LongTermCapitalLeaseObligation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaterialsAndSupplies" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MineralProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MoneyMarketInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MortgageLoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MortgageAndConsumerloans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NaturalResourceAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetLoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetOtherUnrealizedGainLoss" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetUnrealizedGainLossForeignCurrency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetUnrealizedGainLossInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NonInterestBearingDeposits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentNotesPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NotesReceivable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GrossNotesReceivable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherCapitalStock" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherDeferredCosts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherDeposits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherEquityAdjustments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherInterestEarningAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherInventories" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherInvestedAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherRealEstateOwned" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Patents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PolicyLoans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalPolicyHoldersLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PolicyholderFunds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PreferredSecuritiesOutsideStockEquity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TrustPreferredSecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PreferredStock" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PreferredStockEquity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PreferredStockOfSubsidiary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PreferredStocksAvailableForSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PremiumsReceivable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PrepaidReinsurancePremiums" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentProvisions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchasedComponents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RawMaterials" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RealEstateHeldForSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RealEstateAndRealEstateJointVenturesHeldForInvestment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RedeemablePreferredStock" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RegulatoryAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RegulatoryLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReinsuranceBalancesPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReinsuranceReceivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReinsuranceRecoverable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReinsuranceRecoverableForPaidLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReinsuranceRecoverableForUnpaidLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RestrictedCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RestrictedCashAndCashEquivalents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RestrictedCashAndInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RestrictedCommonStock" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RestrictedInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecuritiesLendingCollateral" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecuritiesLendingPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityAgreeToBeResell" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecuritySoldNotYetRepurchased" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SeparateAccountAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SeparateAccountLiability" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShortTermInvestmentsAvailableForSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShortTermInvestmentsHeldToMaturity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShortTermInvestmentsTrading" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StudentLoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TaxesReceivable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TimeDepositsPlaced" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalDeferredCreditsAndOtherNonCurrentLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalDeposits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalNonCurrentLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalPartnershipCapital" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TradingAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TradingLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TradingSecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UnbilledReceivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UnearnedIncome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UnearnedPremiums" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UnpaidLossAndLossReserve" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UnrealizedGainLoss" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CapitalLeaseObligations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashValueOfLifeInsurance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CommonUtilityPlant" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentDeferredAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ElectricUtilityPlant" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NaturalGasFuelAndOther" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetUtilityPlant" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="WaterProduction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecuritiesAndInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PreferredSharesNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TradingAndOtherReceivable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecuritiesLoaned" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ParticipatingPolicyholderEquity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DuefromRelatedPartiesCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DuefromRelatedPartiesNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DuetoRelatedParties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DuetoRelatedPartiesCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DuetoRelatedPartiesNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InvestmentProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InvestmentsinSubsidiariesatCost" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InvestmentsinJointVenturesatCost" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InvestmentinFinancialAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FinanceLeaseReceivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConvertibleLoansCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BankLoansCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherLoansCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccruedandDeferredIncome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BankLoansNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherLoansNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherReserves" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LoansandAdvancestoBank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LoansandAdvancestoCustomer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TreasuryBillsandOtherEligibleBills" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EquitySharesInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DepositsbyBank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerAccounts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ItemsinTheCourseofTransmissiontoOtherBanks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TradingandFinancialLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DebtSecuritiesinIssue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SubordinatedLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProvisionsTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OperatingLeaseAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimsOutstanding" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LongTermContracts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RealEstate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentofBills" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LiabilitiesHeldforSaleCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LiabilitiesHeldforSaleNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UnclassifiedCurrentAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DebtSecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalFinancialLeaseObligations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccruedandDeferredIncomeCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccruedandDeferredIncomeNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FinanceLeaseReceivablesCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FinanceLeaseReceivablesNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FinancialLiabilitiesCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FinancialLiabilitiesNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FinancialAssetsDesignatedasFairValueThroughProfitorLossTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TaxesAssetsCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestBearingBorrowingsNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NonInterestBearingBorrowingsNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestBearingBorrowingsCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NonInterestBearingBorrowingsCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashandBalanceswithCentralBanks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PlacementwithBanksandOtherFinancialInstitutions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherLoanAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HedgingAssetsTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AssetsPledgedasCollateralSubjecttoSaleorRepledgingTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TaxAssetsTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdvancesfromCentralBanks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CertificatesofDepositsandOtherDebtSecuritiesIssued" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DepositCertificates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DebenturesandDebtCertificates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestBearingBorrowingsTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NonInterestBearingBorrowingsTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherBorrowedFunds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FinancialLiabilitiesDesignatedasFairValueThroughProfitorLossTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FinancialLiabilitiesMeasuredatAmortizedCostTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LoanCapital" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HedgingLiabilitiesTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LiabilitiesRecognizedforFairValueChangesinPortfolioHedgeofInterestRateRisk" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccruedLiabilitiesTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeferredIncomeTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeferredTaxLiabilitiesTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReinsuranceAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReinsuranceShareofInsuranceContract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReinsuranceShareofAccruedPolicyholderClaims" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DepositsMadeunderAssumedReinsuranceContract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsuranceContractAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsuranceReceivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsuranceContractLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsurancePayables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DepositsReceivedunderCededInsuranceContract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InvestmentContractLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConstructionGrants" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeferredCostCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PensionAndOtherPostretirementBenefitPlansTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LiabilitiesHeldforSaleTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HedgingAssetsNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HedgingAssetsCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConvertibleLoansTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BankLoansTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherLoansTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HedgingLiabilitiesNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HedgingLiabilitiesCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsuranceFundsNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsuranceFundsCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DebtTotal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AssetsHeldForSaleCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AssetsHeldForSaleNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BiologicalAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashRestrictedOrPledged" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ConvertibleLoansNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FinancialOrDerivativeInvestmentCurrentLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LoanAndLoanReceivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TradeAndOtherReceivablesNonCurrent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DebtDueInYear1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DebtDueInYear2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DebtDueInYear5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DebtDueBeyond" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalDebtInMaturitySchedule" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FixedAssetsRevaluationReserve" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrentOtherFinancialLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NonCurrentOtherFinancialLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherFinancialLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CashFlow">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PeriodEndingDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StatementType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FiscalYearEnd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amortization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DepreciationAndAmortization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DepreciationAmortizationDepletion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AmortizationOfIntangibles" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FiscalYearChange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FileDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccessionNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DataType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CapitalExpenditure" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashDividendsPaid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashFlowFromContinuingFinancingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashFlowFromContinuingInvestingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashFlowFromContinuingOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FinancingCashFlow" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InvestingCashFlow" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OperatingCashFlow" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BeginningCashPosition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EndCashPosition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInAccountPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangesInCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInInventory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInOtherWorkingCapital" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInPayablesAndAccruedExpense" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInReceivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInWorkingCapital" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CommonStockDividendPaid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeferredIncomeTax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeferredTax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Depreciation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EffectOfExchangeRateChanges" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GainLossOnSaleOfBusiness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetCommonStockIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetIssuancePaymentsOfDebt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetLongTermDebtIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetShortTermDebtIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetIncomeFromContinuingOperations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OperatingGainsLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetOtherFinancingCharges" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetOtherInvestingChanges" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CommonStockPayments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LongTermDebtPayments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LongTermDebtIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfIntangibles" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfInvestment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfPPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfBusiness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetBusinessPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetIntangiblesPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetInvestmentPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetPPEPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleOfInvestment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleOfPPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StockBasedCompensation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IncomeTaxPaidSupplementalData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestPaidSupplementalData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IssuanceOfDebt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RepaymentOfDebt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RepurchaseOfCapitalStock" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FreeCashFlow" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FormType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Interim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AmortizationOfFinancingCostsAndDiscounts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AmortizationOfSecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AssetImpairmentCharge" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CallsMaturitiesOfMaturitySecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetCapitalExpenditureDisposals" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CapitalExpenditureReported" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashFlowFromDiscontinuedOperation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashFromDiscontinuedFinancingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashFromDiscontinuedInvestingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInDividendPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInTaxPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInAccruedExpense" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInAccruedInvestmentIncome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInDeferredAcquisitionCosts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInDeferredCharges" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInFederalFundsAndSecuritiesSoldForRepurchase" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInFundsWithheld" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInIncomeTaxPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInInterestPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInLoans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInLossAndLossAdjustmentExpenseReserves" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInOtherCurrentAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInOtherCurrentLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInPremiumsReceivable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInPrepaidAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInPrepaidReinsurancePremiums" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInReinsuranceReceivableOnPaidLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInReinsuranceRecoverableOnPaidAndUnpaidLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInReinsuranceRecoverableOnUnpaidLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInRestrictedCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInTradingAccountSecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInUnearnedPremiums" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInUnearnedPremiumsCeded" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CumulativeEffectOfAccountingChange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Depletion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EarningsLossesFromEquityInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExcessTaxBenefitFromStockBasedCompensation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExtraordinaryItems" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GainLossOnInvestmentSecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GainLossOnSaleOfPPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IncreaseDecreaseInDeposit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestCreditedOnPolicyholderDeposits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetPreferredStockIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashFromDiscontinuedOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetForeignCurrencyExchangeGainLoss" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetIncome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetIncomeFromDiscontinuedOperations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetRealizedInvestmentGains" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherNonCashItems" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentForLoans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PreferredStockPayments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShortTermDebtPayments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PensionAndEmployeeBenefitExpense" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PreferredStockDividendPaid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsFromIssuanceOfWarrants" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsFromLoans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsFromStockOptionExercised" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CommonStockIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PreferredStockIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShortTermDebtIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsPaymentFederalFundsSoldAndSecuritiesPurchasedUnderAgreementToResell" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetProceedsPaymentForLoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsPaymentInInterestBearingDepositsInBank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProvisionForLoanLeaseAndOtherLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfEquitySecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfFixedMaturitySecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfLongTermInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfShortTermInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfTechnology" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetTechnologyPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RealizedGainLossOnSaleOfLoansAndLease" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleOfBusiness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleOfIntangibles" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleOfLongTermInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleOfShortTermInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleOfTechnology" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesOfEquitySecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesOfFixedMaturitySecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UnrealizedGainLossOnInvestmentSecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UnrealizedGainsLossesOnDerivatives" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AllowanceForFundsConstruction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangesInAccountReceivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DomesticSales" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForeignSales" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IssuanceOfCapitalStock" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DirectCashFlowsFromOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DecreaseinInterestBearingDepositsinBank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IncreaseinInterestBearingDepositsinBank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdjustedGeographySegmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestReceivedCFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestPaidCFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseofSubsidiaries" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseofJointVentureAssociate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleofSubsidiaries" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleofJointVentureAssociate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IncreaseDecreaseinLeaseFinancing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IncreaseinLeaseFinancing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RepaymentinLeaseFinancing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShareofAssociates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProfitonDisposals" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReorganizationOtherCosts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherFinancing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetOutwardLoans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IssueExpenses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinCertificatesofDepositsandDebtSecuritiesIssued" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentstoAcquireHeldToMaturityInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentstoAcquireAvailableForSaleFinancialAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentstoAcquireFinancialAssetsDesignatedasFairValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsfromDisposalofHeldToMaturityInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsfromDisposalofAvailableForSaleFinancialAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsfromDisposalofFinancialAssetsDesignatedasFairValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinFairValueofInvestmentProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinDepositsbyBanksandCustomers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashFlowsfromusedinOperatingActivitiesDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClassesofCashReceiptsfromOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherCashReceiptsfromOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClassesofCashPayments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentstoSuppliersforGoodsandServices" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentsfromContractsHeldforDealingorTradingPurpose" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentsonBehalfofEmployees" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentsforPremiumsandClaimsAnnuitiesandOtherPolicyBenefits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherCashPaymentsfromOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DividendsPaidDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DividendsReceivedDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestPaidDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestReceivedDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TaxesRefundPaidDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalAdjustmentsforNonCashItems" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImpairmentLossReversalRecognizedinProfitorLoss" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdjustmentsforUndistributedProfitsofAssociates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherAdjustmentsforWhichCashEffectsAreInvestingorFinancingCashFlow" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DividendPaidCFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DividendReceivedCFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TaxesRefundPaid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherOperatingInflowsOutflowsofCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsfromGovernmentGrantsCFI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashAdvancesandLoansMadetoOtherParties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashReceiptsfromRepaymentofAdvancesandLoansMadetoOtherParties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashReceiptsfromPaymentsforFinancialDerivativeContracts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DividendsReceivedCFI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestReceivedCFI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IncomeTaxesRefundPaidCFI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IssuancePaymentofOtherEquityInstrumentsNet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentsofOtherEquityInstruments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsfromIssuingOtherEquityInstruments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsfromGovernmentGrantsCFF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestPaidCFF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IncomeTaxesRefundPaidCFF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinAccruedIncome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinDeferredIncome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinFinancialAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinAdvancesfromCentralBanks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinFinancialLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinInsuranceContractAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinReinsuranceReceivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinDeferredAcquisitionCostsNet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinInsuranceFunds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinReinsurancePayables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinInvestmentContractLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinInsuranceContractLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProvisionandWriteOffofAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiptsfromCustomers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiptsfromGovernmentGrants" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MinorityInterest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashDividendsForMinorities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FundFromOperation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetInvestmentPropertiesPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfInvestmentProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleOfInvestmentProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherCashAdjustIncludedIntoChangeinCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherCashAdjustExcludeFromChangeinCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CashFlowsTTM">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PeriodEndingDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StatementType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FiscalYearEnd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amortization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DepreciationAndAmortization" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DepreciationAmortizationDepletion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AmortizationOfIntangibles" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FiscalYearChange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FileDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccessionNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DataType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CapitalExpenditure" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashDividendsPaid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashFlowFromContinuingFinancingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashFlowFromContinuingInvestingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashFlowFromContinuingOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FinancingCashFlow" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InvestingCashFlow" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OperatingCashFlow" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BeginningCashPosition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EndCashPosition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInAccountPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangesInCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInInventory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInOtherWorkingCapital" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInPayablesAndAccruedExpense" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInReceivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInWorkingCapital" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CommonStockDividendPaid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeferredIncomeTax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeferredTax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Depreciation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EffectOfExchangeRateChanges" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GainLossOnSaleOfBusiness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetCommonStockIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetIssuancePaymentsOfDebt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetLongTermDebtIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetShortTermDebtIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetIncomeFromContinuingOperations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OperatingGainsLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetOtherFinancingCharges" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetOtherInvestingChanges" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CommonStockPayments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LongTermDebtPayments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LongTermDebtIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfIntangibles" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfInvestment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfPPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfBusiness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetBusinessPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetIntangiblesPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetInvestmentPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetPPEPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleOfInvestment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleOfPPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StockBasedCompensation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IncomeTaxPaidSupplementalData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestPaidSupplementalData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IssuanceOfDebt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RepaymentOfDebt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RepurchaseOfCapitalStock" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FreeCashFlow" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FormType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Interim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AmortizationOfFinancingCostsAndDiscounts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AmortizationOfSecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AssetImpairmentCharge" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CallsMaturitiesOfMaturitySecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetCapitalExpenditureDisposals" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CapitalExpenditureReported" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashFlowFromDiscontinuedOperation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashFromDiscontinuedFinancingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashFromDiscontinuedInvestingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInDividendPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInTaxPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInAccruedExpense" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInAccruedInvestmentIncome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInDeferredAcquisitionCosts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInDeferredCharges" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInFederalFundsAndSecuritiesSoldForRepurchase" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInFundsWithheld" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInIncomeTaxPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInInterestPayable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInLoans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInLossAndLossAdjustmentExpenseReserves" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInOtherCurrentAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInOtherCurrentLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInPremiumsReceivable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInPrepaidAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInPrepaidReinsurancePremiums" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInReinsuranceReceivableOnPaidLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInReinsuranceRecoverableOnPaidAndUnpaidLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInReinsuranceRecoverableOnUnpaidLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInRestrictedCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInTradingAccountSecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInUnearnedPremiums" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeInUnearnedPremiumsCeded" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CumulativeEffectOfAccountingChange" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Depletion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EarningsLossesFromEquityInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExcessTaxBenefitFromStockBasedCompensation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExtraordinaryItems" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GainLossOnInvestmentSecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GainLossOnSaleOfPPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IncreaseDecreaseInDeposit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestCreditedOnPolicyholderDeposits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetPreferredStockIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashFromDiscontinuedOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetForeignCurrencyExchangeGainLoss" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetIncome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetIncomeFromDiscontinuedOperations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetRealizedInvestmentGains" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherNonCashItems" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentForLoans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PreferredStockPayments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShortTermDebtPayments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PensionAndEmployeeBenefitExpense" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PreferredStockDividendPaid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsFromIssuanceOfWarrants" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsFromLoans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsFromStockOptionExercised" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CommonStockIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PreferredStockIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShortTermDebtIssuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsPaymentFederalFundsSoldAndSecuritiesPurchasedUnderAgreementToResell" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetProceedsPaymentForLoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsPaymentInInterestBearingDepositsInBank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProvisionForLoanLeaseAndOtherLosses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfEquitySecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfFixedMaturitySecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfLongTermInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfShortTermInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfTechnology" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetTechnologyPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RealizedGainLossOnSaleOfLoansAndLease" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleOfBusiness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleOfIntangibles" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleOfLongTermInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleOfShortTermInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleOfTechnology" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesOfEquitySecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalesOfFixedMaturitySecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UnrealizedGainLossOnInvestmentSecurities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UnrealizedGainsLossesOnDerivatives" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AllowanceForFundsConstruction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangesInAccountReceivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DomesticSales" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ForeignSales" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IssuanceOfCapitalStock" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DirectCashFlowsFromOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DecreaseinInterestBearingDepositsinBank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IncreaseinInterestBearingDepositsinBank" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdjustedGeographySegmentData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestReceivedCFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestPaidCFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseofSubsidiaries" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseofJointVentureAssociate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleofSubsidiaries" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleofJointVentureAssociate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IncreaseDecreaseinLeaseFinancing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IncreaseinLeaseFinancing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RepaymentinLeaseFinancing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShareofAssociates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProfitonDisposals" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReorganizationOtherCosts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherFinancing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetOutwardLoans" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IssueExpenses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinCertificatesofDepositsandDebtSecuritiesIssued" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentstoAcquireHeldToMaturityInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentstoAcquireAvailableForSaleFinancialAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentstoAcquireFinancialAssetsDesignatedasFairValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsfromDisposalofHeldToMaturityInvestments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsfromDisposalofAvailableForSaleFinancialAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsfromDisposalofFinancialAssetsDesignatedasFairValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinFairValueofInvestmentProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinDepositsbyBanksandCustomers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashFlowsfromusedinOperatingActivitiesDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClassesofCashReceiptsfromOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherCashReceiptsfromOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClassesofCashPayments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentstoSuppliersforGoodsandServices" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentsfromContractsHeldforDealingorTradingPurpose" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentsonBehalfofEmployees" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentsforPremiumsandClaimsAnnuitiesandOtherPolicyBenefits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherCashPaymentsfromOperatingActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DividendsPaidDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DividendsReceivedDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestPaidDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestReceivedDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TaxesRefundPaidDirect" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalAdjustmentsforNonCashItems" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImpairmentLossReversalRecognizedinProfitorLoss" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdjustmentsforUndistributedProfitsofAssociates" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherAdjustmentsforWhichCashEffectsAreInvestingorFinancingCashFlow" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DividendPaidCFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DividendReceivedCFO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TaxesRefundPaid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherOperatingInflowsOutflowsofCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsfromGovernmentGrantsCFI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashAdvancesandLoansMadetoOtherParties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashReceiptsfromRepaymentofAdvancesandLoansMadetoOtherParties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashReceiptsfromPaymentsforFinancialDerivativeContracts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DividendsReceivedCFI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestReceivedCFI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IncomeTaxesRefundPaidCFI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IssuancePaymentofOtherEquityInstrumentsNet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentsofOtherEquityInstruments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsfromIssuingOtherEquityInstruments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProceedsfromGovernmentGrantsCFF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterestPaidCFF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IncomeTaxesRefundPaidCFF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinAccruedIncome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinDeferredIncome" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinFinancialAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinAdvancesfromCentralBanks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinFinancialLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinInsuranceContractAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinReinsuranceReceivables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinDeferredAcquisitionCostsNet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinInsuranceFunds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinReinsurancePayables" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinInvestmentContractLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ChangeinInsuranceContractLiabilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProvisionandWriteOffofAssets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiptsfromCustomers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiptsfromGovernmentGrants" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MinorityInterest" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CashDividendsForMinorities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FundFromOperation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NetInvestmentPropertiesPurchaseAndSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PurchaseOfInvestmentProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SaleOfInvestmentProperties" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherCashAdjustIncludedIntoChangeinCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherCashAdjustExcludeFromChangeinCash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SharesHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TSODate" Type="DateTime" Precision="0" />
+    <Property Name="CompanyTSO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShareLevelTSOSource" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShareLevelTSO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="QuotedTSO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UnquotedTSO" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FloatDate" Type="DateTime" Precision="0" />
+    <Property Name="FloatShare" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsiderHolding" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FloatShareToTotalSharesOutstanding" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReasonOfShareChange" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BalanceSheetDate" Type="DateTime" Precision="0" />
+    <Property Name="ShareClassLevelTreasuryShareOutstanding" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SharesOutstandingWithBalanceSheetEndingDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShareClassLevelTreasuryShareOutstandingFromCover" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ShareClassLevelTreasuryShareOutstandingFromInterim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ShareClassLevelTreasuryShareOutstandingFromOther" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="GrowthRatio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Symbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReportDate" Type="DateTime" Precision="0" />
+    <Property Name="PeriodEndingDate" Type="DateTime" Precision="0" />
+    <Property Name="FileDate" Type="DateTime" Precision="0" />
+    <Property Name="StatementType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DataType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Interim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FiscalYearEnd" Type="Int32" />
+    <Property Name="DilutedEPS3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedEPS6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedEPS9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedEPSSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedEPS1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedEPS3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedEPS5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedEPS10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedContinuousEPS3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedContinuousEPS6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedContinuousEPS9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedContinuousEPSSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedContinuousEPS1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedContinuousEPS3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedContinuousEPS5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DilutedContinuousEPS10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Dividend3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Dividend6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Dividend9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="DividendSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Dividend1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Dividend3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Dividend5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Dividend10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EquityPerShare3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EquityPerShare6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EquityPerShare9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EquityPerShareSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EquityPerShare1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EquityPerShare3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EquityPerShare5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EquityPerShare10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Revenue3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Revenue6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Revenue9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="RevenueSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Revenue1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Revenue3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Revenue5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Revenue10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingIncome3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingIncome6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingIncome9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingIncomeSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingIncome1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingIncome3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingIncome5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingIncome10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncome3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncome6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncome9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncome1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncome3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncome5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncome10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeContOps3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeContOps6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeContOps9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeContOpsSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeContOps1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeContOps3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeContOps5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NetIncomeContOps10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CFO3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CFO6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CFO9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CFOSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CFO1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CFO3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CFO5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CFO10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FCF3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FCF6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FCF9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FCFSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FCF1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FCF3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FCF5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FCF10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingRevenue3MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingRevenue6MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingRevenue9MonthSamePeriodGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingRevenueSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingRevenue1YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingRevenue3YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingRevenue5YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OperatingRevenue10YearGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GrowthAnnCapitalSpending5Year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GrowthAnnGrossProfit5Year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AvgGrossMargin5Year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AvgPostTaxMargin5Year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AvgPreTaxMargin5Year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AvgNetProfitMargin5Year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AvgRetCommonEquity5Year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AvgRetAssets5Year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AvgRetInvestedCapital5Year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AccessionNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FormType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RegressionGrowthOperatingRevenue5Years" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedDilutedEPSGrowth1year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedDilutedEPSGrowth3year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedDilutedEPSGrowth5year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedDilutedEPSGrowth10year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedDilutedEPSSamePeriodGrowth3months" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedDilutedEPSSamePeriodGrowth6months" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedDilutedEPSSamePeriodGrowth9months" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedDilutedEPSSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedBasicEPSGrowth1year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedBasicEPSGrowth3year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedBasicEPSGrowth5year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedBasicEPSGrowth10year" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedBasicEPSSamePeriodGrowth3months" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedBasicEPSSamePeriodGrowth6months" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedBasicEPSSamePeriodGrowth9months" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NormalizedBasicEPSSequentialGrowth" Type="Decimal" Precision="18" Scale="0" />
   </EntityType>
 </Schema>
